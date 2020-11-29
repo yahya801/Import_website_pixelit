@@ -3329,7 +3329,7 @@ input[type="checkbox"] {
   position: static;
   margin-left: 5px;
   font-family: "Font Awesome 5 Pro";
-  content: '\f107';
+  /* content: '\f107'; */
   font-size: 14px;
   vertical-align: middle;
   -webkit-transition: all 0.3s ease-in-out;
