@@ -14897,7 +14897,7 @@ only screen and (max-width: 767px) {
 
 .panel {
   padding: 0 18px;
-  background-color: white;
+  /* background-color: white; */
   /* max-height: 0; */
   /* overflow: hidden; */
   /* align-items: center; */
@@ -14932,8 +14932,8 @@ only screen and (max-width: 767px) {
 }
 
 .shipping_select {
-  margin: 3%;
-  width: 80%;
+  margin-bottom: 2%;
+  width: 100%;
   border: 2px solid #EDEDED;
   padding: 1%;
   text-align: center;
@@ -14947,7 +14947,7 @@ only screen and (max-width: 767px) {
 
 .invoicebuttons button {
 
-  background-color: #EE3158;
+  /* background-color: #EE3158; */
   font-family: 'Open Sans', arial;
   font-size: 15px;
   color: white;
@@ -14964,13 +14964,16 @@ table {
   /* table-layout: fixed; */
   /* table-layout: fixed; */
   width: 100% !important;
+  border-collapse: collapse;
+  border-radius: 0.6em;
+  overflow: hidden;
   /* position: absolute; */
 }
 
 .firstrow {
   /* background-color: #EE3158 !important; */
   color: white;
-  opacity: 0.4;
+  /* opacity: 0.4; */
 }
 
 .brand {
@@ -14990,9 +14993,14 @@ tr {
 }
 
 tr:nth-of-type(odd) {
-  background-color: #EE3158;
+  background-color: #086AD8;
   color: white;
-  opacity: 0.6;
+  /* opacity: 0.6; */
+}
+tr:nth-of-type(even) {
+  background-color: white;
+  color: black;
+  /* opacity: 0.6; */
 }
 
 .product-remove {
@@ -15000,7 +15008,7 @@ tr:nth-of-type(odd) {
 }
 
 .table2 {
-  width: 40% !important;
+  width: 20% !important;
 }
 
 .table2 tr:nth-of-type(odd) {
