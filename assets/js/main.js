@@ -926,19 +926,19 @@
     =       instagram image slider        =     
     ======================================*/
 
-    $(window).on('load', function(){
-        $.instagramFeed({
-            'username': 'portfolio.devitems',
-            'container': "#instagramFeed",
-            'display_profile': false,
-            'display_biography': false,
-            'display_gallery': true,
-            'styling': false,
-            'items': 10,
-            "image_size": "640",
-            'margin': 0
-        });
-    });
+    // $(window).on('load', function(){
+    //     $.instagramFeed({
+    //         'username': 'portfolio.devitems',
+    //         'container': "#instagramFeed",
+    //         'display_profile': false,
+    //         'display_biography': false,
+    //         'display_gallery': true,
+    //         'styling': false,
+    //         'items': 10,
+    //         "image_size": "640",
+    //         'margin': 0
+    //     });
+    // });
     
     /* ==================================
     =          Option Demo              =
