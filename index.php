@@ -160,11 +160,9 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="infotechno-hero-text  wow move-up">
 
-                                    <h1 class="font-weight--reguler mb-15">Shop More<br> Spend Less </h1>
+                                    <h1 class="font-weight--reguler mb-15" style="font-size:67px">Orignal Brand <br>At Your <span class="text-color-primary">  Door</span>    </h1>
                                     <p>A fresh approach to shopping experience. </p>
-                                    <div class="hero-button  mt-30">
-                                        <a href="#" class="ht-btn ht-btn-md">Get details</a>
-                                    </div>
+                                  
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
