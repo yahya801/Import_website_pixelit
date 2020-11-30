@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mitech - Technology IT Solutions HTML Template</title>
+    <title>Import Master </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -86,7 +86,7 @@
                             <!-- brand logo -->
                             <div class="header__logo">
                                 <a href="index.php">
-                                    <img src="assets/images/logo/logo-dark.png" class="img-fluid" alt="">
+                                    <img src="assets/images/logo/logo-darknew.png" class="img-fluid" alt="">
                                 </a>
                             </div>
 
@@ -1010,7 +1010,7 @@
                             <li><a href="tel:123344556" class="hover-style-link text-black font-weight--bold">(+68)1221
                                     09876</a>
                             </li>
-                            <li><a href="https://hasthemes.com/" class="hover-style-link text-color-primary">www.mitech.xperts.com</a></li>
+                            <li><a href="https://hasthemes.com/" class="hover-style-link text-color-primary">www.importmaster.com</a></li>
                         </ul>
                     </div>
 
@@ -1033,9 +1033,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-left">
-                        <span class="copyright-text">&copy; 2019 Mitech. <a href="https://hasthemes.com/">All
-                                Rights
-                                Reserved.</a></span>
+                          <span class="copyright-text">&copy; 2020 ImportMaster. <a href="https://hasthemes.com/">All Rights Reserved.</a></span>
                     </div>
                     <div class="col-md-6 text-center text-md-right">
                         <ul class="list ht-social-networks solid-rounded-icon">
@@ -1085,7 +1083,7 @@
                             <!-- logo -->
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="assets/images/logo/logo-dark.png" class="img-fluid" alt="">
+                                    <img src="assets/images/logo/logo-darknew.png" class="img-fluid" alt="">
                                 </a>
                             </div>
                         </div>
