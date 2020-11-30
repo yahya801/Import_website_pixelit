@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="icon" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- CSS
         ============================================ -->
@@ -50,17 +51,17 @@
 </head>
 
 <body>
-<?php
-  // Start the session
-  $url = "https://free.currconv.com/api/v7/convert?q=GBP_PKR&compact=ultra&apiKey=05f038474855c3fcfc6c";
-  $data = file_get_contents($url);
-  $conversion = json_decode($data, true);
-  // Set session variables
-  // $_SESSION["color"]= "blue";
-  // $_SESSION["animal"]= "dog";
-  $_SESSION["conversion"] = $conversion['GBP_PKR'];
-  echo $conversion['GBP_PKR'];
-  ?>
+    <?php
+    // Start the session
+    $url = "https://free.currconv.com/api/v7/convert?q=GBP_PKR&compact=ultra&apiKey=05f038474855c3fcfc6c";
+    $data = file_get_contents($url);
+    $conversion = json_decode($data, true);
+    // Set session variables
+    // $_SESSION["color"]= "blue";
+    // $_SESSION["animal"]= "dog";
+    $_SESSION["conversion"] = $conversion['GBP_PKR'];
+    echo $conversion['GBP_PKR'];
+    ?>
 
     <div class="preloader-activate preloader-active open_tm_preloader">
         <div class="preloader-area-wrap">
@@ -146,8 +147,16 @@
                 </div>
             </div>
             <!-- Header Bottom Wrap End -->
-
+            <div id="alert" class="alert" style="display: none;width: auto;color:white;background-color: #086AD8; height: auto;">
+            <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
+            The form has an issue with the URL or Brandname
+          </div>
+          <div id="shippingform" class="alert" style="display: none;width: auto;color:white;background-color: #086AD8; height: auto;">
+            <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
+            The form has an issue with the Email or Name
+          </div>
         </div>
+       
         <!--====================  End of header area  ====================-->
 
         <div id="main-wrapper">
@@ -170,14 +179,10 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="infotechno-hero-inner-images">
                                     <div class="infotechno-inner-one">
-                                        <img class="img-fluid"
-                                            src="assets/images/hero/home-infotechno-main-slider-slide-01-image-01.png"
-                                            alt="">
+                                        <img class="img-fluid" src="assets/images/hero/home-infotechno-main-slider-slide-01-image-01.png" alt="">
                                     </div>
                                     <div class="infotechno-inner-two  wow move-up">
-                                        <img class="img-fluid"
-                                            src="assets/images/hero/home-infotechno-main-slider-slide-01-image-02.png"
-                                            alt="">
+                                        <img class="img-fluid" src="assets/images/hero/home-infotechno-main-slider-slide-01-image-02.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -402,11 +407,9 @@
                                 <div class="col-lg-5 ml-auto" style="margin-top: auto;margin-bottom: auto;">
 
                                     <div class="video-interview section-space--mt_40 video-popup">
-                                        <a href="https://www.youtube.com/watch?v=9No-FiEInLA" height="500" width="300"
-                                            class="video-link mt-30">
+                                        <a href="https://www.youtube.com/watch?v=9No-FiEInLA" height="500" width="300" class="video-link mt-30">
                                             <div class="single-popup-wrap">
-                                                <img class="img-fluid border-radus-5"
-                                                    src="assets/images/bg/faqs-video-poster.jpg" alt="">
+                                                <img class="img-fluid border-radus-5" src="assets/images/bg/faqs-video-poster.jpg" alt="">
                                                 <div class="ht-popup-video video-button">
                                                     <div class="video-mark">
                                                         <div class="wave-pulse wave-pulse-1"></div>
@@ -434,7 +437,7 @@
 
 
                 <!--===========  Projects wrapper Start =============-->
-                <div class="projects-wrapper projectinfotechno-bg section-space--ptb_60">
+                <div class="projects-wrapper projectinfotechno-bg section-space--ptb_60" id="scrollform">
                     <div class="container">
 
                         <div class="row">
@@ -458,8 +461,7 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <select id="brand" class="form-control"
-                                                        data-container-class="input-lg" data-search="true">
+                                                    <select id="brand" class="form-control" data-container-class="input-lg" data-search="true">
                                                         <option value="15">Select a Brand</option>
                                                         <option value="69"> <strong>-- ANY OTHER BRAND -- </strong>
                                                         </option>
@@ -506,8 +508,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <div class="prepend-icon">
-                                                        <select id="shipping" class="form-control"
-                                                            data-container-class="input-lg" data-search="true">
+                                                        <select id="shipping" class="form-control" data-container-class="input-lg" data-search="true">
                                                             <option value="16">Select Shipping</option>
                                                             <option value="51"> Rs800 each
                                                                 Shirt/Top/Undergarment/Jewellery/Accessory</option>
@@ -540,43 +541,35 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" id="url" class="form-control input-lg"
-                                                placeholder="Paste products link form brand's website" required>
+                                            <input type="text" id="url" class="form-control input-lg" placeholder="Paste products link form brand's website" required>
                                             <!-- <span class="error" id="urlerror">*</span> -->
 
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-3">
 
-                                                <input min="1" max="10" id="qty" type="number"
-                                                    class="form-control input-lg" placeholder="Qty" required>
+                                                <input min="1" max="10" id="qty" type="number" class="form-control input-lg" placeholder="Qty" required>
 
                                             </div>
                                             <div class="col-sm-3">
-                                                <input id="size" type="text" class="form-control input-lg"
-                                                    placeholder="Size">
+                                                <input id="size" type="text" class="form-control input-lg" placeholder="Size">
                                             </div>
 
                                             <div class="col-sm-3">
-                                                <input id="color" type="text" class="form-control input-lg "
-                                                    placeholder="Color">
+                                                <input id="color" type="text" class="form-control input-lg " placeholder="Color">
                                             </div>
                                             <div class="col-sm-3">
-                                                <input id="price" type="text" class="form-control input-lg"
-                                                    placeholder="£" required>
+                                                <input id="price" type="text" class="form-control input-lg" placeholder="£" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div style="margin-top: 2%">
-                                        <textarea placeholder="Any Special Requests" id="request" class="form-control"
-                                            id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        <textarea placeholder="Any Special Requests" id="request" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                     </div>
 
                                     <div style="margin-top: 2%">
 
-                                        <button type="submit" style="background-color: #086AD8 !important;"
-                                            id="submit-form" class="btn btn-lg btn-important btn-primary btn-block"
-                                            style="width: 40%">Generate Invoice</button>
+                                        <button type="submit" style="background-color: #086AD8 !important;" id="submit-form" class="btn btn-lg btn-important btn-primary btn-block" style="width: 40%">Generate Invoice</button>
                                     </div>
                             </div>
                             <div>
@@ -652,30 +645,26 @@
                             <!-- formmm register -->
                             <div class="m-b-100">
                                 <h2> Shipping Details</h2>
-                                <form id="shippingdetails"  method="POST" class="form-register">
+                                <form id="shippingdetails" method="POST" class="form-register">
 
 
                                     <div class="row">
                                         <!-- <div class="form-group"> -->
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
-                                            <input id="firstname" type="text" class="form-control input-lg"
-                                                placeholder="First Name" required>
+                                            <input id="firstname" type="text" class="form-control input-lg" placeholder="First Name" required>
                                         </div>
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
-                                            <input id="lastname" type="text" class="form-control input-lg"
-                                                placeholder="Last Name" required>
+                                            <input id="lastname" type="text" class="form-control input-lg" placeholder="Last Name" required>
                                         </div>
                                         <!-- </div  > -->
                                     </div>
                                     <div class="row">
                                         <!-- <div class="form-group"> -->
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
-                                            <input id="email" type="email" class="form-control input-lg"
-                                                placeholder="Email" required>
+                                            <input id="email" type="email" class="form-control input-lg" placeholder="Email" required>
                                         </div>
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
-                                            <input id="phoneno" type="tel" class="form-control input-lg"
-                                                placeholder="03xxxxxxxxx" required>
+                                            <input id="phoneno" type="tel" class="form-control input-lg" placeholder="03xxxxxxxxx" required>
                                         </div>
                                         <!-- </div> -->
                                     </div>
@@ -683,15 +672,13 @@
                                         <!-- <div class="form-group"> -->
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
 
-                                            <select id="country" class="form-control" data-container-class="input-lg"
-                                                data-search="true">
+                                            <select id="country" class="form-control" data-container-class="input-lg" data-search="true">
                                                 <option value="" disabled selected>Select Country</option>
                                                 <option value="PK">Pakistan</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
-                                            <select name="Location" id="city" class="form-control"
-                                                data-container-class="input-lg" data-search="true" ںrequired>
+                                            <select name="Location" id="city" class="form-control" data-container-class="input-lg" data-search="true" ںrequired>
                                                 <option value="" disabled selected>Select The City</option>
                                                 <option value="Islamabad">Islamabad</option>
                                                 <option value="" disabled>Punjab Cities</option>
@@ -943,16 +930,14 @@
                                     <div class="row">
                                         <!-- <div class="form-group"> -->
                                         <div class="col-sm-12" style="margin-bottom: 2%;margin-top:2%;">
-                                            <input id="address1" type="text" class="form-control input-lg"
-                                                placeholder="Street Address 1" required>
+                                            <input id="address1" type="text" class="form-control input-lg" placeholder="Street Address 1" required>
                                         </div>
                                         <!-- </div> -->
                                     </div>
                                     <div class="row">
                                         <!-- <div class="form-group"> -->
                                         <div class="col-sm-12" style="margin-bottom: 2%;margin-top:2%;">
-                                            <input id="address2" type="text" class="form-control input-lg"
-                                                placeholder="Street Address 2" required>
+                                            <input id="address2" type="text" class="form-control input-lg" placeholder="Street Address 2" required>
                                         </div>
                                         <!-- </div> -->
                                     </div>
@@ -960,54 +945,6 @@
                                 </form>
                             </div>
 
-                        </div>
-                        <div class="tab">
-                            <h2> Billing Information</h2>
-                            <div class="panel2">
-                                <label for="fname">Accepted Cards</label>
-                                <div class="icon-container">
-                                    <i class="fa fa-cc-visa fa-2x" style="color:navy;"></i>
-                                    <!-- <i class="fa fa-cc-amex" style="color:blue;"></i> -->
-                                    <i class="fa fa-cc-mastercard fa-2x" style="color:red;"></i>
-                                    <!-- <i class="fa fa-cc-discover" style="color:orange;"></i> -->
-                                </div>
-
-                                <form id="billing" class="form-register">
-
-                                    <!-- <div class="form-group"> -->
-                                    <!-- <div class="col-sm-6" style="margin-bottom: 2%;margin-top:2%;">
-                                    <input type="radio" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1"> I have a bike</label>
-                                  </div>
-                                  <div class="col-sm-6" style="margin-bottom: 2%;margin-top:2%;">
-                                    <input type="radio" id="vehicle2" name="vehicle1" value="Car">
-                                    <label for="vehicle2"> I have a car</label>
-                                  </div> -->
-
-                                    <label class="labelled" for="cname">Name on Card</label>
-                                    <input class="form-control input-lg" type="text" id="cname" name="cardname"
-                                        placeholder="John More Doe">
-                                    <label for="ccnum">Credit card number</label>
-                                    <input class="form-control input-lg" type="text" id="ccnum" name="cardnumber"
-                                        placeholder="1111-2222-3333-4444">
-                                    <div class="creditcard">
-                                        <div class="item">
-                                            <label for="expmonth">Exp Month</label>
-                                            <input class="form-control input-lg" type="text" id="expmonth"
-                                                style="width: 100%;" name="expmonth" placeholder="September">
-                                        </div>
-                                        <div class="item">
-                                            <label for="expyear">Exp Year</label>
-                                            <input class="form-control input-lg" type="text" style="width: 100%;"
-                                                id="expyear" name="expyear" placeholder="2018">
-                                        </div>
-                                    </div>
-                                    <label for="cvv">CVV</label>
-                                    <input class="form-control input-lg" type="text" id="cvv" name="cvv"
-                                        placeholder="352">
-
-                                </form>
-                            </div>
                         </div>
                         <div class="tab">
                             <!-- <div id="myModal" class="modal fade"> -->
@@ -1015,7 +952,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <div class="icon-box">
-                                            <i class="material-icons">&#xE876;</i>
+                                        <i class="fas fa-check"></i>
                                         </div>
                                         <h4 class="modal-title w-100">Awesome!</h4>
                                     </div>
@@ -1024,7 +961,7 @@
                                             detials.</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+                                        <button class="btn btn-success btn-block" style="color:white;background-color: #086AD8;" data-dismiss="modal">OK</button>
                                     </div>
                                 </div>
                             </div>
@@ -1033,10 +970,8 @@
                         <div class="rowrow-cart" style="width: 100%; display: block">
                             <div class="invoicebuttons">
                                 <button id="addmore" class="ht-btn ht-btn-sm" onclick='gotoinvoice()'>Add more</button>
-                                <button type="button" class="ht-btn ht-btn-sm" id="prevBtn"
-                                    onclick="nextPrev(-1)">Previous</button>
-                                <button type="button" class="ht-btn ht-btn-sm" id="nextBtn"
-                                    onclick="nextPrev(1)">Proceed to
+                                <button type="button" class="ht-btn ht-btn-sm" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                                <button type="button" class="ht-btn ht-btn-sm" id="nextBtn" onclick="nextPrev(1)">Proceed to
                                     Checkout</button>
                             </div>
                         </div>
@@ -1045,7 +980,7 @@
                             <span class="step"></span>
                             <span class="step"></span>
                             <span class="step"></span>
-                            <span class="step"></span>
+                           
                         </div>
                         <!-- </div> -->
 
@@ -1077,8 +1012,7 @@
                             <li><a href="tel:123344556" class="hover-style-link text-black font-weight--bold">(+68)1221
                                     09876</a>
                             </li>
-                            <li><a href="https://hasthemes.com/"
-                                    class="hover-style-link text-color-primary">www.mitech.xperts.com</a></li>
+                            <li><a href="https://hasthemes.com/" class="hover-style-link text-color-primary">www.mitech.xperts.com</a></li>
                         </ul>
                     </div>
 
@@ -1109,14 +1043,12 @@
                         <ul class="list ht-social-networks solid-rounded-icon">
                             </li>
                             <li class="item">
-                                <a href="https://facebook.com/" target="_blank" aria-label="Facebook"
-                                    class="social-link hint--bounce hint--top hint--primary">
+                                <a href="https://facebook.com/" target="_blank" aria-label="Facebook" class="social-link hint--bounce hint--top hint--primary">
                                     <i class="fab fa-facebook-f link-icon"></i>
                                 </a>
                             </li>
                             <li class="item">
-                                <a href="https://instagram.com/" target="_blank" aria-label="Instagram"
-                                    class="social-link hint--bounce hint--top hint--primary">
+                                <a href="https://instagram.com/" target="_blank" aria-label="Instagram" class="social-link hint--bounce hint--top hint--primary">
                                     <i class="fab fa-instagram link-icon"></i>
                                 </a>
                             </li>
@@ -1295,225 +1227,382 @@
     <script src="assets/js/main.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
+    <script>
+        var item_brand = [];
+        var item_price = [];
+        var item_qty = [];
+        var item_size = [];
+        var item_url = [];
+        var item_shipping = [];
+        var item_color = [];
+        var item_request = [];
+        var grand_total = 0;
+        var total = 0;
+        var shipping_total = 0;
+        var price_total = 0;
+        var total_price = 0;
+        var service_charges = 0;
+        var item_no = 0;
+        var shipping_value = 110;
 
+        function incHeight() {
+            var el = document.getElementById("invoice");
+            var height = el.offsetHeight;
+            var newHeight = height + 200;
+            el.style.height = newHeight + "px";
+        }
+        var form = document.getElementById("myform");
+        form.addEventListener("submit", check);
+
+        function check2() {
+            console.log("jjjj");
+            // return false;
+
+
+
+
+
+        }
+
+        function check() {
+            event.preventDefault();
+            var data = new FormData();
+            // var brand = document.getElementById("brand").value
+            data.append("brand", document.getElementById("brand").value);
+            data.append("url", document.getElementById("url").value);
+            data.append("shipping", document.getElementById("shipping").value);
+            data.append("qty", document.getElementById("qty").value);
+            data.append("size", document.getElementById("size").value);
+            data.append("color", document.getElementById("color").value);
+            data.append("price", document.getElementById("price").value);
+            data.append("request", document.getElementById("request").value);
+            console.log(data, "data");
+              var x = document.getElementById("alert");
+              if (x.style.display === "block") {
+                x.style.display = "none";
+              }
+            var xhr = new XMLHttpRequest();
+            console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+            xhr.open("POST", "form.php");
+            xhr.onload = function() {
+                // console.log(this.response)
+                console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+                console.log(data, "data2");
+                console.log(this.response);
+                var formdata = JSON.parse(this.response);
+                if (formdata.urlcheck != "Okay") {
+                    //   console.log(formdata);
+                      var x = document.getElementById("alert");
+                      if (x.style.display === "none") {
+                        x.style.display = "block";
+                      } else {
+                        x.style.display = "none";
+                      }
+                } else {
+                      var x = document.getElementById("alert");
+                      if (x.style.display === "block") {
+                        x.style.display = "none";
+                      }
+
+                    item_brand.push(formdata.brand);
+                    item_shipping.push(formdata.shipping);
+                    item_url.push(formdata.url);
+                    item_price.push(formdata.price);
+                    item_color.push(formdata.color);
+                    item_size.push(formdata.size);
+                    item_qty.push(formdata.quantity);
+                    item_request.push(formdata.request);
+                    item_no = item_brand.length;
+
+                    if (formdata.brand != 69) {
+                        var myobj = document.getElementById("emptycart");
+                        if (myobj) {
+                            myobj.remove();
+                        }
+                        $("#producttable").append(
+                            "<tr class='cart-item'>" +
+                            "<td style='vertical-align: middle'><img height='100px' src='assets/images/brands/" +
+                            formdata.brand +
+                            ".png' ></img>  </td>" +
+                            // "<td style='vertical-align: middle'>" + formdata.url  + "</td>"+
+                            "<td style='vertical-align: middle;'> Rs: " +
+                            formatNumber(formdata.price) +
+                            "</td>" +
+                            "<td style='vertical-align: middle'>" +
+                            formdata.quantity +
+                            "</td>" +
+                            "<td style='vertical-align: middle'>  Rs: " +
+                            formatNumber(formdata.shipping) +
+                            "</td>" +
+                            "<td style='vertical-align: middle'> Rs: " +
+                            formatNumber(formdata.price * formdata.quantity + formdata.shipping) +
+                            "</td>" +
+                            "<td class='product-remove'> <i onclick='productdelete(this)' class='fa fa-close' style='font-size:24px'></i></td>" +
+                            "</tr>"
+                        );
+                        showTab(currentTab);
+                        // console.log(item_brand)
+                        console.log(formdata);
+                        var elem = document.getElementById("invoicebox");
+                        elem.scrollIntoView();
+                        document.getElementById("myform").reset();
+                        calculateprice();
+                    }
+                }
+            };
+
+            xhr.send(data);
+
+            // (C) PREVENT HTML FORM SUBMIT
+            return false;
+        }
+
+        function calculateprice() {
+            shipping_total = price_total = 0;
+            for (var i = 0; i < item_shipping.length; i++) {
+                // console.log(i)
+                shipping_total = shipping_total + item_shipping[i];
+                price_total = price_total + item_qty[i] * item_price[i];
+            }
+
+            total_price = parseInt(shipping_total) + parseInt(price_total);
+            console.log(total_price, "total");
+            // grand_total += parseInt(total_price)
+            // console.log(item_shipping)
+            console.log(total_price, "shipping");
+            shipping_value = document.getElementById("delivery").value;
+            console.log(document.getElementById("delivery").value);
+            changeshipping();
+        }
+
+        function productdelete(ctl) {
+            // console.log(ctl.rowIndex)
+
+            $("#producttable")
+                .find("tr")
+                .click(function() {
+                    console.log($(this).index());
+                    index = $(this).index() - 1;
+                    console.log(index);
+                    $(ctl).parents("tr").remove();
+                    if (index > -1) {
+                        item_brand.splice(index, 1);
+                        item_price.splice(index, 1);
+                        item_qty.splice(index, 1);
+                        item_size.splice(index, 1);
+                        item_url.splice(index, 1);
+                        item_shipping.splice(index, 1);
+                        item_color.splice(index, 1);
+                        item_request.splice(index, 1);
+                        item_no = item_brand.length;
+                    }
+                    calculateprice();
+                    showTab(currentTab);
+                    // console.log(item_brand)
+                });
+        }
+
+        function changeshipping() {
+            // console.log("jjjj")
+            shipping_value = document.getElementById("delivery").value;
+            if (document.getElementById("delivery").value == 110) {
+                // grand_total = parseInt(total_price)
+                service_charges = total_price * 0.1;
+                grand_total = parseInt(total_price) + parseInt(service_charges);
+            } else {
+                grand_total = parseInt(total_price);
+                service_charges = 0;
+            }
+            var myobj = document.getElementById("service-charges");
+            myobj.remove();
+            var obj = document.getElementById("total-charges");
+            obj.remove();
+            $("#checkout").append(
+                "  <tr id='service-charges'>" +
+                "<td  style='color: black;'>Service Charges</td>" +
+                "<td  style='color: black;'> Rs: " +
+                formatNumber(service_charges) +
+                "</td>" +
+                "</tr>"
+            );
+            $("#checkout").append(
+                "  <tr id='total-charges'>" +
+                "<td  style='color: black;'>Total Charges</td>" +
+                "<td  style='color: black;'> Rs: " +
+                formatNumber(grand_total) +
+                "</td>" +
+                "</tr>"
+            );
+            // $("#service").append("<h4 style='color: black;'id='service-charges'> Service Charges: Rs " + service_charges + "</h4>")
+            // $("#total").append("<h4 style='color: black;' id='total-charges'> Total Charges: Rs " + grand_total + "</h4>")
+        }
+
+        function gotoinvoice() {
+            var elem = document.getElementById("scrollform");
+            elem.scrollIntoView();
+        }
+
+
+        var currentTab = 0; // Current tab is set to be the first tab (0)
+        showTab(currentTab);
+
+        function showTab(n) {
+
+            // This function will display the specified tab of the form...
+            var x = document.getElementsByClassName("tab");
+            var z = document.getElementById("emptycart")
+            // console.log(z)
+            var y = document.getElementById("producttable").rows.length
+            if (y == 1) {
+                $("#producttable").append(" <tr id='emptycart'; >" +
+                    "<td colspan='6' style='text-align: center; background-color: white; color: black;'>" +
+                    "No Items in Cart</td></tr>");
+            }
+            x[n].style.display = "block";
+            //... and fix the Previous/Next buttons:
+            if (n == 0) {
+                document.getElementById("addmore").style.display = "inline";
+                document.getElementById("prevBtn").style.display = "none";
+                document.getElementById("nextBtn").innerHTML = "Next";
+                // document.getElementById("nextBtn").onclick = function() {
+                //   validate_shipping()
+                // };
+                if (z) {
+                    document.getElementById("nextBtn").disabled = true;
+                } else {
+                    document.getElementById("nextBtn").disabled = false;
+                }
+            }
+            if (n == 1) {
+                document.getElementById("addmore").style.display = "none";
+                
+                    document.getElementById("prevBtn").style.display = "inline";
+                    document.getElementById("nextBtn").innerHTML = "Procedd to Payment";
+                    // document.getElementById("prevBtn").style.display = "inline";
+                }
+            
+
+            if (n == 2) {
+                document.getElementById("addmore").style.display = "none";
+                document.getElementById("nextBtn").style.display = "none";
+                document.getElementById("prevBtn").style.display = "none";
+            }
+         
+            // else if (shipping_value == 110) {
+            //   document.getElementById("addmore").style.display = "none";
+            //   document.getElementById("prevBtn").style.display = "inline";
+            // }
+            //  else if (shipping_value == 100) {
+            //   nextPrev(2)
+            //   document.getElementById("nextBtn").innerHTML = "Submit";
+            //   document.getElementById("prevBtn").style.display = "inline";
+            // }
+            // if (n == (x.length - 1)) {
+            // document.getElementById("nextBtn").style.display = "none";
+            // document.getElementById("prevBtn").style.display = "none";
+            // }
+            // } else {
+            //   // document.getElementById("nextBtn").innerHTML = "Next";
+            // }
+            fixStepIndicator(n)
+        }
+
+        function validate_shipping() {
+            var fname = document.getElementById("firstname").value
+            var lname = document.getElementById("lastname").value
+            var email = document.getElementById("email").value
+            var phone_number = document.getElementById("phoneno").value
+            var country = document.getElementById("country").value
+            var city = document.getElementById("city").value
+            var address1 = document.getElementById("address1").value
+            var address2 = document.getElementById("address2").value
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            const phone = /^\d{11}$/
+            if (fname == "" || lname == "" || email == "" || phone_number == "" || country == "" || city == "" || address1 == "") {
+                var x = document.getElementById("shippingform");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+                return false
+            } else if (re.test(email) && (phone.test(phone_number))) {
+
+
+                var data1 = new FormData();
+                data1.append("fname", fname)
+                data1.append("lname", lname)
+                data1.append("email", email)
+                data1.append("phoneno", phone_number)
+                data1.append("address1", address1)
+                data1.append("append2", address2)
+                document.getElementById("shippingdetails").onsubmit
+                var xhd = new XMLHttpRequest();
+                xhd.open("POST", "shipping.php");
+                xhd.send(data1);
+                xhd.onload = function() {
+                    var formdata = JSON.parse(this.response)
+                }
+            } else {
+                console.log("email or phone not valid")
+                var x = document.getElementById("shippingform");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+                return false
+            }
+
+        }
+
+        function nextPrev(n) {
+
+            // This function will figure out which tab to display
+            var x = document.getElementsByClassName("tab");
+            // Exit the function if any field in the current tab is invalid:
+            // if (n == 1) return false;
+            // Hide the current tab:
+            if (currentTab == 1) {
+                var y = document.getElementById("shippingform");
+                if (y.style.display === "block") {
+                    y.style.display = "none";
+                }
+                if (n == 1) {
+                    if (validate_shipping() == false) {
+                        console.log("exit")
+                        return
+                    } 
+                }
+            }
+            x[currentTab].style.display = "none";
+            // Increase or decrease the current tab by 1:
+            currentTab = currentTab + n;
+            // if you have reached the end of the form...
+            if (currentTab >= x.length) {
+                // ... the form gets submitted:
+                // document.getElementById("regForm").submit();
+                return false;
+            }
+            // Otherwise, display the correct tab:
+            showTab(currentTab);
+        }
+
+        function fixStepIndicator(n) {
+            // This function removes the "active" class of all steps...
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            //... and adds the "active" class on the current step:
+            x[n].className += " active";
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        }
+    </script>
 </body>
-
-<script>
-    function gotoinvoice() {
-      var elem = document.getElementById("scrollform");
-      elem.scrollIntoView();
-    }
-
-    function invoiceopen() {
-      var acc = document.getElementsByClassName("accordion");
-      var i;
-      console.log(acc.length)
-      for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          console.log("ll")
-          var panel = this.nextElementSibling;
-          if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-          } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-          }
-        });
-      }
-    }
-  </script>
-  <script>
-    var currentTab = 0; // Current tab is set to be the first tab (0)
-    showTab(currentTab); // Display the current tab
-
-    function showTab(n) {
-      // This function will display the specified tab of the form...
-      var x = document.getElementsByClassName("tab");
-      var z = document.getElementById("emptycart")
-      // console.log(z)
-      var y = document.getElementById("producttable").rows.length
-      if (y == 1) {
-        $("#producttable").append(" <tr id='emptycart'; >" +
-          "<td colspan='6' style='text-align: center; background-color: white; color: black;'>" +
-          "No Items in Cart</td></tr>");
-      }
-      x[n].style.display = "block";
-      //... and fix the Previous/Next buttons:
-      if (n == 0) {
-        document.getElementById("addmore").style.display = "inline";
-        document.getElementById("prevBtn").style.display = "none";
-        document.getElementById("nextBtn").innerHTML = "Next";
-        // document.getElementById("nextBtn").onclick = function() {
-        //   validate_shipping()
-        // };
-        if (z) {
-          document.getElementById("nextBtn").disabled = true;
-        } else {
-          document.getElementById("nextBtn").disabled = false;
-        }
-      }
-      if (n == 1) {
-        document.getElementById("addmore").style.display = "none";
-        if (shipping_value == 110) {
-          // console.log(shipping_value,'shop')
-          // document.getElementById("nextBtn").innerHTML = "Submit";
-          // document.getElementById("nextBtn").onclick = function() {validate_shipping()};
-          document.getElementById("prevBtn").style.display = "inline";
-        }
-        if (shipping_value == 100) {
-          // nextPrev(2)
-          // console.log(shipping_value, "ship")
-          document.getElementById("nextBtn").innerHTML = "Procedd to Payment";
-          document.getElementById("prevBtn").style.display = "inline";
-        }
-
-      }
-
-      if (n == 2) {
-        document.getElementById("addmore").style.display = "none";
-        document.getElementById("nextBtn").innerHTML = "Check Out";
-        document.getElementById("prevBtn").style.display = "none";
-      }
-      if (n == 3) {
-        document.getElementById("addmore").style.display = "none";
-        document.getElementById("nextBtn").style.display = "none";
-        document.getElementById("prevBtn").style.display = "none";
-      }
-      // else if (shipping_value == 110) {
-      //   document.getElementById("addmore").style.display = "none";
-      //   document.getElementById("prevBtn").style.display = "inline";
-      // }
-      //  else if (shipping_value == 100) {
-      //   nextPrev(2)
-      //   document.getElementById("nextBtn").innerHTML = "Submit";
-      //   document.getElementById("prevBtn").style.display = "inline";
-      // }
-      // if (n == (x.length - 1)) {
-      // document.getElementById("nextBtn").style.display = "none";
-      // document.getElementById("prevBtn").style.display = "none";
-      // }
-      // } else {
-      //   // document.getElementById("nextBtn").innerHTML = "Next";
-      // }
-      fixStepIndicator(n)
-    }
-
-    function validate_shipping() {
-      var fname = document.getElementById("firstname").value
-      var lname = document.getElementById("lastname").value
-      var email = document.getElementById("email").value
-      var phone_number = document.getElementById("phoneno").value
-      var country = document.getElementById("country").value
-      var city = document.getElementById("city").value
-      var address1 = document.getElementById("address1").value
-      var address2 = document.getElementById("address2").value
-
-      if (fname == "" || lname == "" || email == "" || phone_number == "" || country == "" || city == "" || address1 == "") {
-        var x = document.getElementById("shippingform");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-        return false
-      } else {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        const phone = /^\d{11}$/
-        if (re.test(email) && (phone.test(phone_number))) {
-          var data1 = new FormData();
-          data1.append("fname", fname)
-          data1.append("lname", lname)
-          data1.append("email", email)
-          data1.append("phoneno", phone_number)
-          data1.append("address1", address1)
-          data1.append("append2", address2)
-          if (shipping_value == 110) {
-
-            console.log("helll")
-            console.log(data1)
-            document.getElementById("shippingdetails").onsubmit
-            console.log(data1)
-            var xhd = new XMLHttpRequest();
-            console.log(data1)
-            xhd.open("POST", "shipping.php");
-            xhd.send(data1);
-            xhd.onload = function() {
-              console.log(data1, 'lll')
-              console.log(this.response)
-              console.log(this.response)
-              var formdata = JSON.parse(this.response)
-            }
-          }
-        } else {
-          console.log("email or phone not valid")
-          var x = document.getElementById("shippingform");
-          if (x.style.display === "none") {
-            x.style.display = "block";
-          } else {
-            x.style.display = "none";
-          }
-          return false
-        }
-        // if (phone.test(phone_number)){
-        //   console.log("phone valid")
-        // }
-
-        return true
-      }
-      // document.getElementById("shippingdetails").onsubmit
-      console.log("Neha is a Bitch")
-    }
-
-    function nextPrev(n) {
-
-      // This function will figure out which tab to display
-      var x = document.getElementsByClassName("tab");
-      // Exit the function if any field in the current tab is invalid:
-      // if (n == 1) return false;
-      // Hide the current tab:
-      if (currentTab == 1) {
-        var y = document.getElementById("shippingform");
-        if (y.style.display === "block") {
-          y.style.display = "none";
-        }
-        if (n == 1) {
-          if (validate_shipping() == false) {
-            console.log("exit")
-            return
-          } else {
-            if (shipping_value == 110) {
-              n = n + 1
-            }
-          }
-        }
-      }
-      x[currentTab].style.display = "none";
-      // Increase or decrease the current tab by 1:
-      currentTab = currentTab + n;
-      // if you have reached the end of the form...
-      if (currentTab >= x.length) {
-        // ... the form gets submitted:
-        // document.getElementById("regForm").submit();
-        return false;
-      }
-      // Otherwise, display the correct tab:
-      showTab(currentTab);
-    }
-
-    function fixStepIndicator(n) {
-      // This function removes the "active" class of all steps...
-      var i, x = document.getElementsByClassName("step");
-      for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" active", "");
-      }
-      //... and adds the "active" class on the current step:
-      x[n].className += " active";
-    }
-
-    function formatNumber(num) {
-      return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    }
-  </script>
 
 
 <!-- Mirrored from demo.hasthemes.com/mitech-preview/index-infotechno.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 29 Nov 2020 07:20:10 GMT -->
