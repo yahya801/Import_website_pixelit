@@ -60,7 +60,7 @@
     // $_SESSION["color"]= "blue";
     // $_SESSION["animal"]= "dog";
     $_SESSION["conversion"] = $conversion['GBP_PKR'];
-    echo $conversion['GBP_PKR'];
+    
     ?>
 
     <div class="preloader-activate preloader-active open_tm_preloader">
