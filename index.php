@@ -60,7 +60,7 @@
     // $_SESSION["color"]= "blue";
     // $_SESSION["animal"]= "dog";
     $_SESSION["conversion"] = $conversion['GBP_PKR'];
-    
+
     ?>
 
     <div class="preloader-activate preloader-active open_tm_preloader">
@@ -108,7 +108,8 @@
                                                     <nav class="navigation-menu primary--menu">
                                                         <ul>
                                                             <li>
-                                                                <a href="index.html"><span>Home</span></a>
+                                                                <a href="index.php"><span>Home</span></a>
+
                                                             </li>
                                                             <li>
                                                                 <a href="aboutus.html"><span>About us</span></a>
@@ -121,26 +122,28 @@
                                                             <li>
                                                                 <a href="contactus.html"><span>Contact us</span></a>
                                                                 <!-- mega menu -->
+
                                                             </li>
+
+
                                                         </ul>
                                                     </nav>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <!-- mobile menu -->
-                                    <div class="mobile-navigation-icon d-block d-xl-none" id="mobile-menu-trigger">
-                                        <i></i>
-                                    </div>
-                                    <!-- hidden icons menu -->
-                                    <div class="hidden-icons-menu d-block d-md-none" id="hidden-icon-trigger">
-                                        <a href="javascript:void(0)">
-                                            <i class="far fa-ellipsis-h-alt"></i>
-                                        </a>
-                                    </div>
                                 </div>
 
+                                <!-- mobile menu -->
+                                <div class="mobile-navigation-icon d-block d-xl-none" id="mobile-menu-trigger">
+                                    <i></i>
+                                </div>
+                                <!-- hidden icons menu -->
+                                <!-- <div class="hidden-icons-menu d-block d-md-none" id="hidden-icon-trigger">
+                                    <a href="javascript:void(0)">
+                                        <i class="far fa-ellipsis-h-alt"></i>
+                                    </a>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -148,15 +151,15 @@
             </div>
             <!-- Header Bottom Wrap End -->
             <div id="alert" class="alert" style="display: none;width: auto;color:white;background-color: #086AD8; height: auto;">
-            <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
-            The form has an issue with the URL or Brandname
-          </div>
-          <div id="shippingform" class="alert" style="display: none;width: auto;color:white;background-color: #086AD8; height: auto;">
-            <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
-            The form has an issue with the Email or Name
-          </div>
+                <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
+                The form has an issue with the URL or Brandname
+            </div>
+            <div id="shippingform" class="alert" style="display: none;width: auto;color:white;background-color: #086AD8; height: auto;">
+                <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
+                The form has an issue with the Email or Name
+            </div>
         </div>
-       
+
         <!--====================  End of header area  ====================-->
 
         <div id="main-wrapper">
@@ -169,9 +172,9 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="infotechno-hero-text  wow move-up">
 
-                                    <h1 class="font-weight--reguler mb-15" style="font-size:67px">Orignal Brand <br>At Your <span class="text-color-primary">  Door</span>    </h1>
+                                    <h1 class="font-weight--reguler mb-15" style="font-size:67px">Orignal Brand <br>At Your <span class="text-color-primary"> Door</span> </h1>
                                     <p>A fresh approach to shopping experience. </p>
-                                  
+
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
@@ -950,7 +953,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <div class="icon-box">
-                                        <i class="fas fa-check"></i>
+                                            <i class="fas fa-check"></i>
                                         </div>
                                         <h4 class="modal-title w-100">Awesome!</h4>
                                     </div>
@@ -978,7 +981,7 @@
                             <span class="step"></span>
                             <span class="step"></span>
                             <span class="step"></span>
-                           
+
                         </div>
                         <!-- </div> -->
 
@@ -1033,7 +1036,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-left">
-                          <span class="copyright-text">&copy; 2020 ImportMaster. <a href="https://hasthemes.com/">All Rights Reserved.</a></span>
+                        <span class="copyright-text">&copy; 2020 ImportMaster. <a href="https://hasthemes.com/">All Rights Reserved.</a></span>
                     </div>
                     <div class="col-md-6 text-center text-md-right">
                         <ul class="list ht-social-networks solid-rounded-icon">
@@ -1082,7 +1085,7 @@
                         <div class="col-md-6 col-8">
                             <!-- logo -->
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <img src="assets/images/logo/logo-darknew.png" class="img-fluid" alt="">
                                 </a>
                             </div>
@@ -1273,10 +1276,10 @@
             data.append("price", document.getElementById("price").value);
             data.append("request", document.getElementById("request").value);
             console.log(data, "data");
-              var x = document.getElementById("alert");
-              if (x.style.display === "block") {
+            var x = document.getElementById("alert");
+            if (x.style.display === "block") {
                 x.style.display = "none";
-              }
+            }
             var xhr = new XMLHttpRequest();
             console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
             xhr.open("POST", "form.php");
@@ -1288,17 +1291,17 @@
                 var formdata = JSON.parse(this.response);
                 if (formdata.urlcheck != "Okay") {
                     //   console.log(formdata);
-                      var x = document.getElementById("alert");
-                      if (x.style.display === "none") {
+                    var x = document.getElementById("alert");
+                    if (x.style.display === "none") {
                         x.style.display = "block";
-                      } else {
+                    } else {
                         x.style.display = "none";
-                      }
+                    }
                 } else {
-                      var x = document.getElementById("alert");
-                      if (x.style.display === "block") {
+                    var x = document.getElementById("alert");
+                    if (x.style.display === "block") {
                         x.style.display = "none";
-                      }
+                    }
 
                     item_brand.push(formdata.brand);
                     item_shipping.push(formdata.shipping);
@@ -1471,19 +1474,19 @@
             }
             if (n == 1) {
                 document.getElementById("addmore").style.display = "none";
-                
-                    document.getElementById("prevBtn").style.display = "inline";
-                    document.getElementById("nextBtn").innerHTML = "Procedd to Payment";
-                    // document.getElementById("prevBtn").style.display = "inline";
-                }
-            
+
+                document.getElementById("prevBtn").style.display = "inline";
+                document.getElementById("nextBtn").innerHTML = "Procedd to Payment";
+                // document.getElementById("prevBtn").style.display = "inline";
+            }
+
 
             if (n == 2) {
                 document.getElementById("addmore").style.display = "none";
                 document.getElementById("nextBtn").style.display = "none";
                 document.getElementById("prevBtn").style.display = "none";
             }
-         
+
             // else if (shipping_value == 110) {
             //   document.getElementById("addmore").style.display = "none";
             //   document.getElementById("prevBtn").style.display = "inline";
@@ -1568,7 +1571,7 @@
                     if (validate_shipping() == false) {
                         console.log("exit")
                         return
-                    } 
+                    }
                 }
             }
             x[currentTab].style.display = "none";
