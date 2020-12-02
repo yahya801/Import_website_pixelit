@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
-
+<?php
+session_start();?>
 
 
 
