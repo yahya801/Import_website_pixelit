@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
+
 <?php
-session_start();?>
+session_start(); ?>
 
 
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Import Master </title>
+    <title>Bringitin </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/favicon.png">
+    <link rel="icon" href="assets/images/logo/new-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- CSS
@@ -64,7 +65,7 @@ session_start();?>
 
     ?>
 
-    <div class="preloader-activate preloader-active open_tm_preloader">
+    <!-- <div class="preloader-activate preloader-active open_tm_preloader">
         <div class="preloader-area-wrap">
             <div class="spinner d-flex justify-content-center align-items-center h-100">
                 <div class="bounce1"></div>
@@ -72,7 +73,7 @@ session_start();?>
                 <div class="bounce3"></div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!--====================  header area ====================-->
@@ -87,7 +88,7 @@ session_start();?>
                             <!-- brand logo -->
                             <div class="header__logo">
                                 <a href="index.php">
-                                    <img src="assets/images/logo/logo-darknew.png" class="img-fluid" alt="">
+                                    <img src="assets/images/logo/new-logo.png" class="img-fluid" alt="">
                                 </a>
                             </div>
 
@@ -151,13 +152,17 @@ session_start();?>
                 </div>
             </div>
             <!-- Header Bottom Wrap End -->
-            <div id="alert" class="alert" style="display: none;width: auto;color:white;background-color: #086AD8; height: auto;">
+            <div id="alert" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
                 The form has an issue with the URL or Brandname
             </div>
-            <div id="shippingform" class="alert" style="display: none;width: auto;color:white;background-color: #086AD8; height: auto;">
+            <div id="shippingform" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
                 The form has an issue with the Email or Name
+            </div>
+            <div id="emailerror" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
+                <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
+                Please try Later, Error Occured while Processing...
             </div>
         </div>
 
@@ -173,7 +178,7 @@ session_start();?>
                             <div class="col-lg-6 col-md-6">
                                 <div class="infotechno-hero-text  wow move-up">
 
-                                    <h1 class="font-weight--reguler mb-15" style="font-size:67px">Orignal Brand <br>At Your <span class="text-color-primary"> Door</span> </h1>
+                                    <h1 class="font-weight--reguler mb-15" style="font-size:67px">Original Brands <br>At Your <span class="text-color-primary"> Door</span> </h1>
                                     <p>A fresh approach to shopping experience. </p>
 
                                 </div>
@@ -411,8 +416,8 @@ session_start();?>
                                     <div class="video-interview section-space--mt_40 video-popup">
                                         <a href="https://www.youtube.com/watch?v=9No-FiEInLA" height="500" width="300" class="video-link mt-30">
                                             <div class="single-popup-wrap">
-                                                <img class="img-fluid border-radus-5" src="assets/images/bg/faqs-video-poster.jpg" alt="">
-                                                <div class="ht-popup-video video-button">
+                                                <!-- <img class="img-fluid border-radus-5" src="assets/images/bg/faqs-video-poster.jpg" alt=""> -->
+                                                <!-- <div class="ht-popup-video video-button">
                                                     <div class="video-mark">
                                                         <div class="wave-pulse wave-pulse-1"></div>
                                                         <div class="wave-pulse wave-pulse-2"></div>
@@ -422,7 +427,7 @@ session_start();?>
                                                             <span class="video-play-icon"></span>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </a>
                                     </div>
@@ -447,9 +452,7 @@ session_start();?>
                                 <!-- section-title-wrap Start -->
                                 <div class="section-title-wrap text-center section-space--mb_40">
 
-                                    <h3 class="heading">Proud projects that<span class="text-color-primary"> make us
-                                            stand
-                                            out</span></h3>
+                                    <h3 class="heading">Add your<span class="text-color-primary"> Product Details Here</span></h3>
                                 </div>
                                 <!-- section-title-wrap Start -->
                             </div>
@@ -571,7 +574,7 @@ session_start();?>
 
                                     <div style="margin-top: 2%">
 
-                                        <button type="submit" style="background-color: #086AD8 !important;" id="submit-form" class="btn btn-lg btn-important btn-primary btn-block" style="width: 40%">Generate Invoice</button>
+                                        <button type="submit" style="background-color: #EF305E !important;" id="submit-form" class="btn btn-lg btn-important btn-primary btn-block" style="width: 40%">Generate Invoice</button>
                                     </div>
                             </div>
                             <div>
@@ -963,7 +966,7 @@ session_start();?>
                                             detials.</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button class="btn btn-success btn-block" style="color:white;background-color: #086AD8;" data-dismiss="modal">OK</button>
+                                        <a href="index.php" class="btn btn-success btn-block" style="color:white;background-color: #EF305E;padding-top: 6%;" data-dismiss="modal">OK</a>
                                     </div>
                                 </div>
                             </div>
@@ -1005,16 +1008,19 @@ session_start();?>
                 <div class="row footer-widget-wrapper">
                     <div class="col-lg-10 col-md-6 col-sm-6 footer-widget">
                         <div class="footer-widget__logo mb-30">
-                            <img src="assets/images/logo/dark-logo-160x48.png" class="img-fluid" alt="">
+                            <img src="assets/images/logo/new-logo.png" class="img-fluid" alt="">
                         </div>
                         <ul class="footer-widget__list">
-                            <li>58 Howard Street #2 San Francisco, CA 941</li>
-                            <li><a href="mailto:contact@aeroland.com" class="hover-style-link">contact@aeroland.com</a>
+                            <li>R4, Opposite Gohar Sultan Masjid<br>
+                             Teyrhi Road Noman Grand City <br>
+                            Block 17, Gulistan-e-johar <br>
+                                Karachi, Sindh</li>
+                            <li><a href="mailto:customercare@bringitin.pkk" class="hover-style-link">customercare@bringitin.pk</a>
                             </li>
-                            <li><a href="tel:123344556" class="hover-style-link text-black font-weight--bold">(+68)1221
+                            <!-- <li><a href="tel:123344556" class="hover-style-link text-black font-weight--bold">(+68)1221
                                     09876</a>
-                            </li>
-                            <li><a href="https://hasthemes.com/" class="hover-style-link text-color-primary">www.importmaster.com</a></li>
+                            </li> -->
+                            <li><a href="www.bringitin.pk" class="hover-style-link text-color-primary">www.bringitin.pk</a></li>
                         </ul>
                     </div>
 
@@ -1022,11 +1028,11 @@ session_start();?>
                     <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
                         <h6 class="footer-widget__title mb-20">Support</h6>
                         <ul class="footer-widget__list">
-                            <li><a href="#" class="hover-style-link">Forum Support</a></li>
-                            <li><a href="#" class="hover-style-link">Help & FAQ</a></li>
-                            <li><a href="#" class="hover-style-link">Contact Us</a></li>
-                            <li><a href="#" class="hover-style-link">Pricing and plans</a></li>
-                            <li><a href="#" class="hover-style-link">Cookies Policy</a></li>
+                            <!-- <li><a href="#" class="hover-style-link">Forum Support</a></li> -->
+                            <li><a href="faqs.html" class="hover-style-link">Help & FAQ</a></li>
+                            <li><a href="contactus.html " class="hover-style-link">Contact Us</a></li>
+                            <!-- <li><a href="#" class="hover-style-link">Pricing and plans</a></li>
+                            <li><a href="#" class="hover-style-link">Cookies Policy</a></li> -->
                         </ul>
                     </div>
 
@@ -1037,18 +1043,18 @@ session_start();?>
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-left">
-                        <span class="copyright-text">&copy; 2020 ImportMaster. <a href="https://hasthemes.com/">All Rights Reserved.</a></span>
+                        <span class="copyright-text">&copy; 2020 Bringitin. <a href="www.bringitin.pk">All Rights Reserved.</a></span>
                     </div>
                     <div class="col-md-6 text-center text-md-right">
                         <ul class="list ht-social-networks solid-rounded-icon">
                             </li>
                             <li class="item">
-                                <a href="https://facebook.com/" target="_blank" aria-label="Facebook" class="social-link hint--bounce hint--top hint--primary">
+                                <a href="https://www.facebook.com/bringitinpk" target="_blank"  class="social-link  ">
                                     <i class="fab fa-facebook-f link-icon"></i>
                                 </a>
                             </li>
                             <li class="item">
-                                <a href="https://instagram.com/" target="_blank" aria-label="Instagram" class="social-link hint--bounce hint--top hint--primary">
+                                <a href="https://www.instagram.com/bringitinpk/" target="_blank"  class="social-link  ">
                                     <i class="fab fa-instagram link-icon"></i>
                                 </a>
                             </li>
@@ -1087,7 +1093,7 @@ session_start();?>
                             <!-- logo -->
                             <div class="logo">
                                 <a href="index.php">
-                                    <img src="assets/images/logo/logo-darknew.png" class="img-fluid" alt="">
+                                    <img src="assets/images/logo/new-logo.png" class="img-fluid" alt="">
                                 </a>
                             </div>
                         </div>
@@ -1158,6 +1164,9 @@ session_start();?>
     </div>
     <!--====================  End of search overlay  ====================-->
 
+
+
+    <!-- <h2 style="padding-top:70px;color: red;"></h2> -->
     <!-- JS
     ============================================ -->
     <!-- Modernizer JS -->
@@ -1244,6 +1253,7 @@ session_start();?>
         var service_charges = 0;
         var item_no = 0;
         var shipping_value = 110;
+        var email = false;
 
         function incHeight() {
             var el = document.getElementById("invoice");
@@ -1282,7 +1292,7 @@ session_start();?>
                 x.style.display = "none";
             }
             var xhr = new XMLHttpRequest();
-            console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+            // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
             xhr.open("POST", "form.php");
             xhr.onload = function() {
                 // console.log(this.response)
@@ -1465,7 +1475,7 @@ session_start();?>
                 document.getElementById("prevBtn").style.display = "none";
                 document.getElementById("nextBtn").innerHTML = "Next";
                 // document.getElementById("nextBtn").onclick = function() {
-                //   validate_shipping()
+
                 // };
                 if (z) {
                     document.getElementById("nextBtn").disabled = true;
@@ -1478,6 +1488,7 @@ session_start();?>
 
                 document.getElementById("prevBtn").style.display = "inline";
                 document.getElementById("nextBtn").innerHTML = "Procedd to Payment";
+
                 // document.getElementById("prevBtn").style.display = "inline";
             }
 
@@ -1535,14 +1546,57 @@ session_start();?>
                 data1.append("email", email)
                 data1.append("phoneno", phone_number)
                 data1.append("address1", address1)
-                data1.append("append2", address2)
-                document.getElementById("shippingdetails").onsubmit
+                data1.append("address2", address2)
+                data1.append("url", JSON.stringify(item_url))
+                data1.append("price", JSON.stringify(item_price))
+                data1.append("color", JSON.stringify(item_color))
+                data1.append("size", JSON.stringify(item_size))
+                data1.append("quantity", JSON.stringify(item_qty))
+                data1.append("request", JSON.stringify(item_request))
+                // document.getElementById("shippingdetails").onsubmit
                 var xhd = new XMLHttpRequest();
-                xhd.open("POST", "shipping.php");
+                xhd.open("POST", "sendmail.php");
+                console.log(data1.url)
                 xhd.send(data1);
                 xhd.onload = function() {
                     var formdata = JSON.parse(this.response)
+                    console.log(formdata.error)
+
+                    if (formdata.error == false) {
+                        var x = document.getElementById("emailerror");
+                        if (x.style.display === "none") {
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
+                    } else {
+                        error = true
+                    }
+
+
+
                 }
+
+
+                //         function sendMail(){
+                //     console.log(item_brand)
+                //     // item_shipping.push(formdata.shipping);
+                //     //         item_url.push(formdata.url);
+                //     //         item_price.push(formdata.price);
+                //     //         item_color.push(formdata.color);
+                //     //         item_size.push(formdata.size);
+                //     //         item_qty.push(formdata.quantity);
+                //     //         item_request.push(formdata.request);
+                //     var data = new FormData();
+                //     data.append("url",item_url)
+                //     var xhr = new XMLHttpRequest();
+                //     // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+                //     xhr.open("POST", "sendmail.php");
+                //     // xhr.onload = function() {
+
+                //     // }
+                // }
+                //         sendMail()
             } else {
                 console.log("email or phone not valid")
                 var x = document.getElementById("shippingform");
@@ -1569,11 +1623,24 @@ session_start();?>
                     y.style.display = "none";
                 }
                 if (n == 1) {
-                    if (validate_shipping() == false) {
-                        console.log("exit")
-                        return
+                    validate = validate_shipping()
+                    if (validate == false) {
+                        n = 0
+                    } else {
+                        sleep(500).then(() => {
+    // Do something after the sleep!
+    n = 1
+})
+                        
                     }
                 }
+
+                // if (n == 1) {
+                //     if (validate_shipping() ) {
+                //         console.log("exit")
+                //         return
+                //     }
+                // }
             }
             x[currentTab].style.display = "none";
             // Increase or decrease the current tab by 1:
@@ -1586,6 +1653,10 @@ session_start();?>
             }
             // Otherwise, display the correct tab:
             showTab(currentTab);
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
         }
 
         function fixStepIndicator(n) {
