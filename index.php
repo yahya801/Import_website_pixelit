@@ -55,13 +55,14 @@ session_start(); ?>
 <body>
     <?php
     // Start the session
-    $url = "https://free.currconv.com/api/v7/convert?q=GBP_PKR&compact=ultra&apiKey=05f038474855c3fcfc6c";
-    $data = file_get_contents($url);
-    $conversion = json_decode($data, true);
+    // $url = "https://free.currconv.com/api/v7/convert?q=GBP_PKR&compact=ultra&apiKey=05f038474855c3fcfc6c";
+    // $data = file_get_contents($url);
+    // $conversion = json_decode($data, true);
     // Set session variables
     // $_SESSION["color"]= "blue";
     // $_SESSION["animal"]= "dog";
-    $_SESSION["conversion"] = $conversion['GBP_PKR'];
+    // $_SESSION["conversion"] = $conversion['GBP_PKR'];
+    $_SESSION["conversion"] = 216;
 
     ?>
 
@@ -209,7 +210,9 @@ session_start(); ?>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
                                                 <a href="#">
                                                     <div class="brand-logo__image">
-                                                        <img src="assets/images/brands/44.png" class="img-fluid" alt="">
+                                                        <a href="https://www.gucci.com/uk/en_gb/" target="_blank">
+                                                            <img src="assets/images/brands/44.png" class="img-fluid" alt="">
+                                                        </a>
                                                     </div>
                                                     <!-- <div class="brand-logo__image-hover">
                                                     <img src="assets/images/brand/mitech-client-logo-01-hover.png"
@@ -218,7 +221,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                                <a href="#">
+                                                <a href="https://www2.hm.com/en_gb/index.html" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/45.png" class="img-fluid" alt="">
                                                     </div>
@@ -229,7 +232,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                                <a href="#">
+                                            <a href="https://www.zara.com/uk/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/58.png" class="img-fluid" alt="">
                                                     </div>
@@ -240,7 +243,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                                <a href="#">
+                                            <a href="https://www.marksandspencer.com/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/35.png" class="img-fluid" alt="">
                                                     </div>
@@ -251,7 +254,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                                <a href="#">
+                                            <a href="https://www.riverisland.com/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/36.png" class="img-fluid" alt="">
                                                     </div>
@@ -262,7 +265,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                                <a href="#">
+                                            <a href="https://www.next.co.uk/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/25.png" class="img-fluid" alt="">
                                                     </div>
@@ -273,7 +276,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                                <a href="#">
+                                            <a href="https://www.aldoshoes.com/uk/en_UK" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/41.png" class="img-fluid" alt="">
                                                     </div>
@@ -284,7 +287,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                                <a href="#">
+                                            <a href="https://shop.mango.com/gb" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/48.png" class="img-fluid" alt="">
                                                     </div>
@@ -295,7 +298,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                                <a href="#">
+                                            <a href="https://www.amazon.co.uk/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/22.png" class="img-fluid" alt="">
                                                     </div>
@@ -306,7 +309,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                                <a href="#">
+                                            <a href="https://www.nike.com/gb/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/51.png" class="img-fluid" alt="">
                                                     </div>
@@ -317,7 +320,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                                <a href="#">
+                                            <a href="https://www.armani.com/gb/armanicom/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/42.png" class="img-fluid" alt="">
                                                     </div>
@@ -328,7 +331,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                                <a href="#">
+                                            <a href="https://www.reebok.co.uk/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/27.png" class="img-fluid" alt="">
                                                     </div>
@@ -350,22 +353,23 @@ session_start(); ?>
 
 
                 <!-- ============ Our Experience Wrapper Start =============== -->
-                <div class="section-space--ptb_60 infotechno-section-bg-01">
+                <div class="section-space--ptb_60 infotechno-section-bg-01" id="ordersteps">
 
                     <div class="our-experience-wrapper">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-5">
-                                    <div class="section-title small-mb__40 tablet-mb__40">
+                                <!-- <div class="col-lg-5"> -->
+                                <div class="section-title small-mb__40 tablet-mb__40">
 
-                                        <h3 style="padding-bottom: 5%" class="heading">Order Imported Products at
-                                            <span class="text-color-primary">your
-                                                doorstep</span></h3>
+                                    <h3 style="padding-bottom: 5%" class="heading">Order Imported Products at
+                                        <span class="text-color-primary">your
+                                            doorstep</span></h3>
 
-                                        <div class="ht-list style-auto-numbered-02">
-                                            <div class="list-item">
-                                                <div class="link">
-                                                    <div class="list-header">
+                                    <div class="ht-list style-auto-numbered-02" style="display:  flex;">
+                                        <div class="list-item">
+                                            <div class="link">
+                                                <div class="list-header">
+                                                    <div class="col-lg-10">
                                                         <div class="marker">
                                                             01
                                                         </div>
@@ -378,9 +382,11 @@ session_start(); ?>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="list-item">
-                                                <div class="link">
-                                                    <div class="list-header">
+                                        </div>
+                                        <div class="list-item">
+                                            <div class="link">
+                                                <div class="list-header">
+                                                    <div class="col-lg-10">
                                                         <div class="marker">
                                                             02
                                                         </div>
@@ -393,9 +399,11 @@ session_start(); ?>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="list-item">
-                                                <div class="link">
-                                                    <div class="list-header">
+                                        </div>
+                                        <div class="list-item">
+                                            <div class="link">
+                                                <div class="list-header">
+                                                    <div class="col-lg-10">
                                                         <div class="marker"> 03</div>
                                                         <div class="title-wrap">
                                                             <h6 class="title">Place order
@@ -410,6 +418,7 @@ session_start(); ?>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- </div> -->
 
                                 <div class="col-lg-5 ml-auto" style="margin-top: auto;margin-bottom: auto;">
 
@@ -1012,15 +1021,15 @@ session_start(); ?>
                         </div>
                         <ul class="footer-widget__list">
                             <li>R4, Opposite Gohar Sultan Masjid<br>
-                             Teyrhi Road Noman Grand City <br>
-                            Block 17, Gulistan-e-johar <br>
+                                Teyrhi Road Noman Grand City <br>
+                                Block 17, Gulistan-e-johar <br>
                                 Karachi, Sindh</li>
                             <li><a href="mailto:customercare@bringitin.pkk" class="hover-style-link">customercare@bringitin.pk</a>
                             </li>
                             <!-- <li><a href="tel:123344556" class="hover-style-link text-black font-weight--bold">(+68)1221
                                     09876</a>
                             </li> -->
-                            <li><a href="www.bringitin.pk" class="hover-style-link text-color-primary">www.bringitin.pk</a></li>
+                            <!-- <li><a href="www.bringitin.pk" class="hover-style-link text-color-primary">www.bringitin.pk</a></li> -->
                         </ul>
                     </div>
 
@@ -1049,12 +1058,12 @@ session_start(); ?>
                         <ul class="list ht-social-networks solid-rounded-icon">
                             </li>
                             <li class="item">
-                                <a href="https://www.facebook.com/bringitinpk" target="_blank"  class="social-link  ">
+                                <a href="https://www.facebook.com/bringitinpk" target="_blank" class="social-link  ">
                                     <i class="fab fa-facebook-f link-icon"></i>
                                 </a>
                             </li>
                             <li class="item">
-                                <a href="https://www.instagram.com/bringitinpk/" target="_blank"  class="social-link  ">
+                                <a href="https://www.instagram.com/bringitinpk/" target="_blank" class="social-link  ">
                                     <i class="fab fa-instagram link-icon"></i>
                                 </a>
                             </li>
@@ -1628,10 +1637,10 @@ session_start(); ?>
                         n = 0
                     } else {
                         sleep(500).then(() => {
-    // Do something after the sleep!
-    n = 1
-})
-                        
+                            // Do something after the sleep!
+                            n = 1
+                        })
+
                     }
                 }
 

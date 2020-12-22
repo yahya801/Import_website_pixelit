@@ -856,7 +856,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 
 .breadcrumb-list li.active {
-  color: #6D70A6;
+  color: #EF305E;
 }
 
 .page-pagination li {
@@ -5180,11 +5180,11 @@ only screen and (max-width: 767px) {
   right: 0;
   width: 0;
   height: 1px;
-  background-color: #d2a98e;
+  background-color: #EF305E;
 }
 
 .hover-style-link:hover {
-  color: #d2a98e;
+  color: #EF305E;
 }
 
 .hover-style-link:hover:after {
@@ -11219,7 +11219,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  background-color: #d2a98e;
+  background-color: #EF305E;
 }
 
 .conact-us-wrap-one .sub-heading {
