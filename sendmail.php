@@ -54,15 +54,21 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
     $lname = $_POST["lname"];
     $toemail = $_POST["email"];
     $phoneno =$_POST["phoneno"];
+    $city = $_POST["city"];
     $address1 = $_POST["address1"];
     $address2 = $_POST["address2"];
+    $servicecharges = $_POST["servicecharges"];
+    $shipmethod = $_POST["shipmethod"];
     $url = json_decode($_POST["url"]);
     $price = json_decode($_POST["price"]);
     $color = json_decode($_POST["color"]);
     $size = json_decode($_POST["size"]);
     $quantity = json_decode($_POST["quantity"]);
     $request = json_decode($_POST["request"]);
+    $shipping = json_decode($_POST["shipping"]);
+    $itemshipping = json_decode($_POST["itemshipping"]);
     $txt = "Thank you From from Ordering From Bringitin.pk";
+    $txt .= "<br>";
     $txt .= "<br>";
     $txt .= "Your Name: ";
     $txt .= $fname;
@@ -79,6 +85,12 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
     $txt .= "Address 2: ";
     $txt .= $address2;
     $txt .= "<br>";
+    $txt .= "City: ";
+    $txt .= $city;
+    $txt .= "<br>";
+    $txt .= "Ship Method: ";
+    $txt .= $shipmethod;
+    $txt .= "<br>";
     $txt .= "<br>";
     $txt .= "Your Order";
     $txt .= "<br>";
@@ -86,10 +98,11 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
 
 
 
-    $total_price = 0;
+    $total_price = 0 ;
 
     for ($x = 0; $x < count($url); $x++) {
         $total_price += $price[$x];
+        $total_price += $itemshipping[$x];
       $txt .=  "Ordered Url: ";  
       $txt .=  $url[$x];
       $txt .= "<br>"; 
@@ -105,10 +118,17 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
       $txt .=  "Price: Rs "; 
       $txt .= $price[$x];
       $txt .= "<br>";
+      $txt .=  "Shipping Chosen: "; 
+      $txt .= $shipping[$x];
+      $txt .= "<br>";
       $txt .= "<br>";
     }
+    $total_price += $servicecharges;
+    $txt .= "Service Charges: Rs ";
+    $txt .= $servicecharges;
     $txt .= "<br>";
-    $txt .=  "Total Price: "; 
+    $txt .= "<br>";
+    $txt .=  "Total Price: Rs "; 
     $txt .= $total_price;
     $txt .= "<br>";
     // $url2 = $url[1];

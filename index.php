@@ -1262,6 +1262,9 @@ session_start(); ?>
         var service_charges = 0;
         var item_no = 0;
         var shipping_value = 110;
+        var shipping_option = []
+        var shipping_amount = []
+        
         var email = false;
 
         function incHeight() {
@@ -1284,6 +1287,12 @@ session_start(); ?>
         }
 
         function check() {
+            var shipno = document.getElementById("shipping").value
+           
+            var ship = $(`#shipping option[value=`+shipno+`]`).text();
+    console.log(ship);
+
+           shipping_option.push(ship)
             event.preventDefault();
             var data = new FormData();
             // var brand = document.getElementById("brand").value
@@ -1325,6 +1334,7 @@ session_start(); ?>
 
                     item_brand.push(formdata.brand);
                     item_shipping.push(formdata.shipping);
+                   
                     item_url.push(formdata.url);
                     item_price.push(formdata.price);
                     item_color.push(formdata.color);
@@ -1534,6 +1544,8 @@ session_start(); ?>
             var phone_number = document.getElementById("phoneno").value
             var country = document.getElementById("country").value
             var city = document.getElementById("city").value
+            console.log(city)
+            console.log(shipping_option)
             var address1 = document.getElementById("address1").value
             var address2 = document.getElementById("address2").value
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -1547,25 +1559,33 @@ session_start(); ?>
                 }
                 return false
             } else if (re.test(email) && (phone.test(phone_number))) {
-
+                var shipmethod = $(`#delivery option[value=`+shipping_value+`]`).text();
+    console.log(shipmethod);
 
                 var data1 = new FormData();
                 data1.append("fname", fname)
                 data1.append("lname", lname)
                 data1.append("email", email)
                 data1.append("phoneno", phone_number)
+                data1.append("city",city)
                 data1.append("address1", address1)
                 data1.append("address2", address2)
+                data1.append("shipmethod",shipmethod)
+                console.log(shipmethod);
+                data1.append("servicecharges",service_charges)
                 data1.append("url", JSON.stringify(item_url))
                 data1.append("price", JSON.stringify(item_price))
                 data1.append("color", JSON.stringify(item_color))
                 data1.append("size", JSON.stringify(item_size))
                 data1.append("quantity", JSON.stringify(item_qty))
                 data1.append("request", JSON.stringify(item_request))
+                data1.append("shipping",JSON.stringify(shipping_option))
+                data1.append("itemshipping",JSON.stringify(item_shipping))
+                console.log(FormData)
                 // document.getElementById("shippingdetails").onsubmit
                 var xhd = new XMLHttpRequest();
                 xhd.open("POST", "sendmail.php");
-                console.log(data1.url)
+                // console.log(data1.url)
                 xhd.send(data1);
                 xhd.onload = function() {
                     var formdata = JSON.parse(this.response)
