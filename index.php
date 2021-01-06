@@ -49,7 +49,7 @@ session_start(); ?>
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-
+    <meta name="google-site-verification" content="DB4TkXMGG-vSkdWtyHOp-1h7Qu-RVj17HaHOpquKCAc" />
 </head>
 
 <body>
@@ -62,7 +62,7 @@ session_start(); ?>
     // $_SESSION["color"]= "blue";
     // $_SESSION["animal"]= "dog";
     // $_SESSION["conversion"] = $conversion['GBP_PKR'];
-    $_SESSION["conversion"] = 216;
+    $_SESSION["conversion"] = 217;
 
     ?>
 
@@ -492,6 +492,7 @@ session_start(); ?>
                                                         <option value="24">GAP</option>
                                                         <option value="44">GUCCI</option>
                                                         <option value="45">H&M</option>
+                                                        <option value="59">Huda Beauty</option>
                                                         <option value="46">Harrods</option>
                                                         <option value="47">Lacoste</option>
                                                         <option value="35">M&S</option>
@@ -524,30 +525,30 @@ session_start(); ?>
                                                     <div class="prepend-icon">
                                                         <select id="shipping" class="form-control" data-container-class="input-lg" data-search="true">
                                                             <option value="16">Select Shipping</option>
-                                                            <option value="51"> Rs800 each
+                                                            <option value="51"> Rs 760 each
                                                                 Shirt/Top/Undergarment/Jewellery/Accessory</option>
-                                                            <option value="52"> Rs1200 each Trouser/Jeans/Sweater/Jumper
+                                                            <option value="52"> Rs 1140 each Trouser/Jeans/Sweater/Jumper
                                                             </option>
-                                                            <option value="53"> Rs3500 each Jacket/Blazer/Hoodie - Light
+                                                            <option value="53"> Rs 3330 each Jacket/Blazer/Hoodie - Light
                                                                 weight</option>
-                                                            <option value="54"> Rs4500 each Long Coat/Jacket</option>
-                                                            <option value="55"> Rs800 each Footwear(Kids) /
+                                                            <option value="54"> Rs 4280 each Long Coat/Jacket</option>
+                                                            <option value="55"> Rs 760 each Footwear(Kids) /
                                                                 Slippers(Adults)</option>
-                                                            <option value="56"> Rs2000 each
+                                                            <option value="56"> Rs 1900 each
                                                                 Footwear(Adults)/Handbag/Purse</option>
-                                                            <option value="57"> Rs1000 each Small Book -
+                                                            <option value="57"> Rs 950 each Small Book -
                                                                 Paperback/SoftCover</option>
-                                                            <option value="58"> Rs5000 each Book - Hardcover/CoffeeTable
+                                                            <option value="58"> Rs 4750 each Book - Hardcover/CoffeeTable
                                                             </option>
-                                                            <option value="59"> Rs700 each Mobile Cover</option>
-                                                            <option value="60"> Rs1500 each Medicine/Small Cosmetics
+                                                            <option value="59"> Rs 670 each Mobile Cover</option>
+                                                            <option value="60"> Rs 1430 each Medicine/Small Cosmetics
                                                             </option>
-                                                            <option value="61"> Rs2250 each Watch/Sunglasses</option>
-                                                            <option value="62"> Rs3000 each Miscellaneous - Small
+                                                            <option value="61"> Rs 2140 each Watch/Sunglasses</option>
+                                                            <option value="62"> Rs 2850 each Miscellaneous - Small
                                                             </option>
-                                                            <option value="63"> Rs6000 each Miscellaneous - Medium
+                                                            <option value="63"> Rs 5700 each Miscellaneous - Medium
                                                             </option>
-                                                            <option value="64"> Rs9000 each Miscellaneous - Large
+                                                            <option value="64"> Rs 8850 each Miscellaneous - Large
                                                             </option>
                                                         </select>
                                                     </div>
@@ -612,8 +613,8 @@ session_start(); ?>
                             <div>
                                 <!-- <label>Select Shipping: </label> -->
                                 <select id="delivery" class="shipping_select" onchange="changeshipping()" ;>
-                                    <option value="110">10% on Cash on Delivery</option>
-                                    <option value="100">0% on Credit Card</option>
+                                    <option value="110">15% Service Charges on Cash on Delivery</option>
+                                    <option value="100">10% Service Charges on Bank Transfer</option>
                                 </select>
                             </div>
                             <table id="producttable" class="table table-cart">
@@ -1052,7 +1053,7 @@ session_start(); ?>
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-left">
-                        <span class="copyright-text">&copy; 2020 Bringitin. <a href="www.bringitin.pk">All Rights Reserved.</a></span>
+                        <span class="copyright-text">&copy; 2020 Bringitin. <a href="#">All Rights Reserved.</a></span>
                     </div>
                     <div class="col-md-6 text-center text-md-right">
                         <ul class="list ht-social-networks solid-rounded-icon">
@@ -1436,11 +1437,12 @@ session_start(); ?>
             shipping_value = document.getElementById("delivery").value;
             if (document.getElementById("delivery").value == 110) {
                 // grand_total = parseInt(total_price)
-                service_charges = total_price * 0.1;
+                service_charges = total_price * 0.15;
                 grand_total = parseInt(total_price) + parseInt(service_charges);
             } else {
-                grand_total = parseInt(total_price);
-                service_charges = 0;
+                service_charges = total_price * 0.1;
+                grand_total = parseInt(total_price) + parseInt(service_charges);
+               
             }
             var myobj = document.getElementById("service-charges");
             myobj.remove();

@@ -101,7 +101,7 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
     $total_price = 0 ;
 
     for ($x = 0; $x < count($url); $x++) {
-        $total_price += $price[$x];
+        $total_price += ($price[$x]* $quantity[$x]);
         $total_price += $itemshipping[$x];
       $txt .=  "Ordered Url: ";  
       $txt .=  $url[$x];
