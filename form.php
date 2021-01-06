@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $parse_uk = parse_url($url_uk_market[$brand_mod], PHP_URL_PATH);
 
             $parse2_uk =  parse_url($url, PHP_URL_PATH);
-            $pattern = array("/uk/", "/gb/", "/en_gb/", "/en-gb/", "/GB/", "/en_gbp/","en_GB ");
+            $pattern = array("/uk/", "/gb/", "/en_gb/", "/en-gb/", "/GB/", "/en_gbp/","/en_GB/");
             if ($parse == $parse2) {
                 for ($x = 0; $x < sizeof($pattern); $x++) {
                     $oo = preg_match($pattern[$x], $parse2_uk);

@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
-
 
 <!-- Mirrored from demo.hasthemes.com/mitech-preview/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 29 Nov 2020 07:20:45 GMT -->
 
@@ -106,7 +106,7 @@
                                                           
                                                       </li>
                                                       <li >
-                                                          <a href="contactus.html"><span>Contact us</span></a>
+                                                          <a href="contactus.php"><span>Contact us</span></a>
                                                           <!-- mega menu -->
                                                           
                                                       </li>
@@ -209,22 +209,22 @@
                             <div class="contact-form-wrap">
 
                                 <form id="contact-form"
-                                    action="http://whizthemes.com/mail-php/jowel/mitech/php/mail.php" method="post">
+                                    action="contactemail.php" method="post">
                                     <!-- <form id="contact-form" action="assets/php/mail.php" method="post"> -->
                                     <div class="contact-form">
                                         <div class="contact-input">
                                             <div class="contact-inner">
-                                                <input name="con_name" type="text" placeholder="Name *">
+                                                <input name="name" type="text" placeholder="Name *" required>
                                             </div>
                                             <div class="contact-inner">
-                                                <input name="con_email" type="email" placeholder="Email *">
+                                                <input name="email" type="email" placeholder="Email *" required>
                                             </div>
                                         </div>
                                         <div class="contact-inner">
-                                            <input name="con_subject" type="text" placeholder="Subject *">
+                                            <input name="subject" type="text" placeholder="Subject *" required>
                                         </div>
                                         <div class="contact-inner contact-message">
-                                            <textarea name="con_message"
+                                            <textarea name="message"
                                                 placeholder="Please describe what you need."></textarea>
                                         </div>
                                         <div class="submit-btn mt-20">
@@ -333,7 +333,7 @@
                             <ul class="footer-widget__list">
                                          <!-- <li><a href="#" class="hover-style-link">Forum Support</a></li> -->
                             <li><a href="faqs.html" class="hover-style-link">Help & FAQ</a></li>
-                            <li><a href="contactus.html " class="hover-style-link">Contact Us</a></li>
+                            <li><a href="contactus.php " class="hover-style-link">Contact Us</a></li>
                             <!-- <li><a href="#" class="hover-style-link">Pricing and plans</a></li>
                             <li><a href="#" class="hover-style-link">Cookies Policy</a></li> -->
                             </ul>
@@ -423,7 +423,7 @@
 
                         </li>
                         <li>
-                            <a href="contactus.html"><span>Contact us</span></a>
+                            <a href="contactus.php"><span>Contact us</span></a>
                             <!-- mega menu -->
                         </li>
                     </ul>

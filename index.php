@@ -123,7 +123,7 @@ session_start(); ?>
 
                                                             </li>
                                                             <li>
-                                                                <a href="contactus.html"><span>Contact us</span></a>
+                                                                <a href="contactus.php"><span>Contact us</span></a>
                                                                 <!-- mega menu -->
 
                                                             </li>
@@ -159,7 +159,7 @@ session_start(); ?>
             </div>
             <div id="shippingform" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
-                The form has an issue with the Email or Name
+                Please fill the form details correctly...
             </div>
             <div id="emailerror" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -232,7 +232,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                            <a href="https://www.zara.com/uk/" target="_blank">
+                                                <a href="https://www.zara.com/uk/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/58.png" class="img-fluid" alt="">
                                                     </div>
@@ -243,7 +243,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                            <a href="https://www.marksandspencer.com/" target="_blank">
+                                                <a href="https://www.marksandspencer.com/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/35.png" class="img-fluid" alt="">
                                                     </div>
@@ -254,7 +254,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                            <a href="https://www.riverisland.com/" target="_blank">
+                                                <a href="https://www.riverisland.com/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/36.png" class="img-fluid" alt="">
                                                     </div>
@@ -265,7 +265,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                            <a href="https://www.next.co.uk/" target="_blank">
+                                                <a href="https://www.next.co.uk/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/25.png" class="img-fluid" alt="">
                                                     </div>
@@ -276,7 +276,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                            <a href="https://www.aldoshoes.com/uk/en_UK" target="_blank">
+                                                <a href="https://www.aldoshoes.com/uk/en_UK" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/41.png" class="img-fluid" alt="">
                                                     </div>
@@ -287,7 +287,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                            <a href="https://shop.mango.com/gb" target="_blank">
+                                                <a href="https://shop.mango.com/gb" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/48.png" class="img-fluid" alt="">
                                                     </div>
@@ -298,7 +298,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                            <a href="https://www.amazon.co.uk/" target="_blank">
+                                                <a href="https://www.amazon.co.uk/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/22.png" class="img-fluid" alt="">
                                                     </div>
@@ -309,7 +309,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                            <a href="https://www.nike.com/gb/" target="_blank">
+                                                <a href="https://www.nike.com/gb/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/51.png" class="img-fluid" alt="">
                                                     </div>
@@ -320,7 +320,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                            <a href="https://www.armani.com/gb/armanicom/" target="_blank">
+                                                <a href="https://www.armani.com/gb/armanicom/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/42.png" class="img-fluid" alt="">
                                                     </div>
@@ -331,7 +331,7 @@ session_start(); ?>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide brand-logo brand-logo--slider">
-                                            <a href="https://www.reebok.co.uk/" target="_blank">
+                                                <a href="https://www.reebok.co.uk/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/27.png" class="img-fluid" alt="">
                                                     </div>
@@ -363,7 +363,8 @@ session_start(); ?>
 
                                     <h3 style="padding-bottom: 5%" class="heading">Order Imported Products at
                                         <span class="text-color-primary">your
-                                            doorstep</span></h3>
+                                            doorstep</span>
+                                    </h3>
 
                                     <div class="ht-list style-auto-numbered-02" style="display:  flex;">
                                         <div class="list-item">
@@ -679,7 +680,7 @@ session_start(); ?>
                                             <input id="email" type="email" class="form-control input-lg" placeholder="Email" required>
                                         </div>
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
-                                            <input id="phoneno" type="tel" class="form-control input-lg" placeholder="03xxxxxxxxx" required>
+                                            <input id="phoneno" type="text" pattern="03[0-9]{2}-([0-9])(?!\1{6})[0-9]{6}" class="form-control input-lg" placeholder="03xxxxxxxxx" required>
                                         </div>
                                         <!-- </div> -->
                                     </div>
@@ -962,51 +963,90 @@ session_start(); ?>
 
                         </div>
                         <div class="tab">
-                            <!-- <div id="myModal" class="modal fade"> -->
                             <div class="modal-dialog modal-confirm">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <div class="icon-box">
-                                            <i class="fas fa-check"></i>
+
                                         </div>
-                                        <h4 class="modal-title w-100">Awesome!</h4>
+                                        <h4 class="modal-title w-100">Wait while we process your request</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <p class="text-center">Your booking has been confirmed. Check your email for
-                                            detials.</p>
+                                        <img src="assets/images/other/Loadinggif.gif" style="margin-left:15%" height="200px" width="auto">
                                     </div>
-                                    <div class="modal-footer">
+                                    <!-- <div class="modal-footer">
                                         <a href="index.php" class="btn btn-success btn-block" style="color:white;background-color: #EF305E;padding-top: 6%;" data-dismiss="modal">OK</a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
-                            <!-- </div> -->
                         </div>
-                        <div class="rowrow-cart" style="width: 100%; display: block">
-                            <div class="invoicebuttons">
-                                <button id="addmore" class="ht-btn ht-btn-sm" onclick='gotoinvoice()'>Add more</button>
-                                <button type="button" class="ht-btn ht-btn-sm" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                                <button type="button" class="ht-btn ht-btn-sm" id="nextBtn" onclick="nextPrev(1)">Proceed to
-                                    Checkout</button>
+                    
+                    <div class="tab">
+                        <!-- <div id="myModal" class="modal fade"> -->
+                        <div class="modal-dialog modal-confirm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="icon-box">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <h4 class="modal-title w-100">Awesome!</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="text-center">Your booking has been confirmed. Check your email for
+                                        detials.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="index.php" class="btn btn-success btn-block" style="color:white;background-color: #EF305E;padding-top: 6%;" data-dismiss="modal">OK</a>
+                                </div>
                             </div>
                         </div>
-                        <!-- Circles which indicates the steps of the form: -->
-                        <div style="text-align:center;margin-top:40px;">
-                            <span class="step"></span>
-                            <span class="step"></span>
-                            <span class="step"></span>
-
+                        <!-- </div> -->
+                    </div>
+                    <div class="tab">
+                        <!-- <div id="myModal" class="modal fade"> -->
+                        <div class="modal-dialog modal-confirm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="icon-box">
+                                    <i class="fas fa-sad-cry"></i>
+                                    </div>
+                                    <h4 class="modal-title w-100">Sorry for the Inconvenience</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="text-center">We cannot process your request at the moment.Please Try again Later</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="index.php" class="btn btn-success btn-block" style="color:white;background-color: #EF305E;padding-top: 6%;" data-dismiss="modal">OK</a>
+                                </div>
+                            </div>
                         </div>
                         <!-- </div> -->
+                    </div>
+                    <div class="rowrow-cart" style="width: 100%; display: block">
+                        <div class="invoicebuttons">
+                            <button id="addmore" class="ht-btn ht-btn-sm" onclick='gotoinvoice()'>Add more</button>
+                            <button type="button" class="ht-btn ht-btn-sm" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                            <button type="button" class="ht-btn ht-btn-sm" id="nextBtn" onclick="nextPrev(1)">Proceed to
+                                Checkout</button>
+                        </div>
+                    </div>
+                    <!-- Circles which indicates the steps of the form: -->
+                    <div style="text-align:center;margin-top:40px;">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
 
                     </div>
+                    <!-- </div> -->
+
                 </div>
             </div>
         </div>
-        <!--====================  End of testimonial section  ====================-->
+    </div>
+    <!--====================  End of testimonial section  ====================-->
 
 
-        <!--====================  Blog Section Start ====================-->
+    <!--====================  Blog Section Start ====================-->
 
     </div>
 
@@ -1040,7 +1080,7 @@ session_start(); ?>
                         <ul class="footer-widget__list">
                             <!-- <li><a href="#" class="hover-style-link">Forum Support</a></li> -->
                             <li><a href="faqs.html" class="hover-style-link">Help & FAQ</a></li>
-                            <li><a href="contactus.html " class="hover-style-link">Contact Us</a></li>
+                            <li><a href="contactus.php " class="hover-style-link">Contact Us</a></li>
                             <!-- <li><a href="#" class="hover-style-link">Pricing and plans</a></li>
                             <li><a href="#" class="hover-style-link">Cookies Policy</a></li> -->
                         </ul>
@@ -1131,7 +1171,7 @@ session_start(); ?>
 
                         </li>
                         <li>
-                            <a href="contactus.html"><span>Contact us</span></a>
+                            <a href="contactus.php"><span>Contact us</span></a>
                             <!-- mega menu -->
                         </li>
                     </ul>
@@ -1265,7 +1305,7 @@ session_start(); ?>
         var shipping_value = 110;
         var shipping_option = []
         var shipping_amount = []
-        
+
         var email = false;
 
         function incHeight() {
@@ -1289,11 +1329,11 @@ session_start(); ?>
 
         function check() {
             var shipno = document.getElementById("shipping").value
-           
-            var ship = $(`#shipping option[value=`+shipno+`]`).text();
-    console.log(ship);
 
-           shipping_option.push(ship)
+            var ship = $(`#shipping option[value=` + shipno + `]`).text();
+            console.log(ship);
+
+            shipping_option.push(ship)
             event.preventDefault();
             var data = new FormData();
             // var brand = document.getElementById("brand").value
@@ -1335,7 +1375,7 @@ session_start(); ?>
 
                     item_brand.push(formdata.brand);
                     item_shipping.push(formdata.shipping);
-                   
+
                     item_url.push(formdata.url);
                     item_price.push(formdata.price);
                     item_color.push(formdata.color);
@@ -1442,7 +1482,7 @@ session_start(); ?>
             } else {
                 service_charges = total_price * 0.1;
                 grand_total = parseInt(total_price) + parseInt(service_charges);
-               
+
             }
             var myobj = document.getElementById("service-charges");
             myobj.remove();
@@ -1508,7 +1548,7 @@ session_start(); ?>
                 document.getElementById("addmore").style.display = "none";
 
                 document.getElementById("prevBtn").style.display = "inline";
-                document.getElementById("nextBtn").innerHTML = "Procedd to Payment";
+                document.getElementById("nextBtn").innerHTML = "Order Now";
 
                 // document.getElementById("prevBtn").style.display = "inline";
             }
@@ -1551,7 +1591,8 @@ session_start(); ?>
             var address1 = document.getElementById("address1").value
             var address2 = document.getElementById("address2").value
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            const phone = /^\d{11}$/
+            // const phone = /^\d{11}$/
+            const phone = /^[0][\d]{3}-[\d]{7}$/
             if (fname == "" || lname == "" || email == "" || phone_number == "" || country == "" || city == "" || address1 == "") {
                 var x = document.getElementById("shippingform");
                 if (x.style.display === "none") {
@@ -1561,28 +1602,28 @@ session_start(); ?>
                 }
                 return false
             } else if (re.test(email) && (phone.test(phone_number))) {
-                var shipmethod = $(`#delivery option[value=`+shipping_value+`]`).text();
-    console.log(shipmethod);
+                var shipmethod = $(`#delivery option[value=` + shipping_value + `]`).text();
+                console.log(shipmethod);
 
                 var data1 = new FormData();
                 data1.append("fname", fname)
                 data1.append("lname", lname)
                 data1.append("email", email)
                 data1.append("phoneno", phone_number)
-                data1.append("city",city)
+                data1.append("city", city)
                 data1.append("address1", address1)
                 data1.append("address2", address2)
-                data1.append("shipmethod",shipmethod)
+                data1.append("shipmethod", shipmethod)
                 console.log(shipmethod);
-                data1.append("servicecharges",service_charges)
+                data1.append("servicecharges", service_charges)
                 data1.append("url", JSON.stringify(item_url))
                 data1.append("price", JSON.stringify(item_price))
                 data1.append("color", JSON.stringify(item_color))
                 data1.append("size", JSON.stringify(item_size))
                 data1.append("quantity", JSON.stringify(item_qty))
                 data1.append("request", JSON.stringify(item_request))
-                data1.append("shipping",JSON.stringify(shipping_option))
-                data1.append("itemshipping",JSON.stringify(item_shipping))
+                data1.append("shipping", JSON.stringify(shipping_option))
+                data1.append("itemshipping", JSON.stringify(item_shipping))
                 console.log(FormData)
                 // document.getElementById("shippingdetails").onsubmit
                 var xhd = new XMLHttpRequest();
@@ -1600,8 +1641,10 @@ session_start(); ?>
                         } else {
                             x.style.display = "none";
                         }
+                        nextPrev(2)
                     } else {
                         error = true
+                        nextPrev(1)
                     }
 
 
