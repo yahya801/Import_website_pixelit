@@ -680,7 +680,7 @@ session_start(); ?>
                                             <input id="email" type="email" class="form-control input-lg" placeholder="Email" required>
                                         </div>
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
-                                            <input id="phoneno" type="text" pattern="03[0-9]{2}-([0-9])(?!\1{6})[0-9]{6}" class="form-control input-lg" placeholder="03xxxxxxxxx" required>
+                                            <input id="phoneno" type="text" pattern="03[0-9]{2}-([0-9])(?!\1{6})[0-9]{6}" class="form-control input-lg" placeholder="03xx-xxxxxxx" required>
                                         </div>
                                         <!-- </div> -->
                                     </div>
@@ -689,8 +689,8 @@ session_start(); ?>
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
 
                                             <select id="country" class="form-control" data-container-class="input-lg" data-search="true">
-                                                <option value="" disabled selected>Select Country</option>
-                                                <option value="PK">Pakistan</option>
+                                           
+                                                <option value="PK" default>Pakistan</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
