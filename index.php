@@ -1384,7 +1384,7 @@ session_start(); ?>
                     item_request.push(formdata.request);
                     item_no = item_brand.length;
 
-                    if (formdata.brand != 69) {
+                    if (formdata.brand == 69 || formdata.brand <69) {
                         var myobj = document.getElementById("emptycart");
                         if (myobj) {
                             myobj.remove();

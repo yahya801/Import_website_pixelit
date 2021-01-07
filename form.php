@@ -93,6 +93,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $parse2 = "okay";
             }
         }
+        elseif($brand == 69) {
+            $parse = "okay";
+            $parse2 = "okay";
+        }
 
         if ($parse == $parse2) {
             $url_check = "Okay";

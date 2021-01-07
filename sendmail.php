@@ -45,9 +45,9 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
 }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $to = 'yahyaahsan83@gmail.com';
+    // $to = 'yahyaahsan83@gmail.com';
     $from = 'sales@bringitin.pk';
-    $name = 'Muhammad Yahya';
+    // $name = 'Muhammad Yahya';
     $subj = 'Order From Bringitin.pk';
     // $msg = 'This is mail about testing mailing using PHP.';
     $fname = $_POST["fname"];
