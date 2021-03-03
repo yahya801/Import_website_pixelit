@@ -57,11 +57,11 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
     $txt = "Hi from " . $name . ", " . $toemail . "<br /><br />" . $message;
     
     $error=smtpmailer($toemail, $from, $name, $subj, $txt) ;
-    if(!$error)
-    echo "Message was not sent <br />PHP Mailer Error: " . $mail->ErrorInfo;
-    else
-        echo "Message has been sent";
+        if(!$error)
+        echo "Message was not sent <br />PHP Mailer Error: " . $mail->ErrorInfo;
+        else
+            echo "Message has been sent";
        
     }
     
-?>
+?>  

@@ -1,0 +1,104 @@
+
+Roles
+
+CREATE TABLE IF NOT EXISTS `roles` (
+  `rolesID` INT NOT NULL,
+  `description` VARCHAR(45) NULL,
+  PRIMARY KEY (`rolesID`));
+
+User
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `userID` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `address1` VARCHAR(45) NOT NULL,
+  `address2` VARCHAR(45) NULL,
+  `phoneno` VARCHAR(45) NOT NULL,
+  `city` VARCHAR(45) NOT NULL,
+  `country` VARCHAR(45) NOT NULL,
+  `rolesID` INT NOT NULL,
+  PRIMARY KEY (`userID`),
+    FOREIGN KEY (`rolesID`)
+    REFERENCES `roles` (`rolesID`));
+
+Brand
+
+CREATE TABLE IF NOT EXISTS `brand` (
+  `brandID` INT NOT NULL,
+  `brandname` VARCHAR(45) NULL,
+  `url` VARCHAR(255) NULL,
+  `url2` VARCHAR(255) NULL,
+  `urlmobile` VARCHAR(255) NULL,
+  `origin` VARCHAR(45) NULL,
+  PRIMARY KEY (`brandID`));
+
+Shipping
+
+CREATE TABLE IF NOT EXISTS `shipping` (
+  `shippingID` INT NOT NULL,
+  `description` VARCHAR(255) NULL,
+  `amount` INT NULL,
+  PRIMARY KEY (`shippingID`));
+
+Payment Method
+
+CREATE TABLE IF NOT EXISTS `paymentmethod` (
+  `paymentmethodID` INT NOT NULL,
+  `description` VARCHAR(255) NULL,
+  `percentage` FLOAT NULL,
+  PRIMARY KEY (`paymentmethodID`));
+
+Conversion rate
+
+CREATE TABLE IF NOT EXISTS `conversionrate` (
+  `conversionrateID` INT NOT NULL,
+  `conversationrate` FLOAT NULL,
+  `updatedAt` DATETIME NULL,
+  `pricetablecol` VARCHAR(45) NULL,
+  PRIMARY KEY (`conversionrateID`));
+
+Order
+
+CREATE TABLE IF NOT EXISTS `order` (
+  `orderID` INT NOT NULL,
+  `date` DATETIME NULL,
+  `totalamount` INT NULL,
+  `totalshipping` INT NULL,
+  `totaltax` INT NULL,
+  `totallocal` INT NULL,
+  `totalservice` INT NULL,
+  `totalproducts` INT NULL,
+  `status` VARCHAR(45) NULL,
+  `userID` INT NOT NULL,
+  `paymentmethodID` INT NOT NULL,
+  `conversionrateID` INT NOT NULL,
+  PRIMARY KEY (`orderID`),
+    FOREIGN KEY (`userID`)
+    REFERENCES `user` (`userID`),
+    FOREIGN KEY (`paymentmethodID`)
+    REFERENCES `paymentmethod` (`paymentmethodID`),
+    FOREIGN KEY (`conversionrateID`)
+    REFERENCES `conversionrate` (`conversionrateID`));
+
+Orderitem
+
+CREATE TABLE IF NOT EXISTS `orderitem` (
+  `orderitemID` INT NOT NULL,
+  `size` VARCHAR(45) NULL,
+  `color` VARCHAR(45) NULL,
+  `quantity` INT NULL,
+  `priceinpound` FLOAT NULL,
+  `priceinrs` INT NULL,
+  `orderID` INT NOT NULL,
+  `brandID` INT NOT NULL,
+  `shippingID` INT NOT NULL,
+  PRIMARY KEY (`orderitemID`),
+    FOREIGN KEY (`orderID`)
+    REFERENCES `order` (`orderID`),
+    FOREIGN KEY (`brandID`)
+    REFERENCES `brand` (`brandID`),
+    FOREIGN KEY (`shippingID`)
+    REFERENCES `shipping` (`shippingID`)
+  );
+ 

@@ -50,6 +50,23 @@ session_start(); ?>
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <meta name="google-site-verification" content="DB4TkXMGG-vSkdWtyHOp-1h7Qu-RVj17HaHOpquKCAc" />
+    <!-- Facebook Pixel Code -->
+    <!-- <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2739777829608144');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2739777829608144&ev=PageView&noscript=1"
+/></noscript>
+End Facebook Pixel Code -->
 </head>
 
 <body>
@@ -62,7 +79,7 @@ session_start(); ?>
     // $_SESSION["color"]= "blue";
     // $_SESSION["animal"]= "dog";
     // $_SESSION["conversion"] = $conversion['GBP_PKR'];
-    $_SESSION["conversion"] = 217;
+    $_SESSION["conversion"] = 230;
 
     ?>
 
@@ -115,7 +132,7 @@ session_start(); ?>
 
                                                             </li>
                                                             <li>
-                                                                <a href="aboutus.html"><span>About us</span></a>
+                                                                <a href="aboutus.html"><span>About Us</span></a>
 
                                                             </li>
                                                             <li>
@@ -123,7 +140,7 @@ session_start(); ?>
 
                                                             </li>
                                                             <li>
-                                                                <a href="contactus.php"><span>Contact us</span></a>
+                                                                <a href="contactus.php"><span>Contact Us</span></a>
                                                                 <!-- mega menu -->
 
                                                             </li>
@@ -155,7 +172,7 @@ session_start(); ?>
             <!-- Header Bottom Wrap End -->
             <div id="alert" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
-                The form has an issue with the URL or Brandname
+                Please fill the form details correctly...
             </div>
             <div id="shippingform" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -362,11 +379,10 @@ session_start(); ?>
                                 <div class="section-title small-mb__40 tablet-mb__40">
 
                                     <h3 style="padding-bottom: 5%" class="heading">Order Imported Products at
-                                        <span class="text-color-primary">your
-                                            doorstep</span>
+                                        <span class="text-color-primary">Your Doorstep</span>
                                     </h3>
 
-                                    <div class="ht-list style-auto-numbered-02" style="display:  flex;">
+                                    <div class="ht-list style-auto-numbered-02" style="display:  flex; flex-direction:row; flex-wrap:wrap;">
                                         <div class="list-item">
                                             <div class="link">
                                                 <div class="list-header">
@@ -462,7 +478,7 @@ session_start(); ?>
                                 <!-- section-title-wrap Start -->
                                 <div class="section-title-wrap text-center section-space--mb_40">
 
-                                    <h3 class="heading">Add your<span class="text-color-primary"> Product Details Here</span></h3>
+                                    <h3 class="heading">Add Your<span class="text-color-primary"> Product Details Here</span></h3>
                                 </div>
                                 <!-- section-title-wrap Start -->
                             </div>
@@ -526,31 +542,31 @@ session_start(); ?>
                                                     <div class="prepend-icon">
                                                         <select id="shipping" class="form-control" data-container-class="input-lg" data-search="true">
                                                             <option value="16">Select Shipping</option>
-                                                            <option value="51"> Rs 760 each
+                                                            <option value="51"> Rs 500 each
                                                                 Shirt/Top/Undergarment/Jewellery/Accessory</option>
-                                                            <option value="52"> Rs 1140 each Trouser/Jeans/Sweater/Jumper
+                                                            <option value="52"> Rs 1000 each Trouser/Jeans/Sweater/Jumper
                                                             </option>
-                                                            <option value="53"> Rs 3330 each Jacket/Blazer/Hoodie - Light
+                                                            <option value="53"> Rs 1800 each Jacket/Blazer/Hoodie - Light
                                                                 weight</option>
-                                                            <option value="54"> Rs 4280 each Long Coat/Jacket</option>
-                                                            <option value="55"> Rs 760 each Footwear(Kids) /
+                                                            <option value="54"> Rs 2500 each Long Coat/Jacket</option>
+                                                            <option value="55"> Rs 500 each Footwear(Kids) /
                                                                 Slippers(Adults)</option>
-                                                            <option value="56"> Rs 1900 each
+                                                            <option value="56"> Rs 1500 each
                                                                 Footwear(Adults)/Handbag/Purse</option>
-                                                            <option value="57"> Rs 950 each Small Book -
+                                                            <option value="57"> Rs 500 each Small Book -
                                                                 Paperback/SoftCover</option>
-                                                            <option value="58"> Rs 4750 each Book - Hardcover/CoffeeTable
+                                                            <option value="58"> Rs 2000 each Book - Hardcover/CoffeeTable
                                                             </option>
-                                                            <option value="59"> Rs 670 each Mobile Cover</option>
-                                                            <option value="60"> Rs 1430 each Medicine/Small Cosmetics
+                                                            <option value="59"> Rs 500 each Mobile Cover</option>
+                                                            <option value="60"> Rs 1000 each Medicine/Small Cosmetics
                                                             </option>
-                                                            <option value="61"> Rs 2140 each Watch/Sunglasses</option>
-                                                            <option value="62"> Rs 2850 each Miscellaneous - Small
+                                                            <option value="61"> Rs 1200 each Watch/Sunglasses</option>
+                                                            <option value="62"> Miscellaneous will be discussed on Call
                                                             </option>
-                                                            <option value="63"> Rs 5700 each Miscellaneous - Medium
+                                                            <!-- <option value="63"> Rs 5700 each Miscellaneous - Medium
                                                             </option>
                                                             <option value="64"> Rs 8850 each Miscellaneous - Large
-                                                            </option>
+                                                            </option> -->
                                                         </select>
                                                     </div>
                                                 </div>
@@ -613,47 +629,82 @@ session_start(); ?>
                         <div class="tab">
                             <div>
                                 <!-- <label>Select Shipping: </label> -->
-                                <select id="delivery" class="shipping_select" onchange="changeshipping()" ;>
-                                    <option value="110">15% Service Charges on Cash on Delivery</option>
-                                    <option value="100">10% Service Charges on Bank Transfer</option>
-                                </select>
+
                             </div>
-                            <table id="producttable" class="table table-cart">
-                                <tbody>
-                                    <tr class="firstrow">
-                                        <td>Brand</td>
-                                        <!-- <td >URL</td> -->
-                                        <td>Price</td>
-                                        <td>Quantity</td>
-                                        <td>Shipping</td>
-                                        <td>Total</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="emptycart">
-                                        <td colspan="6" style="text-align: center;">
-                                            No Items in Cart
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div style="width: 100%">
-                                <div class="price" style="width: 100%; display: table;">
-                                    <div style="width: 100%">
-                                        <table id="checkout" class="table2" style="float:right; width:20%;">
-                                            <tr id="service-charges">
-                                                <td style='color: black;'>Service Charges</td>
+                            <div style='overflow-x:auto'>
+                                <table id="producttable" style="overflow: auto" class="table table-cart">
+                                    <tbody>
+                                        <tr class="firstrow">
+                                            <td>Brand</td>
+                                            <!-- <td >URL</td> -->
+                                            <td>Price</td>
+                                            <td>Quantity</td>
+                                            <td>UK to PK</td>
+                                            <td>Brand Delivery</td>
+                                            <td>Total</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr id="emptycart">
+                                            <td colspan="6" style="text-align: center;">
+                                                No Items in Cart
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="width: 100%; display: inline-block;">
+                                <div class="pricebox">
+                                    <h4 style="background-color: #EE3158; color: white; text-align: center">Total Breakup</h4>
+                                    <div class="price">
+                                        <div class="selectdelivery" style="padding-top:10px">
+                                            <select id="delivery" class="shipping_select" onchange="changeshipping()" ;>
+                                                <option value="110">15% Service Charges on Cash on Delivery</option>
+                                                <option value="100">5% Service Charges on Bank Transfer</option>
+                                            </select>
+                                        </div>
+                                        <table id="checkout" class="table2">
+                                            <tr id="product-charges">
+                                                <td style='color: black;border:none'>Product Prices</td>
                                                 <td style='color: black;'> Rs: 0</td>
                                             </tr>
-                                            <tr id="total-charges">
+                                            <tr id="custom-charges">
+                                                <td style='color: black;'> + UK to PK (Air Shipping Fee)</td>
+                                                <td style='color: black;'> Rs: 0</td>
+                                            </tr>
+                                            <!-- <tr id="customduty-charges">
+                                                <td style='color: black;'> + Custom Duties in Pakistan<br> (20% of the Products Prices)</td>
+                                                <td style='color: black;'> Rs: 0</td>
+                                            </tr> -->
+                                            <!-- <tr id="local-charges">
+                                                <td style='color: black;'> + Local Delivery Charges in Pakistan </td>
+                                                <td style='color: black;'> Rs: 0</td>
+                                            </tr> -->
+                                            <tr id="brand-charges">
+                                                <td style='color: black;'>+ Brand Delivery Charges</td>
+                                                <td style='color: black;'> Rs: 0</td>
+                                            </tr>
+                                            <tr id="service-charges">
+                                                <td style='color: black;'>+ Service Charges</td>
+                                                <td style='color: black;'> Rs: 0</td>
+                                            </tr>
+                                            <!-- <tr id="total-charges">
                                                 <td style='color: black;'> Total Charges</td>
                                                 <td style='color: black;'>Rs: 0</td>
-                                            </tr>
+                                            </tr> -->
                                         </table>
+
+                                        <!-- <div class="invoicebuttons">
+                                              <button id="addmore" onclick='gotoinvoice()'>Add more</button>
+                                             <button>Proceed to Checkout</button>
+                                                </div> -->
+
+                                        <div id="charges">
+                                            <div id="total-charges" style="display:inline">
+                                                <h5 style="display:inline">Total Bill</h5>
+                                                <h5 style="display:inline;float:right">Rs: 0</h5>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <!-- <div class="invoicebuttons">
-                                <button id="addmore" onclick='gotoinvoice()'>Add more</button>
-                                <button>Proceed to Checkout</button>
-                              </div> -->
                                 </div>
                             </div>
                         </div>
@@ -680,7 +731,7 @@ session_start(); ?>
                                             <input id="email" type="email" class="form-control input-lg" placeholder="Email" required>
                                         </div>
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
-                                            <input id="phoneno" type="text" pattern="03[0-9]{2}-([0-9])(?!\1{6})[0-9]{6}" class="form-control input-lg" placeholder="03xx-xxxxxxx" required>
+                                            <input id="phoneno" type="text" pattern="03[0-9]{2}([0-9])(?!\1{6})[0-9]{6}" class="form-control input-lg" placeholder="03xxxxxxxxx" required>
                                         </div>
                                         <!-- </div> -->
                                     </div>
@@ -689,7 +740,7 @@ session_start(); ?>
                                         <div class="col-sm-6" style="margin-bottom: 2%;">
 
                                             <select id="country" class="form-control" data-container-class="input-lg" data-search="true">
-                                           
+
                                                 <option value="PK" default>Pakistan</option>
                                             </select>
                                         </div>
@@ -980,73 +1031,73 @@ session_start(); ?>
                                 </div>
                             </div>
                         </div>
-                    
-                    <div class="tab">
-                        <!-- <div id="myModal" class="modal fade"> -->
-                        <div class="modal-dialog modal-confirm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div class="icon-box">
-                                        <i class="fas fa-check"></i>
+
+                        <div class="tab">
+                            <!-- <div id="myModal" class="modal fade"> -->
+                            <div class="modal-dialog modal-confirm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="icon-box">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <h4 class="modal-title w-100">Awesome!</h4>
                                     </div>
-                                    <h4 class="modal-title w-100">Awesome!</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p class="text-center">Your booking has been confirmed. Check your email for
-                                        detials.</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="index.php" class="btn btn-success btn-block" style="color:white;background-color: #EF305E;padding-top: 6%;" data-dismiss="modal">OK</a>
+                                    <div class="modal-body">
+                                        <p class="text-center">Your booking has been confirmed. Check your email for
+                                            detials.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="index.php" class="btn btn-success btn-block" style="color:white;background-color: #EF305E;padding-top: 6%;" data-dismiss="modal">OK</a>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- </div> -->
                         </div>
-                        <!-- </div> -->
-                    </div>
-                    <div class="tab">
-                        <!-- <div id="myModal" class="modal fade"> -->
-                        <div class="modal-dialog modal-confirm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div class="icon-box">
-                                    <i class="fas fa-sad-cry"></i>
+                        <div class="tab">
+                            <!-- <div id="myModal" class="modal fade"> -->
+                            <div class="modal-dialog modal-confirm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="icon-box">
+                                            <i class="fas fa-sad-cry"></i>
+                                        </div>
+                                        <h4 class="modal-title w-100">Sorry for the Inconvenience</h4>
                                     </div>
-                                    <h4 class="modal-title w-100">Sorry for the Inconvenience</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p class="text-center">We cannot process your request at the moment.Please Try again Later</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="index.php" class="btn btn-success btn-block" style="color:white;background-color: #EF305E;padding-top: 6%;" data-dismiss="modal">OK</a>
+                                    <div class="modal-body">
+                                        <p class="text-center">We cannot process your request at the moment.Please Try again Later</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="index.php" class="btn btn-success btn-block" style="color:white;background-color: #EF305E;padding-top: 6%;" data-dismiss="modal">OK</a>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="rowrow-cart" style="width: 100%;display:block">
+                            <div class="invoicebuttons">
+                                <button id="addmore" class="ht-btn ht-btn-sm" onclick='gotoinvoice()'>Add more</button>
+                                <button type="button" class="ht-btn ht-btn-sm" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                                <button type="button" class="ht-btn ht-btn-sm" id="nextBtn" onclick="nextPrev(1)">Proceed to
+                                    Checkout</button>
+                            </div>
+                        </div>
+                        <!-- Circles which indicates the steps of the form: -->
+                        <div style="text-align:center;margin-top:40px;">
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+
                         </div>
                         <!-- </div> -->
-                    </div>
-                    <div class="rowrow-cart" style="width: 100%; display: block">
-                        <div class="invoicebuttons">
-                            <button id="addmore" class="ht-btn ht-btn-sm" onclick='gotoinvoice()'>Add more</button>
-                            <button type="button" class="ht-btn ht-btn-sm" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                            <button type="button" class="ht-btn ht-btn-sm" id="nextBtn" onclick="nextPrev(1)">Proceed to
-                                Checkout</button>
-                        </div>
-                    </div>
-                    <!-- Circles which indicates the steps of the form: -->
-                    <div style="text-align:center;margin-top:40px;">
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
 
                     </div>
-                    <!-- </div> -->
-
                 </div>
             </div>
         </div>
-    </div>
-    <!--====================  End of testimonial section  ====================-->
+        <!--====================  End of testimonial section  ====================-->
 
 
-    <!--====================  Blog Section Start ====================-->
+        <!--====================  Blog Section Start ====================-->
 
     </div>
 
@@ -1061,11 +1112,20 @@ session_start(); ?>
                             <img src="assets/images/logo/new-logo.png" class="img-fluid" alt="">
                         </div>
                         <ul class="footer-widget__list">
-                            <li>R4, Opposite Gohar Sultan Masjid<br>
-                                Teyrhi Road Noman Grand City <br>
-                                Block 17, Gulistan-e-johar <br>
-                                Karachi, Sindh</li>
-                            <li><a href="mailto:customercare@bringitin.pkk" class="hover-style-link">customercare@bringitin.pk</a>
+                            <li> R4, Opposite Gohar Sultan Masjid<br>
+                                Teyrhi Road<br>
+                                Noman Grand City<br>
+                                Block 17, Gulistan-e-johar<br>
+                                Karachi, Sindh<br>
+                                Pakistan-75290</li>
+                                <!-- <li>Unit 7 Community House
+                                19-21 Eastern Road<br>
+                                Romford, Essex<br>
+                                Greater London<br>
+                                RM1 3NH<br>
+                                United Kingdom</li> -->
+
+                            <li><a href="mailto:hello@bringitin.pk" class="hover-style-link">hello@bringitin.pk</a>
                             </li>
                             <!-- <li><a href="tel:123344556" class="hover-style-link text-black font-weight--bold">(+68)1221
                                     09876</a>
@@ -1163,7 +1223,7 @@ session_start(); ?>
                             <a href="index.php"><span>Home</span></a>
                         </li>
                         <li>
-                            <a href="aboutus.html"><span>About us</span></a>
+                            <a href="aboutus.html"><span>About Us</span></a>
 
                         </li>
                         <li>
@@ -1171,7 +1231,7 @@ session_start(); ?>
 
                         </li>
                         <li>
-                            <a href="contactus.php"><span>Contact us</span></a>
+                            <a href="contactus.php"><span>Contact Us</span></a>
                             <!-- mega menu -->
                         </li>
                     </ul>
@@ -1298,6 +1358,7 @@ session_start(); ?>
         var grand_total = 0;
         var total = 0;
         var shipping_total = 0;
+        var custom_total = 0;
         var price_total = 0;
         var total_price = 0;
         var service_charges = 0;
@@ -1305,6 +1366,12 @@ session_start(); ?>
         var shipping_value = 110;
         var shipping_option = []
         var shipping_amount = []
+        var product_total = 0;
+        var shipping_per = 0
+        var local_delivery = 0
+        var brand_delivery = []
+        var brand_delivery_charges = 0
+
 
         var email = false;
 
@@ -1318,7 +1385,7 @@ session_start(); ?>
         form.addEventListener("submit", check);
 
         function check2() {
-            console.log("jjjj");
+
             // return false;
 
 
@@ -1331,7 +1398,7 @@ session_start(); ?>
             var shipno = document.getElementById("shipping").value
 
             var ship = $(`#shipping option[value=` + shipno + `]`).text();
-            console.log(ship);
+
 
             shipping_option.push(ship)
             event.preventDefault();
@@ -1345,22 +1412,20 @@ session_start(); ?>
             data.append("color", document.getElementById("color").value);
             data.append("price", document.getElementById("price").value);
             data.append("request", document.getElementById("request").value);
-            console.log(data, "data");
+
             var x = document.getElementById("alert");
             if (x.style.display === "block") {
                 x.style.display = "none";
             }
             var xhr = new XMLHttpRequest();
-            // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+
             xhr.open("POST", "form.php");
             xhr.onload = function() {
-                // console.log(this.response)
-                console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
-                console.log(data, "data2");
-                console.log(this.response);
+
+
                 var formdata = JSON.parse(this.response);
                 if (formdata.urlcheck != "Okay") {
-                    //   console.log(formdata);
+
                     var x = document.getElementById("alert");
                     if (x.style.display === "none") {
                         x.style.display = "block";
@@ -1382,9 +1447,11 @@ session_start(); ?>
                     item_size.push(formdata.size);
                     item_qty.push(formdata.quantity);
                     item_request.push(formdata.request);
-                    item_no = item_brand.length;
+                    brand_delivery.push(formdata.branddelivery)
 
-                    if (formdata.brand == 69 || formdata.brand <69) {
+                    item_no = item_brand.length;
+                    console.log(brand_delivery)
+                    if (formdata.brand == 69 || formdata.brand < 69) {
                         var myobj = document.getElementById("emptycart");
                         if (myobj) {
                             myobj.remove();
@@ -1402,17 +1469,22 @@ session_start(); ?>
                             formdata.quantity +
                             "</td>" +
                             "<td style='vertical-align: middle'>  Rs: " +
-                            formatNumber(formdata.shipping) +
+                            formatNumber(formdata.shipping * formdata.quantity) +
+                            " (Rs " + formatNumber(formdata.shipping) + " each)" +
+                            "</td>" +
+                            "<td style='vertical-align: middle'>  Rs: " +
+                            formatNumber(formdata.branddelivery * formdata.quantity) +
+                            " (Rs " + formatNumber(formdata.branddelivery) + " each)" +
                             "</td>" +
                             "<td style='vertical-align: middle'> Rs: " +
-                            formatNumber(formdata.price * formdata.quantity + formdata.shipping) +
+                            formatNumber((formdata.price * formdata.quantity) + (formdata.shipping * formdata.quantity) + (formdata.branddelivery * formdata.quantity)) +
                             "</td>" +
                             "<td class='product-remove'> <i onclick='productdelete(this)' class='fa fa-close' style='font-size:24px'></i></td>" +
                             "</tr>"
                         );
                         showTab(currentTab);
-                        // console.log(item_brand)
-                        console.log(formdata);
+
+
                         var elem = document.getElementById("invoicebox");
                         elem.scrollIntoView();
                         document.getElementById("myform").reset();
@@ -1429,31 +1501,36 @@ session_start(); ?>
 
         function calculateprice() {
             shipping_total = price_total = 0;
+            custom_sub = 0
+            custom_total = 0
+            brand_delivery_charges = 0
             for (var i = 0; i < item_shipping.length; i++) {
-                // console.log(i)
-                shipping_total = shipping_total + item_shipping[i];
-                price_total = price_total + item_qty[i] * item_price[i];
-            }
 
-            total_price = parseInt(shipping_total) + parseInt(price_total);
-            console.log(total_price, "total");
-            // grand_total += parseInt(total_price)
-            // console.log(item_shipping)
-            console.log(total_price, "shipping");
+                shipping_total = shipping_total + (item_shipping[i] * item_qty[i]);
+                price_total = price_total + item_qty[i] * item_price[i];
+                custom_sub = custom_sub + (item_qty[i] * item_price[i] * 0.20);
+                brand_delivery_charges = brand_delivery_charges + (brand_delivery[i] * item_qty[i])
+            }
+            product_total = price_total;
+            custom_total = custom_total + custom_sub
+            local_delivery = 200
+            total_price = parseInt(shipping_total) + parseInt(price_total) + parseInt(brand_delivery_charges);
+
+
             shipping_value = document.getElementById("delivery").value;
-            console.log(document.getElementById("delivery").value);
+
             changeshipping();
         }
 
         function productdelete(ctl) {
-            // console.log(ctl.rowIndex)
+
 
             $("#producttable")
                 .find("tr")
                 .click(function() {
-                    console.log($(this).index());
+
                     index = $(this).index() - 1;
-                    console.log(index);
+
                     $(ctl).parents("tr").remove();
                     if (index > -1) {
                         item_brand.splice(index, 1);
@@ -1465,44 +1542,104 @@ session_start(); ?>
                         item_color.splice(index, 1);
                         item_request.splice(index, 1);
                         item_no = item_brand.length;
+                        brand_delivery.splice(index, 1)
+
                     }
                     calculateprice();
                     showTab(currentTab);
-                    // console.log(item_brand)
+
                 });
         }
 
         function changeshipping() {
-            // console.log("jjjj")
+
             shipping_value = document.getElementById("delivery").value;
             if (document.getElementById("delivery").value == 110) {
                 // grand_total = parseInt(total_price)
+                shipping_per = 15
                 service_charges = total_price * 0.15;
+
                 grand_total = parseInt(total_price) + parseInt(service_charges);
             } else {
-                service_charges = total_price * 0.1;
+                shipping_per = 5
+                service_charges = total_price * 0.05;
                 grand_total = parseInt(total_price) + parseInt(service_charges);
 
             }
             var myobj = document.getElementById("service-charges");
             myobj.remove();
-            var obj = document.getElementById("total-charges");
+            var obj = document.getElementById("product-charges");
             obj.remove();
+            var obj2 = document.getElementById("total-charges");
+            obj2.remove();
+            var obj3 = document.getElementById("custom-charges");
+            obj3.remove();
+            var obj4 = document.getElementById("brand-charges");
+            obj4.remove();
+            // var obj5 = document.getElementById("local-charges");
+            // obj5.remove();
             $("#checkout").append(
-                "  <tr id='service-charges'>" +
-                "<td  style='color: black;'>Service Charges</td>" +
+                " <tr id='product-charges'>" +
+                "<td  style='color: black;'>Product Prices"
+
+                +
+                "</td>" +
                 "<td  style='color: black;'> Rs: " +
-                formatNumber(service_charges) +
+                formatNumber(parseInt(product_total)) +
+                "</td>" +
+                "</tr>"
+            );
+
+            $("#checkout").append(
+                " <tr id='custom-charges'>" +
+                "<td  style='color: black;'> + UK to PK (Air Shipping Fee)</td>" +
+                "<td  style='color: black;'> Rs: " +
+                formatNumber(parseInt(shipping_total)) +
+                "</td>" +
+                "</tr>"
+            );
+            // $("#checkout").append(
+            //     " <tr id='customduty-charges'>" +
+            //     "<td  style='color: black;'> + Custom Duties Charges in Pakistan<br> (20% of the Products Prices)" +
+            //     "<td  style='color: black;'> Rs: " +
+            //     formatNumber(parseInt(custom_total)) +
+            //     "</td>" +
+            //     "</tr>"
+            // );
+            // $("#checkout").append(
+            //     " <tr id='local-charges'>" +
+            //     "<td  style='color: black;'> + Local Delivery Charges in Pakistan " +
+            //     "<td  style='color: black;'> Rs: " +
+            //     formatNumber(parseInt(local_delivery)) +
+            //     "</td>" +
+            //     "</tr>"
+            // );
+            $("#checkout").append(
+                " <tr id='brand-charges'>" +
+                "<td  style='color: black;'> + Brand Delivery Charges" +
+                "</td>" +
+                "<td  style='color: black;'> Rs: " +
+                formatNumber(parseInt(brand_delivery_charges)) +
                 "</td>" +
                 "</tr>"
             );
             $("#checkout").append(
-                "  <tr id='total-charges'>" +
-                "<td  style='color: black;'>Total Charges</td>" +
+                " <tr id='service-charges'>" +
+                "<td  style='color: black;'> + Service Charges (" +
+                shipping_per +
+                " %)</td>" +
                 "<td  style='color: black;'> Rs: " +
-                formatNumber(grand_total) +
+                formatNumber(parseInt(service_charges)) +
                 "</td>" +
                 "</tr>"
+            );
+            $("#charges").append(
+                "<div id='total-charges' style='display:inline'>" +
+                "<h5  style='color: black;display:inline'>Total Bill</h5>" +
+                "<h5  style='color: black;display:inline;float:right'> Rs: " +
+                formatNumber(parseInt(grand_total)) +
+                "</h4>" +
+                "</div>"
             );
             // $("#service").append("<h4 style='color: black;'id='service-charges'> Service Charges: Rs " + service_charges + "</h4>")
             // $("#total").append("<h4 style='color: black;' id='total-charges'> Total Charges: Rs " + grand_total + "</h4>")
@@ -1522,7 +1659,7 @@ session_start(); ?>
             // This function will display the specified tab of the form...
             var x = document.getElementsByClassName("tab");
             var z = document.getElementById("emptycart")
-            // console.log(z)
+
             var y = document.getElementById("producttable").rows.length
             if (y == 1) {
                 $("#producttable").append(" <tr id='emptycart'; >" +
@@ -1534,7 +1671,7 @@ session_start(); ?>
             if (n == 0) {
                 document.getElementById("addmore").style.display = "inline";
                 document.getElementById("prevBtn").style.display = "none";
-                document.getElementById("nextBtn").innerHTML = "Next";
+                document.getElementById("nextBtn").innerHTML = "CheckOut";
                 // document.getElementById("nextBtn").onclick = function() {
 
                 // };
@@ -1586,13 +1723,12 @@ session_start(); ?>
             var phone_number = document.getElementById("phoneno").value
             var country = document.getElementById("country").value
             var city = document.getElementById("city").value
-            console.log(city)
-            console.log(shipping_option)
+
             var address1 = document.getElementById("address1").value
             var address2 = document.getElementById("address2").value
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             // const phone = /^\d{11}$/
-            const phone = /^[0][\d]{3}-[\d]{7}$/
+            const phone = /^[0][\d]{3}[\d]{7}$/
             if (fname == "" || lname == "" || email == "" || phone_number == "" || country == "" || city == "" || address1 == "") {
                 var x = document.getElementById("shippingform");
                 if (x.style.display === "none") {
@@ -1603,7 +1739,7 @@ session_start(); ?>
                 return false
             } else if (re.test(email) && (phone.test(phone_number))) {
                 var shipmethod = $(`#delivery option[value=` + shipping_value + `]`).text();
-                console.log(shipmethod);
+
 
                 var data1 = new FormData();
                 data1.append("fname", fname)
@@ -1614,7 +1750,7 @@ session_start(); ?>
                 data1.append("address1", address1)
                 data1.append("address2", address2)
                 data1.append("shipmethod", shipmethod)
-                console.log(shipmethod);
+
                 data1.append("servicecharges", service_charges)
                 data1.append("url", JSON.stringify(item_url))
                 data1.append("price", JSON.stringify(item_price))
@@ -1623,16 +1759,18 @@ session_start(); ?>
                 data1.append("quantity", JSON.stringify(item_qty))
                 data1.append("request", JSON.stringify(item_request))
                 data1.append("shipping", JSON.stringify(shipping_option))
+                data1.append("local", JSON.stringify(local_delivery))
+                data1.append("brandshipping", JSON.stringify(brand_delivery))
                 data1.append("itemshipping", JSON.stringify(item_shipping))
-                console.log(FormData)
+
                 // document.getElementById("shippingdetails").onsubmit
                 var xhd = new XMLHttpRequest();
                 xhd.open("POST", "sendmail.php");
-                // console.log(data1.url)
+
                 xhd.send(data1);
                 xhd.onload = function() {
                     var formdata = JSON.parse(this.response)
-                    console.log(formdata.error)
+
 
                     if (formdata.error == false) {
                         var x = document.getElementById("emailerror");
@@ -1642,6 +1780,7 @@ session_start(); ?>
                             x.style.display = "none";
                         }
                         nextPrev(2)
+
                     } else {
                         error = true
                         nextPrev(1)
@@ -1652,27 +1791,9 @@ session_start(); ?>
                 }
 
 
-                //         function sendMail(){
-                //     console.log(item_brand)
-                //     // item_shipping.push(formdata.shipping);
-                //     //         item_url.push(formdata.url);
-                //     //         item_price.push(formdata.price);
-                //     //         item_color.push(formdata.color);
-                //     //         item_size.push(formdata.size);
-                //     //         item_qty.push(formdata.quantity);
-                //     //         item_request.push(formdata.request);
-                //     var data = new FormData();
-                //     data.append("url",item_url)
-                //     var xhr = new XMLHttpRequest();
-                //     // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-                //     xhr.open("POST", "sendmail.php");
-                //     // xhr.onload = function() {
 
-                //     // }
-                // }
-                //         sendMail()
             } else {
-                console.log("email or phone not valid")
+
                 var x = document.getElementById("shippingform");
                 if (x.style.display === "none") {
                     x.style.display = "block";
@@ -1709,12 +1830,7 @@ session_start(); ?>
                     }
                 }
 
-                // if (n == 1) {
-                //     if (validate_shipping() ) {
-                //         console.log("exit")
-                //         return
-                //     }
-                // }
+
             }
             x[currentTab].style.display = "none";
             // Increase or decrease the current tab by 1:

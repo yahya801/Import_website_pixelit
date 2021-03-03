@@ -16,7 +16,7 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
         $mail->Host = 'bringitin.pk';
         $mail->Port = 465;  
         $mail->Username = 'sales@bringitin.pk';
-        $mail->Password = 'jLP?gO&{]vn=';   
+        $mail->Password = 'G5wI%^Pnqk%N';   
    
    //   $path = 'reseller.pdf';
    //   $mail->AddAttachment($path);
@@ -67,7 +67,10 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
     $request = json_decode($_POST["request"]);
     $shipping = json_decode($_POST["shipping"]);
     $itemshipping = json_decode($_POST["itemshipping"]);
-    $txt = "Thank you From from Ordering From Bringitin.pk";
+    $local = json_decode($_POST["local"]);
+    $brandshipping = json_decode($_POST["brandshipping"]);
+    $txt = " <img src='assets/images/logo/new-icon.png' alt=''>";
+    $txt .= "Thank you from Ordering From Bringitin.pk";
     $txt .= "<br>";
     $txt .= "<br>";
     $txt .= "Your Name: ";
@@ -102,7 +105,8 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
 
     for ($x = 0; $x < count($url); $x++) {
         $total_price += ($price[$x]* $quantity[$x]);
-        $total_price += $itemshipping[$x];
+        $total_price += ($itemshipping[$x]*$quantity[$x]);
+        $total_price += ($brandshipping[$x]*$quantity[$x]);
       $txt .=  "Ordered Url: ";  
       $txt .=  $url[$x];
       $txt .= "<br>"; 
@@ -121,12 +125,25 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
       $txt .=  "Shipping Chosen: "; 
       $txt .= $shipping[$x];
       $txt .= "<br>";
+      $txt .=  "Brand Shipping Charges: Rs"; 
+      $txt .= ($brandshipping[$x]* $quantity[$x]);
+      $txt .= "<br>";
+      $txt .=  "Total Product Price: Rs"; 
+      $txt .= ($price[$x]* $quantity[$x]);
+      $txt .= "<br>";
+   
+      $txt .=  "Total Shipping Charges: Rs"; 
+      $txt .= ($itemshipping[$x]*$quantity[$x]);
+      $txt .= "<br>";
       $txt .= "<br>";
     }
     $total_price += $servicecharges;
+    // $total_price += $local;
+    // $txt .= "Local Delivery Charges: Rs ";
+    // $txt .= $local;
+    // $txt .= "<br>";
     $txt .= "Service Charges: Rs ";
     $txt .= $servicecharges;
-    $txt .= "<br>";
     $txt .= "<br>";
     $txt .=  "Total Price: Rs "; 
     $txt .= $total_price;

@@ -98,7 +98,7 @@
                                                           
                                                       </li>
                                                       <li >
-                                                          <a href="aboutus.html"><span>About us</span></a>
+                                                          <a href="aboutus.html"><span>About Us</span></a>
                                                            
                                                       </li>
                                                       <li >
@@ -106,7 +106,7 @@
                                                           
                                                       </li>
                                                       <li >
-                                                          <a href="contactus.php"><span>Contact us</span></a>
+                                                          <a href="contactus.php"><span>Contact Us</span></a>
                                                           <!-- mega menu -->
                                                           
                                                       </li>
@@ -167,11 +167,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb_box text-center">
-                        <h2 class="breadcrumb-title">Contact us</h2>
+                        <h2 class="breadcrumb-title">Contact Us</h2>
                         <!-- breadcrumb-list start -->
                         <ul class="breadcrumb-list">
                             <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                            <li class="breadcrumb-item active">Contact us </li>
+                            <li class="breadcrumb-item active">Contact Us </li>
                         </ul>
                         <!-- breadcrumb-list end -->
                     </div>
@@ -200,7 +200,7 @@
                         <div class="col-lg-6 col-lg-6">
                             <div class="conact-us-wrap-one mb-30">
                                 <h3 class="heading">Drop your queries <br> and we will  <span
-                                        class="text-color-primary">contact <br></span> you soon </h3>
+                                        class="text-color-primary">Contact <br></span> you soon </h3>
                                 <!--====================   <div class="sub-heading">We just need a couple of hours! <br> No more than 2 working days since receiving your issue ticket.</div> ====================-->
                             </div>
                         </div>
@@ -314,12 +314,14 @@
                                 <img src="assets/images/logo/new-logo.png" class="img-fluid" alt="">
                             </div>
                             <ul class="footer-widget__list">
-                                <li>R4, Opposite Gohar Sultan Masjid<br>
-                                    Teyrhi Road Noman Grand City <br>
-                                   Block 17, Gulistan-e-johar <br>
-                                       Karachi, Sindh</li>
-                                <li><a href="mailto:customercare@bringitin.pk"
-                                        class="hover-style-link">customercare@bringitin.pk</a></li>
+                            <li> R4, Opposite Gohar Sultan Masjid<br>
+                                Teyrhi Road<br>
+                                Noman Grand City<br>
+                                Block 17, Gulistan-e-johar<br>
+                                Karachi, Sindh<br>
+                                Pakistan-75290</li>
+                                <li><a href="mailto:hello@bringitin.pk"
+                                        class="hover-style-link">hello@bringitin.pk</a></li>
                                 <!-- <li><a href="tel:123344556"
                                         class="hover-style-link text-black font-weight--bold">(+68)1221 09876</a></li> -->
                                 <!-- <li><a href="www.bringitin.pk"
@@ -415,7 +417,7 @@
                             <a href="index.php"><span>Home</span></a>
                         </li>
                         <li>
-                            <a href="aboutus.html"><span>About us</span></a>
+                            <a href="aboutus.html"><span>About Us</span></a>
 
                         </li>
                         <li>
@@ -423,7 +425,7 @@
 
                         </li>
                         <li>
-                            <a href="contactus.php"><span>Contact us</span></a>
+                            <a href="contactus.php"><span>Contact Us</span></a>
                             <!-- mega menu -->
                         </li>
                     </ul>
