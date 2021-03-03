@@ -1,0 +1,14 @@
+INSERT INTO `shipping` (`shippingID`, `description`, `amount`)
+VALUES 
+('51', 'Rs 500 Shirt/Top/Undergarment/Jewellery/Accessory', '500'),
+('52', 'Rs 1000 each Trouser/Jeans/Sweater/Jumper', '1000'),
+('53', 'Rs 1800 each Jacket/Blazer/Hoodie - Light weight', '1800'),
+('54', 'Rs 2500 each Long Coat/Jacket', '2500'),
+('55', 'Rs 500 each Footwear(Kids)/Slippers(Adults)', '500'),
+('56', 'Rs 1500 each Footwear(Adults)/Handbag/Purse', '1500'),
+('57', 'Rs 500 each Small Book - Paperback/SoftCover', '500'),
+('58', 'Rs 2000 each Book - Hardcover/CoffeeTable', '2000'),
+('59', 'Rs 500 each Mobile Cover', '500'),
+('60', 'Rs 1000 each Medicine/Small Cosmetics', '1000'),
+('61', 'Rs 1200 each Watch/Sunglasses', '1200'),
+('62', 'Miscellaneous will be discussed on Call', '0');

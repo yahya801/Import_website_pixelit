@@ -561,7 +561,7 @@ End Facebook Pixel Code -->
                                                             <option value="60"> Rs 1000 each Medicine/Small Cosmetics
                                                             </option>
                                                             <option value="61"> Rs 1200 each Watch/Sunglasses</option>
-                                                            <option value="62"> Miscellaneous will be discussed on Call
+                                                            <option value="62">     
                                                             </option>
                                                             <!-- <option value="63"> Rs 5700 each Miscellaneous - Medium
                                                             </option>
@@ -1419,7 +1419,7 @@ End Facebook Pixel Code -->
             }
             var xhr = new XMLHttpRequest();
 
-            xhr.open("POST", "form.php");
+            xhr.open("POST", "form_check.php");
             xhr.onload = function() {
 
 
