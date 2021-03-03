@@ -31,6 +31,8 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `url2` VARCHAR(255) NULL,
   `urlmobile` VARCHAR(255) NULL,
   `origin` VARCHAR(45) NULL,
+  `charge` float,
+  `free` float,
   PRIMARY KEY (`brandID`));
 
 Shipping
