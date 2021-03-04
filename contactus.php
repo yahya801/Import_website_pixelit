@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -83,54 +82,55 @@
 
                             </div>
 
-                            <!-- header right box --><div class="header-right-box">
+                            <!-- header right box -->
+                            <div class="header-right-box">
                                 <div class="header-right-inner" id="hidden-icon-wrapper">
 
                                     <div class="header-bottom-wrap d-md-block d-none">
-                                  <div class="header-bottom-inner">
-                                      <div class="header-bottom-left-wrap">
-                                          <!-- navigation menu -->
-                                          <div class="header__navigation d-none d-xl-block">
-                                              <nav class="navigation-menu primary--menu">
-                                                 <ul>
-                                                      <li>
-                                                          <a href="index.php"><span>Home</span></a>
-                                                          
-                                                      </li>
-                                                      <li >
-                                                          <a href="aboutus.html"><span>About Us</span></a>
-                                                           
-                                                      </li>
-                                                      <li >
-                                                          <a href="faqs.html"><span>FAQS</span></a>
-                                                          
-                                                      </li>
-                                                      <li >
-                                                          <a href="contactus.php"><span>Contact Us</span></a>
-                                                          <!-- mega menu -->
-                                                          
-                                                      </li>
-                                                      
-                                                      
-                                                  </ul>
-                                              </nav>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>                           
-                              </div>
+                                        <div class="header-bottom-inner">
+                                            <div class="header-bottom-left-wrap">
+                                                <!-- navigation menu -->
+                                                <div class="header__navigation d-none d-xl-block">
+                                                    <nav class="navigation-menu primary--menu">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="index.php"><span>Home</span></a>
 
-                              <!-- mobile menu -->
-                              <div class="mobile-navigation-icon d-block d-xl-none" id="mobile-menu-trigger">
-                                  <i></i>
-                              </div>
-                              <!-- hidden icons menu -->
-                              <!-- <div class="hidden-icons-menu d-block d-md-none" id="hidden-icon-trigger">
+                                                            </li>
+                                                            <li>
+                                                                <a href="aboutus.html"><span>About Us</span></a>
+
+                                                            </li>
+                                                            <li>
+                                                                <a href="faqs.html"><span>FAQS</span></a>
+
+                                                            </li>
+                                                            <li>
+                                                                <a href="contactus.php"><span>Contact Us</span></a>
+                                                                <!-- mega menu -->
+
+                                                            </li>
+
+
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- mobile menu -->
+                                <div class="mobile-navigation-icon d-block d-xl-none" id="mobile-menu-trigger">
+                                    <i></i>
+                                </div>
+                                <!-- hidden icons menu -->
+                                <!-- <div class="hidden-icons-menu d-block d-md-none" id="hidden-icon-trigger">
                                   <a href="javascript:void(0)">
                                       <i class="far fa-ellipsis-h-alt"></i>
                                   </a>
                               </div> -->
-                          </div>
+                            </div>
 
                         </div>
                     </div>
@@ -199,8 +199,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-lg-6">
                             <div class="conact-us-wrap-one mb-30">
-                                <h3 class="heading">Drop your queries <br> and we will  <span
-                                        class="text-color-primary">Contact <br></span> you soon </h3>
+                                <h3 class="heading">Drop your queries <br> and we will <span class="text-color-primary">Contact <br></span> you soon </h3>
                                 <!--====================   <div class="sub-heading">We just need a couple of hours! <br> No more than 2 working days since receiving your issue ticket.</div> ====================-->
                             </div>
                         </div>
@@ -208,8 +207,7 @@
                         <div class="col-lg-6 col-lg-6">
                             <div class="contact-form-wrap">
 
-                                <form id="contact-form"
-                                    action="contactemail.php" method="post">
+                                <form id="contact-form" action="contactemail.php" method="post">
                                     <!-- <form id="contact-form" action="assets/php/mail.php" method="post"> -->
                                     <div class="contact-form">
                                         <div class="contact-input">
@@ -224,8 +222,7 @@
                                             <input name="subject" type="text" placeholder="Subject *" required>
                                         </div>
                                         <div class="contact-inner contact-message">
-                                            <textarea name="message"
-                                                placeholder="Please describe what you need."></textarea>
+                                            <textarea name="message" placeholder="Please describe what you need."></textarea>
                                         </div>
                                         <div class="submit-btn mt-20">
                                             <button class="ht-btn ht-btn-md" type="submit">Send message</button>
@@ -257,10 +254,10 @@
                                     </li>
                                     <!-- <li><a href="#" class="hover-style-link text-black font-weight--bold">(+68)1221
                                             09876</a></li> -->
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- <div class="col-lg-4 col-md-6">
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="col-lg-4 col-md-6">
                             <div class="conact-info-wrap mt-30">
                                 <h5 class="heading mb-20">New York</h5>
                                 <ul class="conact-info__list">
@@ -273,7 +270,7 @@
                                 </ul>
                             </div>
                         </div> -->
-                        <!-- <div class="col-lg-4 col-md-6">
+    <!-- <div class="col-lg-4 col-md-6">
                             <div class="conact-info-wrap mt-30">
                                 <h5 class="heading mb-20">England</h5>
                                 <ul class="conact-info__list">
@@ -287,10 +284,10 @@
                             </div>
                         </div> -->
 
-                    </div>
-                </div>
-            </div> 
-            <!--====================  Conact us info End  ====================-->
+    </div>
+    </div>
+    </div>
+    <!--====================  Conact us info End  ====================-->
 
 
 
@@ -302,78 +299,75 @@
 
 
 
-        </div>
+    </div>
 
-        <!--====================  footer area ====================-->
-        <div class="footer-area-wrapper bg-gray">
-            <div class="footer-area section-space--ptb_80">
-                <div class="container">
-                    <div class="row footer-widget-wrapper">
-                        <div class="col-lg-10 col-md-6 col-sm-6 footer-widget">
-                            <div class="footer-widget__logo mb-30">
-                                <img src="assets/images/logo/new-logo.png" class="img-fluid" alt="">
-                            </div>
-                            <ul class="footer-widget__list">
+    <!--====================  footer area ====================-->
+    <div class="footer-area-wrapper bg-gray">
+        <div class="footer-area section-space--ptb_80">
+            <div class="container">
+                <div class="row footer-widget-wrapper">
+                    <div class="col-lg-10 col-md-6 col-sm-6 footer-widget">
+                        <div class="footer-widget__logo mb-30">
+                            <img src="assets/images/logo/new-logo.png" class="img-fluid" alt="">
+                        </div>
+                        <ul class="footer-widget__list">
                             <li> R4, Opposite Gohar Sultan Masjid<br>
                                 Teyrhi Road<br>
                                 Noman Grand City<br>
                                 Block 17, Gulistan-e-johar<br>
                                 Karachi, Sindh<br>
                                 Pakistan-75290</li>
-                                <li><a href="mailto:hello@bringitin.pk"
-                                        class="hover-style-link">hello@bringitin.pk</a></li>
-                                <!-- <li><a href="tel:123344556"
+                            <li><a href="mailto:hello@bringitin.pk" class="hover-style-link">hello@bringitin.pk</a></li>
+                            <!-- <li><a href="tel:123344556"
                                         class="hover-style-link text-black font-weight--bold">(+68)1221 09876</a></li> -->
-                                <!-- <li><a href="www.bringitin.pk"
+                            <!-- <li><a href="www.bringitin.pk"
                                         class="hover-style-link text-color-primary">www.bringitin.pk</a></li> -->
-                            </ul>
-                        </div>
+                        </ul>
+                    </div>
 
 
-                        <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
-                            <h6 class="footer-widget__title mb-20">Support</h6>
-                            <ul class="footer-widget__list">
-                                         <!-- <li><a href="#" class="hover-style-link">Forum Support</a></li> -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
+                        <h6 class="footer-widget__title mb-20">Support</h6>
+                        <ul class="footer-widget__list">
+                            <!-- <li><a href="#" class="hover-style-link">Forum Support</a></li> -->
                             <li><a href="faqs.html" class="hover-style-link">Help & FAQ</a></li>
                             <li><a href="contactus.php " class="hover-style-link">Contact Us</a></li>
                             <!-- <li><a href="#" class="hover-style-link">Pricing and plans</a></li>
                             <li><a href="#" class="hover-style-link">Cookies Policy</a></li> -->
-                            </ul>
-                        </div>
-
+                        </ul>
                     </div>
+
                 </div>
             </div>
-            <div class="footer-copyright-area section-space--pb_30">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 text-center text-md-left">
-                            <span class="copyright-text">&copy; 2020 Bringitin. <a href="#">All
-                                    Rights Reserved.</a></span>
-                        </div>
-                        <div class="col-md-6 text-center text-md-right">
-                            <ul class="list ht-social-networks solid-rounded-icon">
+        </div>
+        <div class="footer-copyright-area section-space--pb_30">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-left">
+                        <span class="copyright-text">&copy; 2020 Bringitin. <a href="#">All
+                                Rights Reserved.</a></span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-right">
+                        <ul class="list ht-social-networks solid-rounded-icon">
 
-                                <li class="item">
-                                    <a href="https://www.facebook.com/bringitinpk" target="_blank" aria-label="Facebook"
-                                        class="social-link hint--bounce hint--top hint--primary">
-                                        <i class="fab fa-facebook-f link-icon"></i>
-                                    </a>
-                                </li>
-                                <li class="item">
-                                    <a href="https://www.instagram.com/bringitinpk" target="_blank" aria-label="Instagram"
-                                        class="social-link hint--bounce hint--top hint--primary">
-                                        <i class="fab fa-instagram link-icon"></i>
-                                    </a>
-                                </li>
+                            <li class="item">
+                                <a href="https://www.facebook.com/bringitinpk" target="_blank" aria-label="Facebook" class="social-link hint--bounce hint--top hint--primary">
+                                    <i class="fab fa-facebook-f link-icon"></i>
+                                </a>
+                            </li>
+                            <li class="item">
+                                <a href="https://www.instagram.com/bringitinpk" target="_blank" aria-label="Instagram" class="social-link hint--bounce hint--top hint--primary">
+                                    <i class="fab fa-instagram link-icon"></i>
+                                </a>
+                            </li>
 
-                            </ul>
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <!--====================  End of footer area  ====================-->
+    </div>
+    <!--====================  End of footer area  ====================-->
 
 
 

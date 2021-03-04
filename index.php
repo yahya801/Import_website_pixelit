@@ -561,7 +561,7 @@ End Facebook Pixel Code -->
                                                             <option value="60"> Rs 1000 each Medicine/Small Cosmetics
                                                             </option>
                                                             <option value="61"> Rs 1200 each Watch/Sunglasses</option>
-                                                            <option value="62">     
+                                                            <option value="62">
                                                             </option>
                                                             <!-- <option value="63"> Rs 5700 each Miscellaneous - Medium
                                                             </option>
@@ -1118,7 +1118,7 @@ End Facebook Pixel Code -->
                                 Block 17, Gulistan-e-johar<br>
                                 Karachi, Sindh<br>
                                 Pakistan-75290</li>
-                                <!-- <li>Unit 7 Community House
+                            <!-- <li>Unit 7 Community House
                                 19-21 Eastern Road<br>
                                 Romford, Essex<br>
                                 Greater London<br>
