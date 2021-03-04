@@ -55,7 +55,7 @@ Conversion rate
 
 CREATE TABLE IF NOT EXISTS `conversionrate` (
   `conversionrateID` INT NOT NULL,
-  `conversationrate` FLOAT NULL,
+  `conversionrate` FLOAT NULL,
   `updatedAt` DATETIME NULL,
   `pricetablecol` VARCHAR(45) NULL,
   PRIMARY KEY (`conversionrateID`));

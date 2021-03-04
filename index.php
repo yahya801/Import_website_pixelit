@@ -2,9 +2,37 @@
 <html class="no-js" lang="zxx">
 
 <?php
-session_start(); ?>
-
-
+session_start();
+// $my_array = array();
+// $_SESSION['cart_items'][$id] = Array('name'=>$name,'qty'=>1);
+// // foreach ($_SESSION['temp_array'] as $key => $value) {
+// //     // and print out the values
+// //     echo 'The value of $_SESSION[' . "'" . $key . "'" . '] is ' . "'" . $value . "'" . ' <br />';
+// // }
+// // Show session content
+// foreach($_SESSION['cart_items'] as $id=>$props){
+//     echo 'id='.$id.'<br />';
+//     echo 'name='.$props['name'].'<br />';
+//     echo 'qty='.$props['qty'];
+// } // outer array for loop
+$_SESSION['cart'] = array(
+    // array("product" => "apple", "quantity" => 2),
+    // array("product" => "Orange", "quantity" => 4),
+    // array("product" => "Banana", "quantity" => 5),
+    // array("product" => "Mango", "quantity" => 7),
+    // array("brandID" => 41, "shipping" => 50, "url" => "url1", "size" => 23, "colour" => "red", "quantity" => 3, "pricePounds" => "pricePounds", "totalRupees" => 2300, "request" => "specialrequest", "brandshippingRupees" => 10, "totalshippingRupees" => 5000)
+    array()
+);
+// $keys = array_keys($_SESSION['cart']);
+// $max = sizeof($_SESSION['cart']);
+// for ($i = 0; $i < $max; $i++) {
+//     echo $keys[$i] . "{<br>";
+//     foreach ($_SESSION['cart'][$keys[$i]] as $key => $value) {
+//         echo $key . " : " . $value . "<br>";
+//     }
+//     echo "}<br>";
+// }
+?>
 
 <head>
     <meta charset="utf-8">
