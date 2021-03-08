@@ -3,13 +3,16 @@ session_start();
 include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+  if (empty($_POST["url"]) || empty($_POST["brand"])) {
+    echo "error";
+  }
+  else{
   $conn = OpenCon();
 
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   } else {
-    echo "Connection established";
+    // echo "Connection established";
   }
 
   $url = $_POST["url"];
@@ -31,7 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $parse_final = "";
   $brandID = 0;
   $brandshipping = 0;
-
+  $brandfree = 0;
+  $brandcharge = 0;
 
   if ($result->num_rows > 0) {
     // output data of each row
@@ -75,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $parseU2 = parse_url($row["url2"], PHP_URL_HOST);
             $parse_final = $parseU2;
           } else {
-            echo "not right";
+            // echo "not right";
           }
         }
       } else if ($row['url2'] != NULL) {
@@ -86,19 +90,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           if ($parse == $parseU1) {
             $parse_final = $parseU1;
           } else {
-            echo "not right";
+            // echo "not right";
           }
         }
       } else {
         if ($parse == $parseU1) {
           $parse_final = $parseU1;
         } else {
-          echo "not right";
+          // echo "not right";
         }
       }
     }
   } else {
-    echo "0 results";
+    // echo "0 results";
   }
   // echo $parse_final;
   $oo = 0;
@@ -113,8 +117,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   $reg = "~.*([^\.]+)(co\.uk)$~";
   if ($oo == 0 && preg_match("~\.co\.uk~", $parse_final) == 0) {
-    echo "wrong url";
-  } else echo "correct url";
+    // echo "wrong url";
+  } else{ 
+    // echo "correct url";
 
 
 
@@ -141,20 +146,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $shipping_norm = $row["amount"] * $qty;
     }
   }
-  echo $shipping_norm;
+  // echo $shipping_norm;
   $pricetotal = 0;
   $pricetotal = $convertedfinal + $brandshippingconv + $shipping_norm;
-  echo "<br>final price " . $pricetotal;
+  // echo "<br>final price " . $pricetotal;
   // array("brandID" => 41, "shipping" => 50, "url" => "url1", "size" => 23, "colour" => "red", "quantity" => 3, "pricePounds" => "pricePounds", "totalRupees" => 2300, "request" => "specialrequest", "brandshippingRupees" => 10, "totalshippingRupees" => 5000)
   $temp_array = array("brandID" => $brandID, "shipping" => $shipping, "url" => $url, "size" => $size, "colour" => $color, "quantity" => $qty, "pricePounds" => $price, "totalRupees" => $convertedfinal, "request" => $request, "brandshippingRupees" => $brandshippingconv, "totalshippingRupees" => $shipping_norm);
   array_push($_SESSION['cart'], $temp_array);
   $keys = array_keys($_SESSION['cart']);
   $max = sizeof($_SESSION['cart']);
-  for ($i = 0; $i < $max; $i++) {
-    echo $keys[$i] . "{<br>";
-    foreach ($_SESSION['cart'][$keys[$i]] as $key => $value) {
-      echo $key . " : " . $value . "<br>";
-    }
-    echo "}<br>";
+
+  $myjson= json_encode([$_SESSION['cart']]);
+  echo $myjson;
+//   for ($i = 0; $i < $max; $i++) {
+//     echo $keys[$i] . "{<br>";
+//     foreach ($_SESSION['cart'][$keys[$i]] as $key => $value) {
+//       echo $key . " : " . $value . "<br>";
+//     }
+//     echo "}<br>";
+//   }
+}
   }
 }
+
+?>

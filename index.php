@@ -21,7 +21,7 @@ $_SESSION['cart'] = array(
     // array("product" => "Banana", "quantity" => 5),
     // array("product" => "Mango", "quantity" => 7),
     // array("brandID" => 41, "shipping" => 50, "url" => "url1", "size" => 23, "colour" => "red", "quantity" => 3, "pricePounds" => "pricePounds", "totalRupees" => 2300, "request" => "specialrequest", "brandshippingRupees" => 10, "totalshippingRupees" => 5000)
-    array()
+   
 );
 // $keys = array_keys($_SESSION['cart']);
 // $max = sizeof($_SESSION['cart']);
@@ -201,6 +201,10 @@ End Facebook Pixel Code -->
             <div id="alert" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
                 Please fill the form details correctly...
+            </div>
+            <div id="shippingorbrandalert" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
+                <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
+                Please fill the BrandName or Shipping Details Correctly
             </div>
             <div id="shippingform" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -521,7 +525,7 @@ End Facebook Pixel Code -->
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <select id="brand" class="form-control" data-container-class="input-lg" data-search="true">
-                                                        <option value="15">Select a Brand</option>
+                                                        <option value="15" disabled selected>Select a Brand</option>
                                                         <option value="69"> <strong>-- ANY OTHER BRAND -- </strong>
                                                         </option>
                                                         <option value="21"> ADIDAS</option>
@@ -569,7 +573,7 @@ End Facebook Pixel Code -->
                                                 <div class="form-group">
                                                     <div class="prepend-icon">
                                                         <select id="shipping" class="form-control" data-container-class="input-lg" data-search="true">
-                                                            <option value="16">Select Shipping</option>
+                                                            <option value="16" disabled selected>Select Shipping</option>
                                                             <option value="51"> Rs 500 each
                                                                 Shirt/Top/Undergarment/Jewellery/Accessory</option>
                                                             <option value="52"> Rs 1000 each Trouser/Jeans/Sweater/Jumper
@@ -1426,8 +1430,17 @@ End Facebook Pixel Code -->
             var shipno = document.getElementById("shipping").value
 
             var ship = $(`#shipping option[value=` + shipno + `]`).text();
-
-
+            if(document.getElementById("brand").value == '15' || document.getElementById("shipping").value == '16'){
+                event.preventDefault();
+                console.log("Error")
+                var x = document.getElementById("shippingorbrandalert");
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    } else {
+                        x.style.display = "none";
+                    }
+            }
+            else{
             shipping_option.push(ship)
             event.preventDefault();
             var data = new FormData();
@@ -1445,6 +1458,10 @@ End Facebook Pixel Code -->
             if (x.style.display === "block") {
                 x.style.display = "none";
             }
+            var x = document.getElementById("shippingorbrandalert");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
             var xhr = new XMLHttpRequest();
 
             xhr.open("POST", "form_check.php");
@@ -1452,6 +1469,7 @@ End Facebook Pixel Code -->
 
 
                 var formdata = JSON.parse(this.response);
+                console.log(this.response)
                 if (formdata.urlcheck != "Okay") {
 
                     var x = document.getElementById("alert");
@@ -1517,6 +1535,7 @@ End Facebook Pixel Code -->
                         elem.scrollIntoView();
                         document.getElementById("myform").reset();
                         calculateprice();
+                    }
                     }
                 }
             };
