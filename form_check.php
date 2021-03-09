@@ -1,10 +1,10 @@
 <?php
 session_start();
 include 'db_connection.php';
-
+echo $_SESSION['sessionid'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["url"]) || empty($_POST["brand"])) {
-    echo "error";
+    // echo "error";
   }
   else{
   $conn = OpenCon();
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($result->num_rows > 0) {
     // output data of each row
     while ($row = $result->fetch_assoc()) {
-      echo "BrandId: " . $row["brandID"] . " - URL: " . $row["url"] .  "<br>";
+      // echo "BrandId: " . $row["brandID"] . " - URL: " . $row["url"] .  "<br>";
       $brandID = $row["brandID"];
       $brandfree = $row["free"];
       $brandcharge = $row["charge"];
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           }
         }
       }
-      echo $brandshipping;
+      // echo $brandshipping;
       $parse = parse_url($url, PHP_URL_HOST);
       $parse_path =  parse_url($url, PHP_URL_PATH);
       $parseU1 = parse_url($row["url"], PHP_URL_HOST);
@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $keys = array_keys($_SESSION['cart']);
   $max = sizeof($_SESSION['cart']);
 
-  $myjson= json_encode([$_SESSION['cart']]);
+  $myjson= json_encode(["session" =>$_SESSION['cart']] );
   echo $myjson;
 //   for ($i = 0; $i < $max; $i++) {
 //     echo $keys[$i] . "{<br>";

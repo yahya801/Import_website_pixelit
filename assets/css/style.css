@@ -14912,18 +14912,24 @@
         /* width: 33% !important; */
         float: right;
         border-collapse: collapse;
-        /* border: none; */
+        table-layout: auto; 
+        
     }
     .table2 td{
-        border: none;
+        border: collapse;
+        border-width: 2px;
+        padding: 5px;
     }
     
     .table2 tr:nth-of-type(odd) {
         background-color: white;
     }
+    .price{
+        padding:10px;
+    }
     
     .pricebox {
-        width: 45%;
+        width: 50%;
         float: right;
         padding: 10px;
     }
