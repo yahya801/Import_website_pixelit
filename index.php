@@ -3,7 +3,7 @@
 
 <?php
 session_start();
-$_SESSION['sessionid']=session_id();
+$_SESSION['sessionID']=session_id();
 
 // $my_array = array();
 // $_SESSION['cart_items'][$id] = Array('name'=>$name,'qty'=>1);
@@ -17,14 +17,14 @@ $_SESSION['sessionid']=session_id();
 //     echo 'name='.$props['name'].'<br />';
 //     echo 'qty='.$props['qty'];
 // } // outer array for loop
-$_SESSION['cart'] = array(
-    // array("product" => "apple", "quantity" => 2),
-    // array("product" => "Orange", "quantity" => 4),
-    // array("product" => "Banana", "quantity" => 5),
-    // array("product" => "Mango", "quantity" => 7),
-    // array("brandID" => 41, "shipping" => 50, "url" => "url1", "size" => 23, "colour" => "red", "quantity" => 3, "pricePounds" => "pricePounds", "totalRupees" => 2300, "request" => "specialrequest", "brandshippingRupees" => 10, "totalshippingRupees" => 5000)
+// $_SESSION['cart'] = array(
+//     // array("product" => "apple", "quantity" => 2),
+//     // array("product" => "Orange", "quantity" => 4),
+//     // array("product" => "Banana", "quantity" => 5),
+//     // array("product" => "Mango", "quantity" => 7),
+//     // array("brandID" => 41, "shipping" => 50, "url" => "url1", "size" => 23, "colour" => "red", "quantity" => 3, "pricePounds" => "pricePounds", "totalRupees" => 2300, "request" => "specialrequest", "brandshippingRupees" => 10, "totalshippingRupees" => 5000)
 
-);
+// );
 // $keys = array_keys($_SESSION['cart']);
 // $max = sizeof($_SESSION['cart']);
 // for ($i = 0; $i < $max; $i++) {
@@ -34,6 +34,7 @@ $_SESSION['cart'] = array(
 //     }
 //     echo "}<br>";
 // }
+
 ?>
 
 <head>
@@ -1480,7 +1481,6 @@ End Facebook Pixel Code -->
 
 
 
-
         }
 
         function check() {
@@ -1523,8 +1523,6 @@ End Facebook Pixel Code -->
                 xhr.open("POST", "form_check.php");
                 xhr.onload = function() {
 
-                    var jArray= <?php echo json_encode([$_SESSION['cart']] ); ?>;
-                    console.log(JSON.parse(jArray))
                     var formdata = JSON.parse(this.response);
                     // console.log(this.response)
                     if (formdata.urlcheck != "Okay") {

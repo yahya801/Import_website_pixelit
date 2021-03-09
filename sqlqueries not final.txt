@@ -103,4 +103,25 @@ CREATE TABLE IF NOT EXISTS `orderitem` (
     FOREIGN KEY (`shippingID`)
     REFERENCES `shipping` (`shippingID`)
   );
+
+  CREATE	TABLE IF NOT EXISTS cart (
+ `cartID` int NOT null,
+  `size` VARCHAR(45) NULL,
+  `color` VARCHAR(45) NULL,
+  `quantity` INT NULL,
+  `priceinpound` FLOAT NULL,
+  `producttotal` INT NULL,
+  `brandID` INT NOT NULL,
+  `shippingID` INT NOT NULL,
+    `requests` varchar(255),
+`url` varchar(255),
+`brandshipping` int(11),
+`airshipping` int(11),
+    `sessionID` varchar(255) NOT NULL,
+  PRIMARY KEY (`cartID`),
+    FOREIGN KEY (`brandID`)
+    REFERENCES `brand` (`brandID`),
+    FOREIGN KEY (`shippingID`)
+    REFERENCES `shipping` (`shippingID`)
+)
  
