@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'db_connection.php';
-echo $_SESSION['sessionID'];
+// echo $_SESSION['sessionID'];
 $sessionID = $_SESSION['sessionID'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["url"]) || empty($_POST["brand"])) {
@@ -150,15 +150,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $safe_url = mysqli_real_escape_string($conn, $url);
       $pricetotal = 0;
       $pricetotal = $convertedfinal + $brandshippingconv + $shipping_norm;
-      $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ($size, '".$color."', $qty, $price, $convertedfinal, $brand, $shipping, '".$request."', '".$url."', $brandshippingconv, $shipping_norm, '".$sessionID."');";
-      // $result = $conn->query($sql);
 
-      if(mysqli_query($conn, $sql)){
-        echo "Records inserted successfully.";
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-    }
-      echo "hello";
+      $sql = "SELECT * FROM cart WHERE brandID = $brand and sessionID = '".$sessionID."' and status = 1";
+      $result = $conn->query($sql);
+      $tprice = 0;
+      $count = 0;
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+          // echo "Id: " . $row["shippingID"] . " - desc: " . $row["description"] .  "<br>";
+          $tprice = $tprice + ($row["priceinpound"] * $row["quantity"]);
+          $count = $count +1;
+        }
+
+        $tprice = $tprice + ($price * $qty);
+        $adjustedbrandshipping = 0;
+        if ($brandfree == NULL) {
+          if ($brandcharge == NULL) {
+            $adjustedbrandshipping = 0;
+          } else {
+            $adjustedbrandshipping = $brandcharge;
+          }
+        } else {
+          if ($brandcharge == NULL) {
+            $adjustedbrandshipping = 0;
+          } else {
+            if ($tprice >= $brandfree) {
+              $adjustedbrandshipping = 0;
+            } else {
+              $adjustedbrandshipping = $brandcharge;
+            }
+          }
+        }
+        $adjustedbrandshipping = $adjustedbrandshipping * $convrate;
+        $sql = "UPDATE cart
+        SET brandshipping = $adjustedbrandshipping
+        WHERE cartID = (
+            SELECT cartID FROM cart WHERE brandID = $brand and sessionID = '".$sessionID."' and status = 1
+        LIMIT 1
+            )
+        ";
+        if (mysqli_query($conn, $sql)) {
+          // echo "Records update successfully.";
+        } else {
+          // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+        }
+        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ($size, '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', 0, $shipping_norm, '" . $sessionID . "');";
+        if (mysqli_query($conn, $sql)) {
+          // echo "Records inserted successfully.";
+        } else {
+          // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+        }
+      } else {
+        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ($size, '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', $brandshippingconv, $shipping_norm, '" . $sessionID . "');";
+        // $result = $conn->query($sql);
+
+        if (mysqli_query($conn, $sql)) {
+          // echo "Records inserted successfully.";
+        } else {
+          // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+        }
+      }
+
+
+
+
+      // echo "hello";
 
       // echo "<br>final price " . $pricetotal;
       // array("brandID" => 41, "shipping" => 50, "url" => "url1", "size" => 23, "colour" => "red", "quantity" => 3, "pricePounds" => "pricePounds", "totalRupees" => 2300, "request" => "specialrequest", "brandshippingRupees" => 10, "totalshippingRupees" => 5000)

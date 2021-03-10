@@ -2,8 +2,17 @@
 <html class="no-js" lang="zxx">
 
 <?php
+session_set_cookie_params(0);
 session_start();
-$_SESSION['sessionID']=session_id();
+unset($_SESSION["sessionID"]);
+$_SESSION['sessionID'] = session_id();
+echo $_SESSION['sessionID'];
+// include 'db_connection.php';
+// $conn = OpenCon();
+// $sql = "SELECT * FROM `cart` WHERE sessionID = '" . $_SESSION['sessionID'] . "' and status = 1;";
+// $result = $conn->query($sql);
+
+
 
 // $my_array = array();
 // $_SESSION['cart_items'][$id] = Array('name'=>$name,'qty'=>1);
@@ -102,6 +111,7 @@ End Facebook Pixel Code -->
 
 <body>
     <?php
+
     // Start the session
     // $url = "https://free.currconv.com/api/v7/convert?q=GBP_PKR&compact=ultra&apiKey=05f038474855c3fcfc6c";
     // $data = file_get_contents($url);
@@ -1522,7 +1532,7 @@ End Facebook Pixel Code -->
 
                 xhr.open("POST", "form_check.php");
                 xhr.onload = function() {
-
+                    
                     var formdata = JSON.parse(this.response);
                     // console.log(this.response)
                     if (formdata.urlcheck != "Okay") {
