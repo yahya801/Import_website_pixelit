@@ -1492,6 +1492,7 @@ End Facebook Pixel Code -->
 
 
         }
+        
 
         function check() {
             var shipno = document.getElementById("shipping").value
@@ -1531,8 +1532,9 @@ End Facebook Pixel Code -->
                 var xhr = new XMLHttpRequest();
 
                 xhr.open("POST", "form_check.php");
+
                 xhr.onload = function() {
-                    
+
                     var formdata = JSON.parse(this.response);
                     // console.log(this.response)
                     if (formdata.urlcheck != "Okay") {

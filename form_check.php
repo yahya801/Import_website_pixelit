@@ -23,6 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $color = $_POST["color"];
     $price = $_POST["price"];
     $request = $_POST["request"];
+    if ($size == NULL) {
+      $size = 0;
+    }
+    if ($request == NULL) {
+      $request = '';
+    }if ($color == NULL) {
+      $color = '';
+    }
 
     $sql = "SELECT * FROM Brand WHERE brandId = $brand";
     $result = $conn->query($sql);
@@ -191,24 +199,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             )
         ";
         if (mysqli_query($conn, $sql)) {
-          // echo "Records update successfully.";
+          echo "Records update successfully.";
         } else {
-          // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+          echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
-        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ($size, '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', 0, $shipping_norm, '" . $sessionID . "');";
+        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ($size, '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', 0, $shipping_norm, '" . $sessionID . "')";
         if (mysqli_query($conn, $sql)) {
-          // echo "Records inserted successfully.";
+          echo "Records inserted successfully.";
         } else {
-          // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+          echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
       } else {
-        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ($size, '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', $brandshippingconv, $shipping_norm, '" . $sessionID . "');";
+        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ($size, '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', $brandshippingconv, $shipping_norm, '" . $sessionID . "')";
         // $result = $conn->query($sql);
 
         if (mysqli_query($conn, $sql)) {
-          // echo "Records inserted successfully.";
+          echo "Records inserted successfully.";
         } else {
-          // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+          echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
       }
 
