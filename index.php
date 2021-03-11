@@ -4,8 +4,8 @@
 <?php
 session_start();
 // $_SESSION["uniqueID"] = null;
-if(isset($_SESSION["sessionID"]) == ""){
-    $_SESSION["sessionID"] = uniqid();
+if (isset($_SESSION["sessionID"]) == "") {
+    $_SESSION["sessionID"] = uniqid($more_entropy = true);
 }
 // echo $_SESSION['sessionID'];
 
@@ -192,7 +192,7 @@ End Facebook Pixel Code -->
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
                 Please try Later, Error Occured while Processing...
             </div>
-            
+
         </div>
 
         <!--====================  End of header area  ====================-->
@@ -1411,6 +1411,13 @@ End Facebook Pixel Code -->
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<?php
+
+
+
+
+
+?>
 
     <script>
         var item_brand = [];
@@ -1458,18 +1465,18 @@ End Facebook Pixel Code -->
 
         function check() {
             var shipno = document.getElementById("shipping").value
-
+            var x = document.getElementById("shippingorbrandalert");
             var ship = $(`#shipping option[value=` + shipno + `]`).text();
+            var x = document.getElementById("shippingorbrandalert");
             if (document.getElementById("brand").value == '15' || document.getElementById("shipping").value == '16') {
                 event.preventDefault();
                 console.log("Error")
-                var x = document.getElementById("shippingorbrandalert");
-                if (x.style.display === "none") {
+                
+              
                     x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
+                
             } else {
+                x.style.display = "none";
                 shipping_option.push(ship)
                 event.preventDefault();
                 var data = new FormData();
@@ -1499,89 +1506,30 @@ End Facebook Pixel Code -->
 
                     // var formdata = JSON.parse(this.response);
                     var resp = this.responseText;
-                    console.log(resp); 
-                    if(resp == "incorrect URL"){
+                    // console.log(resp);
+                    var x = document.getElementById("urlalert");
+                    if (resp == "incorrect URL") {
                         var x = document.getElementById("urlalert");
-                        if (x.style.display == "none") {
-                            x.style.display = "block";
-                        } else {
-                            x.style.display = "none";
-                        }
-                    } 
-                    // if (formdata.urlcheck != "Okay") {
-
-                    //     var x = document.getElementById("alert");
-                    //     if (x.style.display === "none") {
-                    //         x.style.display = "block";
-                    //     } else {
-                    //         x.style.display = "none";
-                    //     }
-                    // } else {
-                    //     var x = document.getElementById("alert");
-                    //     if (x.style.display === "block") {
-                    //         x.style.display = "none";
-                    //     }
-
-                    //     item_brand.push(formdata.brand);
-                    //     item_shipping.push(formdata.shipping);
-
-                    //     item_url.push(formdata.url);
-                    //     item_price.push(formdata.price);
-                    //     item_color.push(formdata.color);
-                    //     item_size.push(formdata.size);
-                    //     item_qty.push(formdata.quantity);
-                    //     item_request.push(formdata.request);
-                    //     brand_delivery.push(formdata.branddelivery)
-
-                    //     item_no = item_brand.length;
-                    //     console.log(brand_delivery)
-                    //     if (formdata.brand == 69 || formdata.brand < 69) {
-                    //         var myobj = document.getElementById("emptycart");
-                    //         if (myobj) {
-                    //             myobj.remove();
-                    //         }
-                    //         $("#producttable").append(
-                    //             "<tr class='cart-item'>" +
-                    //             "<td style='vertical-align: middle'><img height='100px' src='assets/images/brands/" +
-                    //             formdata.brand +
-                    //             ".png' ></img>  </td>" +
-                    //             // "<td style='vertical-align: middle'>" + formdata.url  + "</td>"+
-                    //             "<td style='vertical-align: middle;'> Rs: " +
-                    //             formatNumber(formdata.price) +
-                    //             "</td>" +
-                    //             "<td style='vertical-align: middle'>" +
-                    //             formdata.quantity +
-                    //             "</td>" +
-                    //             "<td style='vertical-align: middle'>  Rs: " +
-                    //             formatNumber(formdata.shipping * formdata.quantity) +
-                    //             // " (Rs " + formatNumber(formdata.shipping) + " each)" +
-                    //             "</td>" +
-                    //             "<td style='vertical-align: middle'>  Rs: " +
-                    //             formatNumber(formdata.branddelivery * formdata.quantity) +
-                    //             // " (Rs " + formatNumber(formdata.branddelivery) + " each)" +
-                    //             "</td>" +
-                    //             "<td style='vertical-align: middle'> Rs: " +
-                    //             formatNumber((formdata.price * formdata.quantity) + (formdata.shipping * formdata.quantity) + (formdata.branddelivery * formdata.quantity)) +
-                    //             "</td>" +
-                    //             "<td class='product-remove'> <i onclick='productdelete(this)' class='fa fa-close' style='font-size:24px'></i></td>" +
-                    //             "</tr>"
-                    //         );
-                    //         showTab(currentTab);
-
-
-                    //         var elem = document.getElementById("invoicebox");
-                    //         elem.scrollIntoView();
-                    //         document.getElementById("myform").reset();
-                    //         calculateprice();
-                    //     }
-                    // }
+                        x.style.display = "block";
+                    }
+                    else{
+                        x.style.display = "none";
+                    }
                 }
             };
 
             xhr.send(data);
-
+            showtable();
             // (C) PREVENT HTML FORM SUBMIT
             return false;
+        }
+        function showtable(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "getitem.php");
+            xhr.onload = function() {
+
+            }
+            xhr.send();
         }
 
         function calculateprice() {

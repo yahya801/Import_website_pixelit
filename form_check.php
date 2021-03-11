@@ -2,7 +2,7 @@
 session_start();
 include 'db_connection.php';
 $sessionID = $_SESSION['sessionID'];
-echo $sessionID;
+// echo $sessionID;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["url"]) || empty($_POST["brand"])) {
     // echo "error";
@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               // echo $jsonreturn;
               echo $url_check;
               exit();
-              echo 1;
+              // echo 1;
             }
           }
         } else if ($row['url2'] != NULL) {
@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               // echo $jsonreturn;
               echo $url_check;
               exit();
-              echo 1;
+              // echo 1;
             }
           }
         } else {
@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // echo $jsonreturn;
             echo $url_check;
             exit();
-            echo 1;
+            // echo 1;
           }
         }
       }
@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // echo "wrong url";
       echo $url_check;
       exit();
-      echo 1;
+      // echo 1;
     } else {
       // echo "correct url";
 
