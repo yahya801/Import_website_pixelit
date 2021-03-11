@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2021 at 12:08 PM
+-- Generation Time: Mar 11, 2021 at 06:40 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -80,6 +80,50 @@ INSERT INTO `brand` (`brandID`, `brandname`, `url`, `url2`, `urlmobile`, `origin
 (57, 'Weekday', 'https://www.weekday.com/en_gbp/index.html/\r\n', NULL, NULL, 'UK', NULL, NULL),
 (58, 'ZARA', 'https://www.zara.com/uk/\r\n', NULL, 'https://m.zara.com/uk/', 'UK', NULL, NULL),
 (59, 'Huda Beauty', 'https://hudabeauty.com/en_GB/home/\r\n', NULL, NULL, 'UK', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `timestamp` datetime NOT NULL DEFAULT current_timestamp(),
+  `cartID` int(11) NOT NULL,
+  `size` varchar(45) DEFAULT NULL,
+  `color` varchar(45) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `priceinpound` float DEFAULT NULL,
+  `producttotal` int(11) DEFAULT NULL,
+  `brandID` int(11) NOT NULL,
+  `shippingID` int(11) NOT NULL,
+  `requests` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `brandshipping` int(11) DEFAULT NULL,
+  `airshipping` int(11) DEFAULT NULL,
+  `sessionID` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`timestamp`, `cartID`, `size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url`, `brandshipping`, `airshipping`, `sessionID`, `status`) VALUES
+('2021-03-09 23:39:02', 2, '2', 'red', 2, 3, 25, 35, 55, 'hello', '123', 123, 1345, 'dfef3', 1),
+('2021-03-09 23:52:10', 3, '3', 'red', 2, 12, 5760, 41, 51, 'hello', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 1000, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 00:01:39', 4, '3', 'rdw', 4, 12, 11520, 41, 51, 'hello', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 2000, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 22:15:20', 5, '3', 'red', 2, 12, 5760, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 3600, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 22:16:06', 6, '3', 'red', 2, 12, 5760, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 3600, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 22:29:58', 7, '3', 'red', 2, 10, 4800, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 3600, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 22:41:16', 8, '3', 'red', 1, 212, 50880, 41, 54, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 22:51:33', 15, '3', 'red', 1, 1, 240, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 22:51:48', 16, '3', 'red', 1, 1, 240, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 22:52:17', 17, '6', 'red', 1, 10, 2400, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 22:52:43', 18, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 22:52:51', 19, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 23:11:17', 20, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-10 23:12:33', 21, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1);
 
 -- --------------------------------------------------------
 
@@ -222,6 +266,14 @@ ALTER TABLE `brand`
   ADD PRIMARY KEY (`brandID`);
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cartID`),
+  ADD KEY `brandID` (`brandID`),
+  ADD KEY `shippingID` (`shippingID`);
+
+--
 -- Indexes for table `conversionrate`
 --
 ALTER TABLE `conversionrate`
@@ -271,8 +323,25 @@ ALTER TABLE `user`
   ADD KEY `rolesID` (`rolesID`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`brandID`) REFERENCES `brand` (`brandID`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`shippingID`) REFERENCES `shipping` (`shippingID`);
 
 --
 -- Constraints for table `order`
