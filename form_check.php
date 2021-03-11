@@ -1,8 +1,8 @@
 <?php
 session_start();
 include 'db_connection.php';
-// echo $_SESSION['sessionID'];
 $sessionID = $_SESSION['sessionID'];
+echo $sessionID;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["url"]) || empty($_POST["brand"])) {
     // echo "error";

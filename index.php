@@ -2,47 +2,12 @@
 <html class="no-js" lang="zxx">
 
 <?php
-session_set_cookie_params(0);
 session_start();
-unset($_SESSION["sessionID"]);
-$_SESSION['sessionID'] = session_id();
-echo $_SESSION['sessionID'];
-// include 'db_connection.php';
-// $conn = OpenCon();
-// $sql = "SELECT * FROM `cart` WHERE sessionID = '" . $_SESSION['sessionID'] . "' and status = 1;";
-// $result = $conn->query($sql);
-
-
-
-// $my_array = array();
-// $_SESSION['cart_items'][$id] = Array('name'=>$name,'qty'=>1);
-// // foreach ($_SESSION['temp_array'] as $key => $value) {
-// //     // and print out the values
-// //     echo 'The value of $_SESSION[' . "'" . $key . "'" . '] is ' . "'" . $value . "'" . ' <br />';
-// // }
-// // Show session content
-// foreach($_SESSION['cart_items'] as $id=>$props){
-//     echo 'id='.$id.'<br />';
-//     echo 'name='.$props['name'].'<br />';
-//     echo 'qty='.$props['qty'];
-// } // outer array for loop
-// $_SESSION['cart'] = array(
-//     // array("product" => "apple", "quantity" => 2),
-//     // array("product" => "Orange", "quantity" => 4),
-//     // array("product" => "Banana", "quantity" => 5),
-//     // array("product" => "Mango", "quantity" => 7),
-//     // array("brandID" => 41, "shipping" => 50, "url" => "url1", "size" => 23, "colour" => "red", "quantity" => 3, "pricePounds" => "pricePounds", "totalRupees" => 2300, "request" => "specialrequest", "brandshippingRupees" => 10, "totalshippingRupees" => 5000)
-
-// );
-// $keys = array_keys($_SESSION['cart']);
-// $max = sizeof($_SESSION['cart']);
-// for ($i = 0; $i < $max; $i++) {
-//     echo $keys[$i] . "{<br>";
-//     foreach ($_SESSION['cart'][$keys[$i]] as $key => $value) {
-//         echo $key . " : " . $value . "<br>";
-//     }
-//     echo "}<br>";
-// }
+// $_SESSION["uniqueID"] = null;
+if(isset($_SESSION["sessionID"]) == ""){
+    $_SESSION["sessionID"] = uniqid();
+}
+// echo $_SESSION['sessionID'];
 
 ?>
 
@@ -211,9 +176,9 @@ End Facebook Pixel Code -->
                 </div>
             </div>
             <!-- Header Bottom Wrap End -->
-            <div id="alert" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
+            <div id="urlalert" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
-                Please fill the form details correctly...
+                Please fill Brandname or URL correctly...
             </div>
             <div id="shippingorbrandalert" class="alert" style="display: none;width: auto;color:white;background-color: #EF305E; height: auto;">
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -227,6 +192,7 @@ End Facebook Pixel Code -->
                 <span class="closebtn" style="height:10px" onclick="this.parentElement.style.display='none';">&times;</span>
                 Please try Later, Error Occured while Processing...
             </div>
+            
         </div>
 
         <!--====================  End of header area  ====================-->
@@ -1517,14 +1483,14 @@ End Facebook Pixel Code -->
                 data.append("price", document.getElementById("price").value);
                 data.append("request", document.getElementById("request").value);
 
-                var x = document.getElementById("alert");
-                if (x.style.display === "block") {
-                    x.style.display = "none";
-                }
-                var x = document.getElementById("shippingorbrandalert");
-                if (x.style.display === "block") {
-                    x.style.display = "none";
-                }
+                // var x = document.getElementById("alert");
+                // if (x.style.display === "block") {
+                //     x.style.display = "none";
+                // }
+                // var x = document.getElementById("shippingorbrandalert");
+                // if (x.style.display === "block") {
+                //     x.style.display = "none";
+                // }
                 var xhr = new XMLHttpRequest();
 
                 xhr.open("POST", "form_check.php");
@@ -1534,6 +1500,14 @@ End Facebook Pixel Code -->
                     // var formdata = JSON.parse(this.response);
                     var resp = this.responseText;
                     console.log(resp); 
+                    if(resp == "incorrect URL"){
+                        var x = document.getElementById("urlalert");
+                        if (x.style.display == "none") {
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
+                    } 
                     // if (formdata.urlcheck != "Okay") {
 
                     //     var x = document.getElementById("alert");
