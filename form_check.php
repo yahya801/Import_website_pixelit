@@ -24,11 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $price = $_POST["price"];
     $request = $_POST["request"];
     if ($size == NULL) {
-      $size = 0;
+      $size = "";
     }
     if ($request == NULL) {
       $request = '';
-    }if ($color == NULL) {
+    }
+    if ($color == NULL) {
       $color = '';
     }
 
@@ -88,6 +89,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               $parse_final = $parseU2;
             } else {
               // echo "not right";
+              $url_check = "incorrect URL";
+              // $jsonreturn = json_encode([
+              //   "urlcheck" => $url_check
+              // ]);
+              // echo $jsonreturn;
+              echo $url_check;
+              exit();
+              echo 1;
             }
           }
         } else if ($row['url2'] != NULL) {
@@ -99,6 +108,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               $parse_final = $parseU1;
             } else {
               // echo "not right";
+              $url_check = "incorrect URL";
+              // $jsonreturn = json_encode([
+              //   "urlcheck" => $url_check
+              // ]);
+              // echo $jsonreturn;
+              echo $url_check;
+              exit();
+              echo 1;
             }
           }
         } else {
@@ -106,6 +123,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $parse_final = $parseU1;
           } else {
             // echo "not right";
+            $url_check = "incorrect URL";
+            // $jsonreturn = json_encode([
+            //   "urlcheck" => $url_check
+            // ]);
+            // echo $jsonreturn;
+            echo $url_check;
+            exit();
+            echo 1;
           }
         }
       }
@@ -125,7 +150,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $reg = "~.*([^\.]+)(co\.uk)$~";
     if ($oo == 0 && preg_match("~\.co\.uk~", $parse_final) == 0) {
+      $url_check = "incorrect URL";
+      // $jsonreturn = json_encode([
+      //   "urlcheck" => $url_check
+      // ]);
+      // echo $jsonreturn;
       // echo "wrong url";
+      echo $url_check;
+      exit();
+      echo 1;
     } else {
       // echo "correct url";
 
@@ -159,7 +192,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $pricetotal = 0;
       $pricetotal = $convertedfinal + $brandshippingconv + $shipping_norm;
 
-      $sql = "SELECT * FROM cart WHERE brandID = $brand and sessionID = '".$sessionID."' and status = 1";
+      $sql = "SELECT * FROM cart WHERE brandID = $brand and sessionID = '" . $sessionID . "' and status = 1";
       $result = $conn->query($sql);
       $tprice = 0;
       $count = 0;
@@ -168,7 +201,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         while ($row = $result->fetch_assoc()) {
           // echo "Id: " . $row["shippingID"] . " - desc: " . $row["description"] .  "<br>";
           $tprice = $tprice + ($row["priceinpound"] * $row["quantity"]);
-          $count = $count +1;
+          $count = $count + 1;
         }
 
         $tprice = $tprice + ($price * $qty);
@@ -194,7 +227,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "UPDATE cart
         SET brandshipping = $adjustedbrandshipping
         WHERE cartID = (
-            SELECT cartID FROM cart WHERE brandID = $brand and sessionID = '".$sessionID."' and status = 1
+            SELECT cartID FROM cart WHERE brandID = $brand and sessionID = '" . $sessionID . "' and status = 1
         LIMIT 1
             )
         ";
@@ -203,14 +236,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
           echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
-        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ($size, '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', 0, $shipping_norm, '" . $sessionID . "')";
+        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ('".$size."', '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', 0, $shipping_norm, '" . $sessionID . "')";
         if (mysqli_query($conn, $sql)) {
           echo "Records inserted successfully.";
         } else {
           echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
       } else {
-        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ($size, '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', $brandshippingconv, $shipping_norm, '" . $sessionID . "')";
+        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ('".$size."', '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', $brandshippingconv, $shipping_norm, '" . $sessionID . "')";
         // $result = $conn->query($sql);
 
         if (mysqli_query($conn, $sql)) {
