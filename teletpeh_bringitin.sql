@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2021 at 06:40 AM
+-- Generation Time: Mar 13, 2021 at 11:53 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -43,43 +43,43 @@ CREATE TABLE `brand` (
 --
 
 INSERT INTO `brand` (`brandID`, `brandname`, `url`, `url2`, `urlmobile`, `origin`, `charge`, `free`) VALUES
-(21, 'ADIDAS', 'https://www.adidas.co.uk/\r\n', NULL, NULL, 'UK', 3.99, 50),
-(22, 'Amazon', 'https://www.amazon.co.uk/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(23, 'Clarks', 'https://www.clarks.co.uk/\r\n', NULL, NULL, 'UK', 3.95, NULL),
-(24, 'GAP', 'https://www.gap.co.uk/\r\n', NULL, NULL, 'UK', 4, 25),
-(25, 'NEXT', 'https://www.next.co.uk/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(26, 'Ralph Lauren', 'https://www.ralphlauren.co.uk/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(27, 'Reebok', 'https://www.reebok.co.uk/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(28, 'ZALANDO', 'https://www.zalando.co.uk/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(29, 'UNDER ARMOUR', 'https://www.underarmour.co.uk/en-gb/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(31, 'ASOS', 'https://www.asos.com/\r\n', NULL, NULL, 'UK', 4, 35),
-(32, 'BOOHOO', 'https://www.boohoo.com/\r\n', NULL, NULL, 'UK', 3.99, NULL),
-(33, 'Debenhams', 'https://www.debenhams.com/\r\n', NULL, NULL, 'UK', 2.99, NULL),
-(34, 'DuneLondon', 'https://www.dunelondon.com/\r\n', NULL, NULL, 'UK', 3.5, 120),
-(35, 'M&S', 'https://www.marksandspencer.com/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(36, 'RiverIsland', 'https://www.riverisland.com/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(37, 'SportsDirect', 'https://www.sportsdirect.com/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(38, 'TOPSHOP', 'https://www.topshop.com/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(39, 'MotherCare', 'https://www.boots.com/mothercare/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(41, 'ALDO', 'https://aldoshoes.co.uk/\r\n', 'https://www.aldoshoes.com/uk/en_UK\r\n', NULL, 'UK', 5, NULL),
-(42, 'Armani UK', 'https://www.armani.com/gb/armanicom/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(43, 'Bershka', 'https://www.bershka.com/gb/\r\n', NULL, NULL, 'UK', 3.95, NULL),
-(44, 'GUCCI', 'https://www.gucci.com/uk/en_gb/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(45, 'H&M', 'https://www2.hm.com/en_gb/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(46, 'Harrods', 'https://www.harrods.com/en-gb/\r\n', NULL, NULL, 'UK', 5.95, 100),
-(47, 'Lacoste', 'https://www.lacoste.com/gb/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(48, 'MANGO', 'https://shop.mango.com/gb/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(49, 'Massimo Dutti', 'https://www.massimodutti.com/gb/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(50, 'NastyGal', 'https://www.nastygal.com/gb/sitemap/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(51, 'Nike', 'https://www.nike.com/gb/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(52, 'SelfRidges', 'https://www.selfridges.com/GB/en/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(53, 'TedBaker', 'https://www.tedbaker.com/uk/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(54, 'TkMaxx', 'https://www.tkmaxx.com/uk/en/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(55, 'Urban Outfitters', 'https://www.urbanoutfitters.com/en-gb/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(56, 'Victoria\'s Street', 'https://www.victoriassecret.com/gb/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(57, 'Weekday', 'https://www.weekday.com/en_gbp/index.html/\r\n', NULL, NULL, 'UK', NULL, NULL),
-(58, 'ZARA', 'https://www.zara.com/uk/\r\n', NULL, 'https://m.zara.com/uk/', 'UK', NULL, NULL),
-(59, 'Huda Beauty', 'https://hudabeauty.com/en_GB/home/\r\n', NULL, NULL, 'UK', NULL, NULL);
+(21, 'ADIDAS', 'https://www.adidas.co.uk', NULL, NULL, 'UK', 3.99, 50),
+(22, 'Amazon', 'https://www.amazon.co.uk', NULL, NULL, 'UK', NULL, NULL),
+(23, 'Clarks', 'https://www.clarks.co.uk', NULL, NULL, 'UK', 3.95, NULL),
+(24, 'GAP', 'https://www.gap.co.uk', NULL, NULL, 'UK', 4, 25),
+(25, 'NEXT', 'https://www.next.co.uk', NULL, NULL, 'UK', NULL, NULL),
+(26, 'Ralph Lauren', 'https://www.ralphlauren.co.uk', NULL, NULL, 'UK', NULL, NULL),
+(27, 'Reebok', 'https://www.reebok.co.uk', NULL, NULL, 'UK', NULL, NULL),
+(28, 'ZALANDO', 'https://www.zalando.co.uk', NULL, NULL, 'UK', NULL, NULL),
+(29, 'UNDER ARMOUR', 'https://www.underarmour.co.uk/en-gb/', NULL, NULL, 'UK', NULL, NULL),
+(31, 'ASOS', 'https://www.asos.com', NULL, NULL, 'UK', 4, 35),
+(32, 'BOOHOO', 'https://www.boohoo.com', NULL, NULL, 'UK', 3.99, NULL),
+(33, 'Debenhams', 'https://www.debenhams.com', NULL, NULL, 'UK', 2.99, NULL),
+(34, 'DuneLondon', 'https://www.dunelondon.com', NULL, NULL, 'UK', 3.5, 120),
+(35, 'M&S', 'https://www.marksandspencer.com', NULL, NULL, 'UK', NULL, NULL),
+(36, 'RiverIsland', 'https://www.riverisland.com', NULL, NULL, 'UK', NULL, NULL),
+(37, 'SportsDirect', 'https://www.sportsdirect.com', NULL, NULL, 'UK', NULL, NULL),
+(38, 'TOPSHOP', 'https://www.topshop.com', NULL, NULL, 'UK', NULL, NULL),
+(39, 'MotherCare', 'https://www.boots.com/mothercare/', NULL, NULL, 'UK', NULL, NULL),
+(41, 'ALDO', 'https://aldoshoes.co.uk', 'https://www.aldoshoes.com/uk/en_UK\r\n', NULL, 'UK', 5, NULL),
+(42, 'Armani UK', 'https://www.armani.com/gb/armanicom/', NULL, NULL, 'UK', NULL, NULL),
+(43, 'Bershka', 'https://www.bershka.com/gb/', NULL, NULL, 'UK', 3.95, NULL),
+(44, 'GUCCI', 'https://www.gucci.com/uk/en_gb/', NULL, NULL, 'UK', NULL, NULL),
+(45, 'H&M', 'https://www2.hm.com/en_gb/', NULL, NULL, 'UK', NULL, NULL),
+(46, 'Harrods', 'https://www.harrods.com/en-gb/', NULL, NULL, 'UK', 5.95, 100),
+(47, 'Lacoste', 'https://www.lacoste.com/gb/', NULL, NULL, 'UK', NULL, NULL),
+(48, 'MANGO', 'https://shop.mango.com/gb/', NULL, NULL, 'UK', NULL, NULL),
+(49, 'Massimo Dutti', 'https://www.massimodutti.com/gb/', NULL, NULL, 'UK', NULL, NULL),
+(50, 'NastyGal', 'https://www.nastygal.com/gb/sitemap/', NULL, NULL, 'UK', NULL, NULL),
+(51, 'Nike', 'https://www.nike.com/gb/', NULL, NULL, 'UK', NULL, NULL),
+(52, 'SelfRidges', 'https://www.selfridges.com/GB/en/', NULL, NULL, 'UK', NULL, NULL),
+(53, 'TedBaker', 'https://www.tedbaker.com/uk/', NULL, NULL, 'UK', NULL, NULL),
+(54, 'TkMaxx', 'https://www.tkmaxx.com/uk/en/', NULL, NULL, 'UK', NULL, NULL),
+(55, 'Urban Outfitters', 'https://www.urbanoutfitters.com/en-gb/', NULL, NULL, 'UK', NULL, NULL),
+(56, 'Victoria\'s Street', 'https://www.victoriassecret.com/gb/', NULL, NULL, 'UK', NULL, NULL),
+(57, 'Weekday', 'https://www.weekday.com/en_gbp/index.html/', NULL, NULL, 'UK', NULL, NULL),
+(58, 'ZARA', 'https://www.zara.com/uk/', NULL, 'https://m.zara.com/uk/', 'UK', NULL, NULL),
+(59, 'Huda Beauty', 'https://hudabeauty.com/en_GB/home/', NULL, NULL, 'UK', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,10 @@ INSERT INTO `cart` (`timestamp`, `cartID`, `size`, `color`, `quantity`, `pricein
 ('2021-03-10 22:52:43', 18, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
 ('2021-03-10 22:52:51', 19, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
 ('2021-03-10 23:11:17', 20, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 23:12:33', 21, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1);
+('2021-03-10 23:12:33', 21, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-11 11:04:38', 22, '0', 'red', 4, 212, 203520, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 0, 7200, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-11 12:27:29', 23, '', '', 1, 3, 720, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 0, 1000, '5up635ah5vo0bgi3b6o90qibsl', 1),
+('2021-03-13 15:48:25', 24, '', '', 1, 10, 2400, 31, 52, '', 'https://www.asos.com/reclaimed-vintage/reclaimed-vintage-inspired-91-mom-jean-with-destroyed-hems-in-ecru/prd/22627439?colourwayid=60413021&SearchQuery=&cid=10597', 960, 1000, '1604c79abb634e', 1);
 
 -- --------------------------------------------------------
 
@@ -330,7 +333,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
