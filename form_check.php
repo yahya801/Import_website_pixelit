@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $brandshipping = 0;
     $brandfree = 0;
     $brandcharge = 0;
+    $parse_path2 = "";
 
     if ($result->num_rows > 0) {
       // output data of each row
@@ -75,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $parse_path =  parse_url($url, PHP_URL_PATH);
         $parseU1 = parse_url($row["url"], PHP_URL_HOST);
         $parse_final = "";
+        $parse_path2 = parse_url($row["url"], PHP_URL_PATH);
         // echo $parse . "<br>";
         // echo $parse_path . "<br>";
         if ($row['urlmobile'] != NULL) {
@@ -138,18 +140,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // echo "0 results";
     }
     // echo $parse_final;
-    $oo = 0;
-    $pattern = array("/uk/", "/gb/", "/en_gb/", "/en-gb/", "/GB/", "/en_gbp/", "/en_GB/");
-    for ($x = 0; $x < sizeof($pattern); $x++) {
-      $oo = preg_match($pattern[$x], $parse_path);
-      if ($oo == 1) {
-        $parse1 = "okay";
-        $parse2 = "okay";
-        break;
+    if (empty($parse_path2)) {
+    } else {
+      $oo = 0;
+      $pattern = array("/uk/", "/gb/", "/en_gb/", "/en-gb/", "/GB/", "/en_gbp/", "/en_GB/");
+      for ($x = 0; $x < sizeof($pattern); $x++) {
+        $oo = preg_match($pattern[$x], $parse_path);
+        if ($oo == 1) {
+          $parse1 = "okay";
+          $parse2 = "okay";
+          break;
+        }
       }
     }
-    $reg = "~.*([^\.]+)(co\.uk)$~";
-    if ($oo == 0 && preg_match("~\.co\.uk~", $parse_final) == 0) {
+    $parse_final2 = parse_url($url, PHP_URL_HOST);
+
+    $subdomain = 'www.';
+    $host = str_ireplace($subdomain, '', $parse_final);
+    $tld1 = strstr($host, '.');
+    $host = str_ireplace($subdomain, '', $parse_final2);
+    $tld2 = strstr($host, '.');
+
+    if ($tld1 != $tld2) {
       $url_check = "incorrect URL";
       // $jsonreturn = json_encode([
       //   "urlcheck" => $url_check
@@ -158,12 +170,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // echo "wrong url";
       echo $url_check;
       exit();
-      // echo 1;
+      echo 1;
     } else {
       // echo "correct url";
-
-
-
       $sql = "SELECT * FROM conversionrate WHERE conversionrateID = (SELECT max(conversionrateID) from conversionrate)";
       $result = $conn->query($sql);
       $convrate = 0;
@@ -236,14 +245,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
           echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
-        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ('".$size."', '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', 0, $shipping_norm, '" . $sessionID . "')";
+        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ('" . $size . "', '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', 0, $shipping_norm, '" . $sessionID . "')";
         if (mysqli_query($conn, $sql)) {
           echo "Records inserted successfully.";
         } else {
           echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
       } else {
-        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ('".$size."', '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', $brandshippingconv, $shipping_norm, '" . $sessionID . "')";
+        $sql = "INSERT INTO `cart` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `sessionID`) VALUES ('" . $size . "', '" . $color . "', $qty, $price, $convertedfinal, $brand, $shipping, '" . $request . "', '" . $url . "', $brandshippingconv, $shipping_norm, '" . $sessionID . "')";
         // $result = $conn->query($sql);
 
         if (mysqli_query($conn, $sql)) {
