@@ -14,12 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $result = $conn->query($sql);
     // echo "jjjj";
 
-    if (mysqli_query($conn, $sql)) {
-        // echo "Item Get.";
+    // if (mysqli_query($conn, $sql)) {
+    //     // echo "Item Get.";
         
-      } else {
-        // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-      }
+    //   } else {
+    //     // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+    //   }
     // while($row = mysqli_fetch_array($result)) {
     //     echo $row['cartID'];
     //     echo "</br>";
@@ -48,14 +48,17 @@ echo '<td style="vertical-align: middle">'.$row['brandshipping'].'</td>'; // we 
 echo '<td style="vertical-align: middle">'.$total.'</td>';
 echo "<td class='product-remove'> <i onclick='productdelete(".$row['cartID'].")' class='fa fa-close' style='font-size:24px'></i></td>";
 echo'</tr>'; // closing table row
-}}
+}
+CloseCon($conn);}
 else{
   echo " <tr id='emptycart'; ><td colspan='6' style='text-align: center; background-color: white; color: black;'>No Items in Cart</td></tr>";
+CloseCon($conn);
 }
+
 
   //closing table tag
 
-
+  
 
 }
 ?>

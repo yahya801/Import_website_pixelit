@@ -672,7 +672,7 @@ End Facebook Pixel Code -->
                                         </div>
                                         <table id="checkout" class="table2">
                                             <tr id="product-charges">
-                                                <td style='color: black' width="25%">Product Prices</td>
+                                                <td style='color: black' width="75%">Product Prices</td>
                                                 <td style='color: black;'> Rs: 0</td>
                                             </tr>
                                             <tr id="custom-charges">
@@ -709,7 +709,7 @@ End Facebook Pixel Code -->
                                         <div id="charges">
                                             <div id="total-charges" style="display:inline">
                                                 <h5 style="display:inline">Total Bill</h5>
-                                                <h5 style="display:inline;float:right">Rs: 0</h5>
+                                                <h5 id='total_ruppee' style="display:inline;float:right">Rs: 0</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -1411,16 +1411,16 @@ End Facebook Pixel Code -->
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-<?php
+    <?php
 
 
 
 
 
-?>
+    ?>
 
     <script>
-    showtable()
+        showtable()
         var item_brand = [];
         var item_price = [];
         var item_qty = [];
@@ -1473,15 +1473,15 @@ End Facebook Pixel Code -->
             if (document.getElementById("brand").value == '15' || document.getElementById("shipping").value == '16') {
                 event.preventDefault();
                 console.log("Error")
-                
-              
-                    x.style.display = "block";
-                
+
+
+                x.style.display = "block";
+
             } else {
                 event.preventDefault()
                 x.style.display = "none";
                 shipping_option.push(ship)
-              
+
                 var data = new FormData();
                 // var brand = document.getElementById("brand").value
                 data.append("brand", document.getElementById("brand").value);
@@ -1503,7 +1503,7 @@ End Facebook Pixel Code -->
                 // }
                 var xhr = new XMLHttpRequest();
 
-                xhr.open("POST", "form_check.php");
+                xhr.open("POST", "phpscripts/form_check.php");
 
                 xhr.onload = function() {
 
@@ -1514,8 +1514,7 @@ End Facebook Pixel Code -->
                     if (resp == "incorrect URL") {
                         var x = document.getElementById("urlalert");
                         x.style.display = "block";
-                    }
-                    else{
+                    } else {
                         x.style.display = "none";
                     }
                 }
@@ -1524,160 +1523,85 @@ End Facebook Pixel Code -->
             xhr.send(data);
             showtable();
             // (C) PREVENT HTML FORM SUBMIT
-            return false;
+            // return false;
         }
-        function showtable(){
+
+        function showtable() {
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "getitem.php");
+            xhr.open("GET", "phpscripts/getitem.php");
             xhr.onload = function() {
                 var resp = this.responseText;
-            // console.log(resp)
-             document.getElementById("producttable").innerHTML=resp;
+                // console.log(resp)
+                document.getElementById("producttable").innerHTML = resp;
             }
             var elem = document.getElementById("invoicebox");
-                        elem.scrollIntoView();
+            elem.scrollIntoView();
             xhr.send();
-            
-           
-        }
-
-        function calculateprice() {
-            shipping_total = price_total = 0;
-            custom_sub = 0
-            custom_total = 0
-            brand_delivery_charges = 0
-            for (var i = 0; i < item_shipping.length; i++) {
-
-                shipping_total = shipping_total + (item_shipping[i] * item_qty[i]);
-                price_total = price_total + item_qty[i] * item_price[i];
-                custom_sub = custom_sub + (item_qty[i] * item_price[i] * 0.20);
-                brand_delivery_charges = brand_delivery_charges + (brand_delivery[i] * item_qty[i])
-            }
-            product_total = price_total;
-            custom_total = custom_total + custom_sub
-            local_delivery = 200
-            total_price = parseInt(shipping_total) + parseInt(price_total) + parseInt(brand_delivery_charges);
-
-
-            shipping_value = document.getElementById("delivery").value;
-
-            changeshipping();
+            calculateprice()
         }
 
         function productdelete(ctl) {
-
-
-           console.log(ctl)
-           var data = new FormData();
-           data.append("delete",ctl)
-           var xhr = new XMLHttpRequest();
-            xhr.open("POST", "deleteitem.php");
+            console.log(ctl)
+            var data = new FormData();
+            data.append("delete", ctl)
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "phpscripts/deleteitem.php");
             xhr.onload = function() {
                 var resp = this.responseText;
-            console.log(resp)
-            showtable()
-            //  document.getElementById("producttable").innerHTML=resp;
+                // console.log(resp)
+                showtable()
+
             }
             xhr.send(data);
         }
 
-        function changeshipping() {
-
-            shipping_value = document.getElementById("delivery").value;
-            if (document.getElementById("delivery").value == 110) {
-                // grand_total = parseInt(total_price)
-                shipping_per = 15
-                service_charges = total_price * 0.15;
-
-                grand_total = parseInt(total_price) + parseInt(service_charges);
-            } else {
-                shipping_per = 5
-                service_charges = total_price * 0.05;
-                grand_total = parseInt(total_price) + parseInt(service_charges);
-
+        function calculateprice() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "phpscripts/getprice.php");
+            var data = new FormData();
+            service_perc = document.getElementById("delivery").value;
+            data.append("service_percent", service_perc)
+            xhr.onload = function() {
+                var resp = this.responseText;
+                // console.log(resp)
+                document.getElementById("checkout").innerHTML = resp;
+                updatebill()
             }
-            var myobj = document.getElementById("service-charges");
-            myobj.remove();
-            var obj = document.getElementById("product-charges");
-            obj.remove();
-            var obj2 = document.getElementById("total-charges");
-            obj2.remove();
-            var obj3 = document.getElementById("custom-charges");
-            obj3.remove();
-            var obj4 = document.getElementById("brand-charges");
-            obj4.remove();
-            // var obj5 = document.getElementById("local-charges");
-            // obj5.remove();
-            $("#checkout").append(
-                " <tr id='product-charges'>" +
-                "<td  style='color: black;'>Product Prices"
 
-                +
-                "</td>" +
-                "<td  style='color: black;'> Rs: " +
-                formatNumber(parseInt(product_total)) +
-                "</td>" +
-                "</tr>"
-            );
+            xhr.send(data);
 
-            $("#checkout").append(
-                " <tr id='custom-charges'>" +
-                "<td  style='color: black;'> + UK to PK (Air Shipping Fee/Custom Duties/Local Delivery in Pakistan)</td>" +
-                "<td  style='color: black;'> Rs: " +
-                formatNumber(parseInt(shipping_total)) +
-                "</td>" +
-                "</tr>"
-            );
-            // $("#checkout").append(
-            //     " <tr id='customduty-charges'>" +
-            //     "<td  style='color: black;'> + Custom Duties Charges in Pakistan<br> (20% of the Products Prices)" +
-            //     "<td  style='color: black;'> Rs: " +
-            //     formatNumber(parseInt(custom_total)) +
-            //     "</td>" +
-            //     "</tr>"
-            // );
-            // $("#checkout").append(
-            //     " <tr id='local-charges'>" +
-            //     "<td  style='color: black;'> + Local Delivery Charges in Pakistan " +
-            //     "<td  style='color: black;'> Rs: " +
-            //     formatNumber(parseInt(local_delivery)) +
-            //     "</td>" +
-            //     "</tr>"
-            // );
-            $("#checkout").append(
-                " <tr id='brand-charges'>" +
-                "<td  style='color: black;'> + Brand Delivery Charges" +
-                "</td>" +
-                "<td  style='color: black;'> Rs: " +
-                formatNumber(parseInt(brand_delivery_charges)) +
-                "</td>" +
-                "</tr>"
-            );
-            $("#checkout").append(
-                " <tr id='service-charges'>" +
-                "<td  style='color: black;'> + Service Charges (" +
-                shipping_per +
-                " %)</td>" +
-                "<td  style='color: black;'> Rs: " +
-                formatNumber(parseInt(service_charges)) +
-                "</td>" +
-                "</tr>"
-            );
-            $("#charges").append(
-                "<div id='total-charges' style='display:inline'>" +
-                "<h5  style='color: black;display:inline'>Total Bill</h5>" +
-                "<h5  style='color: black;display:inline;float:right'> Rs: " +
-                formatNumber(parseInt(grand_total)) +
-                "</h4>" +
-                "</div>"
-            );
-            // $("#service").append("<h4 style='color: black;'id='service-charges'> Service Charges: Rs " + service_charges + "</h4>")
-            // $("#total").append("<h4 style='color: black;' id='total-charges'> Total Charges: Rs " + grand_total + "</h4>")
+        }
+
+
+
+        function changeshipping() {
+            calculateprice()
         }
 
         function gotoinvoice() {
             var elem = document.getElementById("scrollform");
             elem.scrollIntoView();
+        }
+
+
+        function updatebill() {
+            product = parseInt(document.getElementById("product_ruppee").innerHTML.substring(4))
+            custom = parseInt(document.getElementById("custom_ruppee").innerHTML.substring(4))
+            brand = parseInt(document.getElementById("brand_ruppee").innerHTML.substring(4))
+            service = parseInt(document.getElementById("service_ruppee").innerHTML.substring(4))
+
+            total = product + custom + brand + service
+            var obj2 = document.getElementById("total-charges");
+            obj2.remove();
+            $("#charges").append(
+                "<div id='total-charges' style='display:inline'>" +
+                "<h5  style='color: black;display:inline'>Total Bill</h5>" +
+                "<h5  style='color: black;display:inline;float:right'> Rs: " +
+                formatNumber(parseInt(total)) +
+                "</h4>" +
+                "</div>"
+            );
+            showTab(currentTab)
         }
 
 
@@ -1689,13 +1613,15 @@ End Facebook Pixel Code -->
             // This function will display the specified tab of the form...
             var x = document.getElementsByClassName("tab");
             var z = document.getElementById("emptycart")
-
+             console.log(z)
             var y = document.getElementById("producttable").rows.length
-            if (y == 1) {
-                $("#producttable").append(" <tr id='emptycart'; >" +
-                    "<td colspan='6' style='text-align: center; background-color: white; color: black;'>" +
-                    "No Items in Cart</td></tr>");
-            }
+                if (y > 1 && !z ) {
+                    document.getElementById("nextBtn").disabled = false;
+                    console.log("not")
+                }
+                else{
+                    document.getElementById("nextBtn").disabled = true;
+                }
             x[n].style.display = "block";
             //... and fix the Previous/Next buttons:
             if (n == 0) {
@@ -1705,11 +1631,7 @@ End Facebook Pixel Code -->
                 // document.getElementById("nextBtn").onclick = function() {
 
                 // };
-                if (z) {
-                    document.getElementById("nextBtn").disabled = true;
-                } else {
-                    document.getElementById("nextBtn").disabled = false;
-                }
+              
             }
             if (n == 1) {
                 document.getElementById("addmore").style.display = "none";
@@ -1726,23 +1648,6 @@ End Facebook Pixel Code -->
                 document.getElementById("nextBtn").style.display = "none";
                 document.getElementById("prevBtn").style.display = "none";
             }
-
-            // else if (shipping_value == 110) {
-            //   document.getElementById("addmore").style.display = "none";
-            //   document.getElementById("prevBtn").style.display = "inline";
-            // }
-            //  else if (shipping_value == 100) {
-            //   nextPrev(2)
-            //   document.getElementById("nextBtn").innerHTML = "Submit";
-            //   document.getElementById("prevBtn").style.display = "inline";
-            // }
-            // if (n == (x.length - 1)) {
-            // document.getElementById("nextBtn").style.display = "none";
-            // document.getElementById("prevBtn").style.display = "none";
-            // }
-            // } else {
-            //   // document.getElementById("nextBtn").innerHTML = "Next";
-            // }
             fixStepIndicator(n)
         }
 
@@ -1795,11 +1700,11 @@ End Facebook Pixel Code -->
 
                 // document.getElementById("shippingdetails").onsubmit
                 var xhd = new XMLHttpRequest();
-                xhd.open("POST", "sendmail.php");
+                xhd.open("POST", "phpscripts/order.php");
 
                 xhd.send(data1);
                 xhd.onload = function() {
-                    var formdata = JSON.parse(this.response)
+                    var formdata = (this.response)
                     console.log(formdata)
 
                     if (formdata.error == false) {
@@ -1836,7 +1741,7 @@ End Facebook Pixel Code -->
         }
 
         function nextPrev(n) {
-
+            console.log(n)
             // This function will figure out which tab to display
             var x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:

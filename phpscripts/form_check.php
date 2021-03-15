@@ -263,6 +263,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
 
 
+      CloseCon($conn);
 
 
       // echo "hello";
