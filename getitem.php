@@ -15,17 +15,47 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // echo "jjjj";
 
     if (mysqli_query($conn, $sql)) {
-        echo "Records update successfully.";
+        // echo "Item Get.";
+        
       } else {
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+        // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
       }
-    while($row = mysqli_fetch_array($result)) {
-        echo $row['cartID'];
-        echo "</br>";
+    // while($row = mysqli_fetch_array($result)) {
+    //     echo $row['cartID'];
+    //     echo "</br>";
     
 
 
-    }
+    // }
+   
+echo "<tr class='firstrow'> <td>Brand</td><td>Price</td><td>Quantity</td><td>UK to PK</td><td>Brand Delivery</td><td>Total</td><td></td></tr>";
+
+$row_cnt = mysqli_num_rows($result);
+if($row_cnt > 0){
+while($row = mysqli_fetch_array($result))
+{
+  $total = $row['airshipping'] + $row['producttotal'] +$row['airshipping'];
+  $img = $row['brandID']; 
+  $image = "<img src='assets/images/brands/$img.png'>";
+// we are running a while loop to print all the rows in a table
+echo '<tr class="cart-item">'; // printing table row
+echo '<td style="vertical-align: middle">';
+echo '<img height="100px"'.$image  ;
+echo "</td><td style='vertical-align: middle'>".$row['producttotal']."</td>";
+echo '<td style="vertical-align: middle">'.$row['quantity'].'</td>';
+echo '<td style="vertical-align: middle">'.$row['airshipping'].'</td>';
+echo '<td style="vertical-align: middle">'.$row['brandshipping'].'</td>'; // we are looping all data to be printed till last row in the table
+echo '<td style="vertical-align: middle">'.$total.'</td>';
+echo "<td class='product-remove'> <i onclick='productdelete(".$row['cartID'].")' class='fa fa-close' style='font-size:24px'></i></td>";
+echo'</tr>'; // closing table row
+}}
+else{
+  echo " <tr id='emptycart'; ><td colspan='6' style='text-align: center; background-color: white; color: black;'>No Items in Cart</td></tr>";
+}
+
+  //closing table tag
+
 
 
 }
+?>

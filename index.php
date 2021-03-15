@@ -7,7 +7,7 @@ session_start();
 if (isset($_SESSION["sessionID"]) == "") {
     $_SESSION["sessionID"] = uniqid($more_entropy = true);
 }
-// echo $_SESSION['sessionID'];
+echo $_SESSION['sessionID'];
 
 ?>
 
@@ -1420,6 +1420,7 @@ End Facebook Pixel Code -->
 ?>
 
     <script>
+    showtable()
         var item_brand = [];
         var item_price = [];
         var item_qty = [];
@@ -1456,6 +1457,7 @@ End Facebook Pixel Code -->
         }
         var form = document.getElementById("myform");
         form.addEventListener("submit", check);
+        // form.preventDefault();
 
         function check2() {
 
@@ -1476,9 +1478,10 @@ End Facebook Pixel Code -->
                     x.style.display = "block";
                 
             } else {
+                event.preventDefault()
                 x.style.display = "none";
                 shipping_option.push(ship)
-                event.preventDefault();
+              
                 var data = new FormData();
                 // var brand = document.getElementById("brand").value
                 data.append("brand", document.getElementById("brand").value);
@@ -1527,9 +1530,15 @@ End Facebook Pixel Code -->
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "getitem.php");
             xhr.onload = function() {
-
+                var resp = this.responseText;
+            // console.log(resp)
+             document.getElementById("producttable").innerHTML=resp;
             }
+            var elem = document.getElementById("invoicebox");
+                        elem.scrollIntoView();
             xhr.send();
+            
+           
         }
 
         function calculateprice() {
@@ -1558,30 +1567,18 @@ End Facebook Pixel Code -->
         function productdelete(ctl) {
 
 
-            $("#producttable")
-                .find("tr")
-                .click(function() {
-
-                    index = $(this).index() - 1;
-
-                    $(ctl).parents("tr").remove();
-                    if (index > -1) {
-                        item_brand.splice(index, 1);
-                        item_price.splice(index, 1);
-                        item_qty.splice(index, 1);
-                        item_size.splice(index, 1);
-                        item_url.splice(index, 1);
-                        item_shipping.splice(index, 1);
-                        item_color.splice(index, 1);
-                        item_request.splice(index, 1);
-                        item_no = item_brand.length;
-                        brand_delivery.splice(index, 1)
-
-                    }
-                    calculateprice();
-                    showTab(currentTab);
-
-                });
+           console.log(ctl)
+           var data = new FormData();
+           data.append("delete",ctl)
+           var xhr = new XMLHttpRequest();
+            xhr.open("POST", "deleteitem.php");
+            xhr.onload = function() {
+                var resp = this.responseText;
+            console.log(resp)
+            showtable()
+            //  document.getElementById("producttable").innerHTML=resp;
+            }
+            xhr.send(data);
         }
 
         function changeshipping() {
