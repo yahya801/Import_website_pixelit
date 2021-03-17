@@ -1411,13 +1411,6 @@ End Facebook Pixel Code -->
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    <?php
-
-
-
-
-
-    ?>
 
     <script>
         showtable()
@@ -1548,7 +1541,7 @@ End Facebook Pixel Code -->
             xhr.open("POST", "phpscripts/deleteitem.php");
             xhr.onload = function() {
                 var resp = this.responseText;
-                // console.log(resp)
+                //console.log(resp)
                 showtable()
 
             }
@@ -1613,15 +1606,14 @@ End Facebook Pixel Code -->
             // This function will display the specified tab of the form...
             var x = document.getElementsByClassName("tab");
             var z = document.getElementById("emptycart")
-             console.log(z)
+            console.log(z)
             var y = document.getElementById("producttable").rows.length
-                if (y > 1 && !z ) {
-                    document.getElementById("nextBtn").disabled = false;
-                    console.log("not")
-                }
-                else{
-                    document.getElementById("nextBtn").disabled = true;
-                }
+            if (y > 1 && !z) {
+                document.getElementById("nextBtn").disabled = false;
+                console.log("not")
+            } else {
+                document.getElementById("nextBtn").disabled = true;
+            }
             x[n].style.display = "block";
             //... and fix the Previous/Next buttons:
             if (n == 0) {
@@ -1631,11 +1623,10 @@ End Facebook Pixel Code -->
                 // document.getElementById("nextBtn").onclick = function() {
 
                 // };
-              
+
             }
             if (n == 1) {
                 document.getElementById("addmore").style.display = "none";
-
                 document.getElementById("prevBtn").style.display = "inline";
                 document.getElementById("nextBtn").innerHTML = "Order Now";
 
@@ -1694,7 +1685,7 @@ End Facebook Pixel Code -->
                 data1.append("quantity", JSON.stringify(item_qty))
                 data1.append("request", JSON.stringify(item_request))
                 data1.append("shipping", JSON.stringify(shipping_option))
-                data1.append("local", JSON.stringify(local_delivery))
+                data1.append("local", JSON.stringify(local_delivery))   
                 data1.append("brandshipping", JSON.stringify(brand_delivery))
                 data1.append("itemshipping", JSON.stringify(item_shipping))
 
