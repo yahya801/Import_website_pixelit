@@ -49,12 +49,12 @@ echo '<td style="vertical-align: middle">'.$total.'</td>';
 echo "<td class='product-remove'> <i onclick='productdelete(".$row['cartID'].")' class='fa fa-close' style='font-size:24px'></i></td>";
 echo'</tr>'; // closing table row
 }
-CloseCon($conn);}
+}
 else{
   echo " <tr id='emptycart'; ><td colspan='6' style='text-align: center; background-color: white; color: black;'>No Items in Cart</td></tr>";
-CloseCon($conn);
-}
 
+}
+CloseCon($conn);
 
   //closing table tag
 

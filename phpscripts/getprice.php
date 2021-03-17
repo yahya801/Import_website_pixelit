@@ -8,9 +8,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $service_perc = 0;
     if ($service_value == 110) {
         $service_perc = 0.15;
-    else {
-    } else {
+        $sql = "UPDATE cart
+        SET paymentmethodID = '0'
+        WHERE sessionID = '" . $sessionID . "' and status = '1'        ";
+        $result = $conn->query($sql);
+        
+    }
+     else {
         $service_perc = 0.05;
+        $sql = "UPDATE cart
+        SET paymentmethodID = '1'
+        WHERE sessionID = '" . $sessionID . "' and status = '1'        ";
+        $result = $conn->query($sql);
     }
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -57,4 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<td style='color: black;'>+ Service Charges</td>";
         echo "<td id='service_ruppee' id='serviceprice' style='color: black;'>Rs: 0</td></tr>";
     }
+
+    CloseCon($conn);
 }
+

@@ -1465,7 +1465,7 @@ End Facebook Pixel Code -->
             var x = document.getElementById("shippingorbrandalert");
             if (document.getElementById("brand").value == '15' || document.getElementById("shipping").value == '16') {
                 event.preventDefault();
-                console.log("Error")
+                // console.log("Error")
 
 
                 x.style.display = "block";
@@ -1534,7 +1534,7 @@ End Facebook Pixel Code -->
         }
 
         function productdelete(ctl) {
-            console.log(ctl)
+            // console.log(ctl)
             var data = new FormData();
             data.append("delete", ctl)
             var xhr = new XMLHttpRequest();
@@ -1606,11 +1606,11 @@ End Facebook Pixel Code -->
             // This function will display the specified tab of the form...
             var x = document.getElementsByClassName("tab");
             var z = document.getElementById("emptycart")
-            console.log(z)
+            // console.log(z)
             var y = document.getElementById("producttable").rows.length
             if (y > 1 && !z) {
                 document.getElementById("nextBtn").disabled = false;
-                console.log("not")
+                // console.log("not")
             } else {
                 document.getElementById("nextBtn").disabled = true;
             }
@@ -1696,7 +1696,7 @@ End Facebook Pixel Code -->
                 xhd.send(data1);
                 xhd.onload = function() {
                     var formdata = (this.response)
-                    console.log(formdata)
+                    // console.log(formdata)
 
                     if (formdata.error == false) {
                         var x = document.getElementById("emailerror");
@@ -1732,7 +1732,7 @@ End Facebook Pixel Code -->
         }
 
         function nextPrev(n) {
-            console.log(n)
+            // console.log(n)
             // This function will figure out which tab to display
             var x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:

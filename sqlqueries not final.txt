@@ -63,14 +63,10 @@ CREATE TABLE IF NOT EXISTS `conversionrate` (
 Order
 
 CREATE TABLE IF NOT EXISTS `order` (
-  `orderID` INT NOT NULL,
+  `orderID` INT NOT NULL AUTO INCREMENT,
   `date` DATETIME NULL,
-  `totalamount` INT NULL,
-  `totalshipping` INT NULL,
-  `totaltax` INT NULL,
-  `totallocal` INT NULL,
+  `totalamountRS` INT NULL,
   `totalservice` INT NULL,
-  `totalproducts` INT NULL,
   `status` VARCHAR(45) NULL,
   `userID` INT NOT NULL,
   `paymentmethodID` INT NOT NULL,

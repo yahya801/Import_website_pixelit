@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2021 at 06:02 PM
+-- Generation Time: Mar 17, 2021 at 08:28 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -102,100 +102,136 @@ CREATE TABLE `cart` (
   `brandshipping` int(11) DEFAULT NULL,
   `airshipping` int(11) DEFAULT NULL,
   `sessionID` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `paymentmethodID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`timestamp`, `cartID`, `size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url`, `brandshipping`, `airshipping`, `sessionID`, `status`) VALUES
-('2021-03-09 23:39:02', 2, '2', 'red', 2, 3, 25, 35, 55, 'hello', '123', 123, 1345, 'dfef3', 1),
-('2021-03-09 23:52:10', 3, '3', 'red', 2, 12, 5760, 41, 51, 'hello', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 1000, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 00:01:39', 4, '3', 'rdw', 4, 12, 11520, 41, 51, 'hello', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 2000, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 22:15:20', 5, '3', 'red', 2, 12, 5760, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 3600, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 22:16:06', 6, '3', 'red', 2, 12, 5760, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 3600, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 22:29:58', 7, '3', 'red', 2, 10, 4800, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 3600, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 22:41:16', 8, '3', 'red', 1, 212, 50880, 41, 54, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 22:51:33', 15, '3', 'red', 1, 1, 240, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 22:51:48', 16, '3', 'red', 1, 1, 240, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 22:52:17', 17, '6', 'red', 1, 10, 2400, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 22:52:43', 18, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 22:52:51', 19, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 23:11:17', 20, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-10 23:12:33', 21, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-11 11:04:38', 22, '0', 'red', 4, 212, 203520, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 0, 7200, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-11 12:27:29', 23, '', '', 1, 3, 720, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 0, 1000, '5up635ah5vo0bgi3b6o90qibsl', 1),
-('2021-03-13 15:48:25', 24, '', '', 1, 10, 2400, 31, 52, '', 'https://www.asos.com/reclaimed-vintage/reclaimed-vintage-inspired-91-mom-jean-with-destroyed-hems-in-ecru/prd/22627439?colourwayid=60413021&SearchQuery=&cid=10597', 960, 1000, '1604c79abb634e', 1),
-('2021-03-15 11:34:12', 25, '', '', 1, 1, 240, 31, 52, '', 'https://www.asos.com/na-kd/na-kd-co-ord-set-in-dusty-pink/grp/34806?colourwayid=60442814&SearchQuery=&cid=19632', 960, 1000, '1604c926801dc1', 0),
-('2021-03-15 11:36:04', 26, '', '', 1, 25, 6000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604f004d21bae', 1),
-('2021-03-15 11:38:09', 27, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604f00c93e5d7', 1),
-('2021-03-15 11:39:39', 28, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604f011f54e70', 1),
-('2021-03-15 11:40:29', 29, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1000, '1604f015419e6a', 0),
-('2021-03-15 11:40:41', 30, '', '', 1, 1, 240, 31, 52, '', 'https://www.asos.com/na-kd/na-kd-co-ord-set-in-dusty-pink/grp/34806?colourwayid=60442814&SearchQuery=&cid=19632', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 11:41:01', 31, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1000, '1604f015419e6a', 0),
-('2021-03-15 11:41:06', 32, '', '', 1, 2, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604f015419e6a', 0),
-('2021-03-15 11:42:52', 33, '', '', 1, 2, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1000, '1604f015419e6a', 1),
-('2021-03-15 12:03:14', 34, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 12:03:38', 35, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 12:05:28', 36, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 12:06:02', 37, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 12:08:57', 38, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:10:19', 39, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:10:36', 40, '', '', 3, 1, 720, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 3000, '1604c926801dc1', 0),
-('2021-03-15 12:12:48', 41, '', '', 3, 1, 720, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 3000, '1604c926801dc1', 0),
-('2021-03-15 12:13:03', 42, '', '', 3, 1, 720, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 3000, '1604c926801dc1', 0),
-('2021-03-15 12:13:49', 43, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:13:51', 44, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:14:19', 45, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:14:44', 46, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:15:54', 47, '', '', 5, 1, 1200, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 5000, '1604c926801dc1', 0),
-('2021-03-15 12:17:24', 48, '', '', 5, 1, 1200, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 5000, '1604c926801dc1', 0),
-('2021-03-15 12:18:24', 49, '', '', 2, 1, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 2000, '1604c926801dc1', 0),
-('2021-03-15 12:18:26', 50, '', '', 2, 1, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 2000, '1604c926801dc1', 0),
-('2021-03-15 12:18:44', 51, '', '', 2, 1, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 2000, '1604c926801dc1', 0),
-('2021-03-15 12:18:54', 52, '', '', 2, 1, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 2000, '1604c926801dc1', 0),
-('2021-03-15 12:19:53', 53, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 12:20:30', 54, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 12:20:55', 55, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 12:22:14', 56, '', '', 1, 1000, 240000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 12:23:20', 57, '', '', 1, 1000, 240000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 12:23:45', 58, '', '', 1, 1000, 240000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 12:23:59', 59, '', '', 1, 1000, 240000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 12:25:54', 60, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:27:02', 61, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:27:17', 62, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:31:36', 63, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:31:52', 64, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:34:21', 65, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:44:05', 66, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 12:44:13', 67, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 12:45:01', 68, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 12:45:31', 69, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 12:47:47', 70, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 12:48:30', 71, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 12:49:07', 72, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 12:49:19', 73, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 12:55:50', 74, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 12:56:31', 75, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 13:25:19', 76, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 13:47:45', 77, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 13:50:19', 78, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 13:59:49', 79, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 13:59:57', 80, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 14:02:32', 81, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0),
-('2021-03-15 14:03:36', 82, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 14:04:11', 83, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 14:05:00', 84, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 14:05:03', 85, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 14:09:59', 86, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 14:22:50', 87, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 14:24:33', 88, '', '', 1, 1, 240, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 14:25:06', 89, '', '', 1, 1, 240, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 14:25:12', 90, '', '', 1, 1, 240, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '1604c926801dc1', 0),
-('2021-03-15 14:27:44', 91, '', '', 1, 25, 6000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0),
-('2021-03-15 14:27:50', 92, '', '', 1, 25, 6000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 1),
-('2021-03-15 15:03:20', 93, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 1);
+INSERT INTO `cart` (`timestamp`, `cartID`, `size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url`, `brandshipping`, `airshipping`, `sessionID`, `status`, `paymentmethodID`) VALUES
+('2021-03-09 23:39:02', 2, '2', 'red', 2, 3, 25, 35, 55, 'hello', '123', 123, 1345, 'dfef3', 1, NULL),
+('2021-03-09 23:52:10', 3, '3', 'red', 2, 12, 5760, 41, 51, 'hello', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 1000, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 00:01:39', 4, '3', 'rdw', 4, 12, 11520, 41, 51, 'hello', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 2000, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 22:15:20', 5, '3', 'red', 2, 12, 5760, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 3600, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 22:16:06', 6, '3', 'red', 2, 12, 5760, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 3600, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 22:29:58', 7, '3', 'red', 2, 10, 4800, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 1200, 3600, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 22:41:16', 8, '3', 'red', 1, 212, 50880, 41, 54, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 22:51:33', 15, '3', 'red', 1, 1, 240, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 22:51:48', 16, '3', 'red', 1, 1, 240, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 22:52:17', 17, '6', 'red', 1, 10, 2400, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 22:52:43', 18, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 22:52:51', 19, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 23:11:17', 20, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-10 23:12:33', 21, '6', 'red', 1, 25, 6000, 24, 54, '', 'https://www.gap.co.uk/gap/women/activewear/jackets-and-hoodies/?nav=meganav%3AWomen%3AActivewear%3AJackets%20%26%20Hoodies', 0, 2500, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-11 11:04:38', 22, '0', 'red', 4, 212, 203520, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 0, 7200, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-11 12:27:29', 23, '', '', 1, 3, 720, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/women/footwear/boots/over-the-knee-boots', 0, 1000, '5up635ah5vo0bgi3b6o90qibsl', 1, NULL),
+('2021-03-13 15:48:25', 24, '', '', 1, 10, 2400, 31, 52, '', 'https://www.asos.com/reclaimed-vintage/reclaimed-vintage-inspired-91-mom-jean-with-destroyed-hems-in-ecru/prd/22627439?colourwayid=60413021&SearchQuery=&cid=10597', 960, 1000, '1604c79abb634e', 1, NULL),
+('2021-03-15 11:34:12', 25, '', '', 1, 1, 240, 31, 52, '', 'https://www.asos.com/na-kd/na-kd-co-ord-set-in-dusty-pink/grp/34806?colourwayid=60442814&SearchQuery=&cid=19632', 960, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 11:36:04', 26, '', '', 1, 25, 6000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604f004d21bae', 1, NULL),
+('2021-03-15 11:38:09', 27, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604f00c93e5d7', 1, NULL),
+('2021-03-15 11:39:39', 28, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604f011f54e70', 1, NULL),
+('2021-03-15 11:40:29', 29, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1000, '1604f015419e6a', 0, NULL),
+('2021-03-15 11:40:41', 30, '', '', 1, 1, 240, 31, 52, '', 'https://www.asos.com/na-kd/na-kd-co-ord-set-in-dusty-pink/grp/34806?colourwayid=60442814&SearchQuery=&cid=19632', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 11:41:01', 31, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1000, '1604f015419e6a', 0, NULL),
+('2021-03-15 11:41:06', 32, '', '', 1, 2, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604f015419e6a', 0, NULL),
+('2021-03-15 11:42:52', 33, '', '', 1, 2, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1000, '1604f015419e6a', 1, NULL),
+('2021-03-15 12:03:14', 34, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:03:38', 35, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:05:28', 36, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:06:02', 37, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:08:57', 38, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:10:19', 39, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:10:36', 40, '', '', 3, 1, 720, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 3000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:12:48', 41, '', '', 3, 1, 720, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 3000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:13:03', 42, '', '', 3, 1, 720, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 3000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:13:49', 43, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:13:51', 44, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:14:19', 45, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:14:44', 46, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:15:54', 47, '', '', 5, 1, 1200, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 5000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:17:24', 48, '', '', 5, 1, 1200, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 5000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:18:24', 49, '', '', 2, 1, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 2000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:18:26', 50, '', '', 2, 1, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 2000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:18:44', 51, '', '', 2, 1, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 2000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:18:54', 52, '', '', 2, 1, 480, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 2000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:19:53', 53, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:20:30', 54, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:20:55', 55, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:22:14', 56, '', '', 1, 1000, 240000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:23:20', 57, '', '', 1, 1000, 240000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:23:45', 58, '', '', 1, 1000, 240000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:23:59', 59, '', '', 1, 1000, 240000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:25:54', 60, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:27:02', 61, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:27:17', 62, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:31:36', 63, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:31:52', 64, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:34:21', 65, '', '', 2, 1, 480, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:44:05', 66, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:44:13', 67, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:45:01', 68, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:45:31', 69, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:47:47', 70, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:48:30', 71, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:49:07', 72, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:49:19', 73, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:55:50', 74, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 12:56:31', 75, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 13:25:19', 76, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 13:47:45', 77, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 13:50:19', 78, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 13:59:49', 79, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 13:59:57', 80, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:02:32', 81, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 1000, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:03:36', 82, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:04:11', 83, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:05:00', 84, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:05:03', 85, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:09:59', 86, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:22:50', 87, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:24:33', 88, '', '', 1, 1, 240, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:25:06', 89, '', '', 1, 1, 240, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:25:12', 90, '', '', 1, 1, 240, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:27:44', 91, '', '', 1, 25, 6000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 0, NULL),
+('2021-03-15 14:27:50', 92, '', '', 1, 25, 6000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1604c926801dc1', 1, NULL),
+('2021-03-15 15:03:20', 93, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1604c926801dc1', 1, NULL),
+('2021-03-16 14:32:17', 94, '', '', 1, 1000, 240000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '160507a3fc1a5d', 0, NULL),
+('2021-03-16 14:33:32', 95, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '160507b648ad83', 1, NULL),
+('2021-03-16 14:33:42', 96, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '160507b648ad83', 1, NULL),
+('2021-03-17 12:05:41', 97, '', '', 1, 1, 240, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '16051aa3a945d7', 0, NULL),
+('2021-03-17 12:06:03', 98, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '16051aa3a945d7', 0, NULL),
+('2021-03-17 12:06:10', 99, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '16051aa3a945d7', 0, NULL),
+('2021-03-17 12:06:20', 100, '', '', 1, 100, 24000, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '16051aa3a945d7', 1, NULL),
+('2021-03-17 12:06:45', 101, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '16051aa7cc1c0b', 0, NULL),
+('2021-03-17 12:06:56', 102, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '16051aa7cc1c0b', 0, NULL),
+('2021-03-17 12:06:59', 103, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '16051aa7cc1c0b', 0, NULL),
+('2021-03-17 12:35:23', 104, '', '', 1, 1, 240, 22, 58, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 2000, '16051aa7cc1c0b', 0, NULL),
+('2021-03-17 12:36:22', 105, '', '', 1, 1, 240, 22, 58, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 2000, '16051aa7cc1c0b', 0, NULL),
+('2021-03-17 12:36:31', 106, '', '', 1, 1, 240, 41, 58, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 2000, '16051aa7cc1c0b', 1, NULL),
+('2021-03-17 12:36:57', 107, '', '', 1, 1, 240, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '16051b18eaf386', 1, NULL),
+('2021-03-17 12:37:12', 108, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '16051b19f79aa0', 1, NULL),
+('2021-03-17 12:37:41', 109, '', '', 1, 25, 6000, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '16051b1b43ff23', 1, NULL),
+('2021-03-17 12:38:05', 110, '', '', 1, 1, 240, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '16051b1cfbf0b1', 0, NULL),
+('2021-03-17 12:38:14', 111, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '16051b1cfbf0b1', 0, NULL),
+('2021-03-17 12:38:19', 112, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '16051b1cfbf0b1', 0, NULL),
+('2021-03-17 12:40:06', 113, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '16051b1cfbf0b1', 1, NULL),
+('2021-03-17 12:40:37', 114, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '16051b260558b7', 1, NULL),
+('2021-03-17 12:41:42', 115, '', '', 1, 1, 240, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '16051b260558b7', 1, NULL),
+('2021-03-17 12:53:09', 116, '', '', 1, 1, 240, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '16051b260558b7', 1, NULL),
+('2021-03-17 12:54:11', 117, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '16051b1b43ff23', 1, NULL),
+('2021-03-17 12:55:11', 118, '', '', 1, 1, 240, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1000, '16051b5d21e3f8', 1, 0),
+('2021-03-17 12:55:33', 119, '', '', 1, 1, 240, 22, 52, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 1000, '16051b5d21e3f8', 1, 0),
+('2021-03-17 23:13:18', 120, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1605246879dd17', 0, 0),
+('2021-03-17 23:13:22', 121, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1605246879dd17', 0, 0),
+('2021-03-17 23:13:39', 122, '', '', 1, 1, 240, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 0, 500, '1605246879dd17', 0, 0),
+('2021-03-18 00:03:39', 123, '', '', 2, 25, 12000, 41, 52, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 2000, '1605246879dd17', 0, 0),
+('2021-03-18 00:04:02', 124, '', '', 3, 25, 18000, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 1500, '1605246879dd17', 0, 0),
+('2021-03-18 00:15:35', 125, '', '', 1, 1000, 240000, 41, 51, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 500, '1605246879dd17', 1, 0),
+('2021-03-18 00:15:51', 126, '', '', 1, 1000, 240000, 22, 51, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 500, '1605246879dd17', 1, 0),
+('2021-03-18 00:16:14', 127, '', '', 1, 1, 240, 22, 53, '', 'https://www.amazon.co.uk/deal/a2a03bfa/ref=gbps_img___a2a03bfa?showVariations=true&searchAlias=dvd&smid=A3P5ROKL5A1OLE', 0, 1800, '1605255734214e', 0, 0),
+('2021-03-18 00:16:22', 128, '', '', 1, 1, 240, 41, 53, '', 'https://www.aldoshoes.com/uk/en_UK/men/fuscusflex-brown/p/13092424', 1200, 1800, '1605255734214e', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -247,13 +283,14 @@ CREATE TABLE `orderitem` (
   `quantity` int(11) DEFAULT NULL,
   `priceinpound` float DEFAULT NULL,
   `producttotal` int(11) DEFAULT NULL,
-  `orderID` int(11) NOT NULL,
+  `orderID` int(11) DEFAULT NULL,
   `brandID` int(11) NOT NULL,
   `shippingID` int(11) NOT NULL,
   `url` varchar(255) DEFAULT NULL,
   `brandshipping` int(11) DEFAULT NULL,
   `airshipping` int(11) DEFAULT NULL,
-  `requests` varchar(255) DEFAULT NULL
+  `requests` varchar(255) DEFAULT NULL,
+  `sessionID` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -344,13 +381,6 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`userID`, `name`, `email`, `address1`, `address2`, `phoneno`, `city`, `country`, `rolesID`) VALUES
-(0, 'Muhammad Yahya', 'yahyaahsan83@gmail.com', 'D-68 block 9 Clifton Karachi', '', '03362271512', 'Karachi', ' Pakistan ', 1);
-
---
 -- Indexes for dumped tables
 --
 
@@ -425,7 +455,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+
+--
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orderitem`
+--
+ALTER TABLE `orderitem`
+  MODIFY `orderitemID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
