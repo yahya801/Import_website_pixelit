@@ -9,12 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       die("Connection failed: " . $conn->connect_error);
     } else {
       // echo "Connection established";
-    }
+    
     $sql = "UPDATE cart
     SET status = '0'
     WHERE cartID = $cartid";
     $result = $conn->query($sql);
-    // echo "jjjj";
+
 
     if (mysqli_query($conn, $sql)) {
         echo "Item Updated";
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //     echo $row['cartID'];
     //     echo "</br>";
     
-
+    }
 
     // }
     
