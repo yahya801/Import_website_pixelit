@@ -1530,6 +1530,7 @@ End Facebook Pixel Code -->
             var elem = document.getElementById("invoicebox");
             elem.scrollIntoView();
             xhr.send();
+            document.getElementById("myform").reset();
             calculateprice()
         }
 
