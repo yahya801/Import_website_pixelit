@@ -351,6 +351,8 @@ End Facebook Pixel Code -->
                                                 <a href="https://www.armani.com/gb/armanicom/" target="_blank">
                                                     <div class="brand-logo__image">
                                                         <img src="assets/images/brands/42.png" class="img-fluid" alt="">
+                                                        <!-- <p style="text-align:center; color: #EF305E;">Shop Now!</p> -->
+
                                                     </div>
                                                     <!-- <div class="brand-logo__image-hover">
                                                     <img src="assets/images/brand/mitech-client-logo-09-hover.png"
@@ -447,7 +449,7 @@ End Facebook Pixel Code -->
                                     <div class="video-interview section-space--mt_40 video-popup">
                                         <a href="https://youtu.be/BM7WI6o6ZYI" height="500" width="300" class="video-link mt-30">
                                             <div class="single-popup-wrap">
-                                                <img class="img-fluid border-radus-5" src="assets/images/bg/videothumbnail.png" alt="">
+                                                <img class="img-fluid border-radus-5" src="assets/images/bg/videothumbnail1.png" alt="">
                                                 <div class="ht-popup-video video-button">
                                                     <div class="video-mark">
                                                         <div class="wave-pulse wave-pulse-1"></div>
@@ -1225,12 +1227,12 @@ End Facebook Pixel Code -->
                         <ul class="list ht-social-networks solid-rounded-icon">
                             </li>
                             <li class="item">
-                                <a href="https://www.facebook.com/bringitinpk" target="_blank" class="social-link  ">
+                                <a href="https://www.facebook.com/bringitinpakistan" target="_blank" class="social-link  ">
                                     <i class="fab fa-facebook-f link-icon"></i>
                                 </a>
                             </li>
                             <li class="item">
-                                <a href="https://www.instagram.com/bringitinpk/" target="_blank" class="social-link  ">
+                                <a href="https://www.instagram.com/bringitinpakistan/" target="_blank" class="social-link  ">
                                     <i class="fab fa-instagram link-icon"></i>
                                 </a>
                             </li>
