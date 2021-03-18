@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   } else {
-    // echo "Connection established";
+    echo "Connection established";
   }
   $sql = "SELECT * FROM cart where cartID = $cartid";
   $brand = 0;

@@ -163,11 +163,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($tld1 != $tld2) {
       $url_check = "incorrect URL";
-      // $jsonreturn = json_encode([
-      //   "urlcheck" => $url_check
-      // ]);
-      // echo $jsonreturn;
-      // echo "wrong url";
       echo $url_check;
       exit();
       echo 1;

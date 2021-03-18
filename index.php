@@ -1450,73 +1450,99 @@ End Facebook Pixel Code -->
         }
         var form = document.getElementById("myform");
         form.addEventListener("submit", check);
+
         // form.preventDefault();
 
-        function check2() {
-
-            // return false;
-        }
-
-
         function check() {
-            var shipno = document.getElementById("shipping").value
-            var x = document.getElementById("shippingorbrandalert");
-            var ship = $(`#shipping option[value=` + shipno + `]`).text();
-            var x = document.getElementById("shippingorbrandalert");
-            if (document.getElementById("brand").value == '15' || document.getElementById("shipping").value == '16') {
-                event.preventDefault();
-                // console.log("Error")
+            if (document.getElementById('submit-form') != null) {
+                var shipno = document.getElementById("shipping").value
+                var x = document.getElementById("shippingorbrandalert");
+                var ship = $(`#shipping option[value=` + shipno + `]`).text();
+                var x = document.getElementById("shippingorbrandalert");
+                if (document.getElementById("brand").value == '15' || document.getElementById("shipping").value == '16') {
+                    event.preventDefault();
+                    // console.log("Error")
+                    x.style.display = "block";
 
+                } else {
+                    event.preventDefault()
+                    x.style.display = "none";
+                    shipping_option.push(ship)
 
-                x.style.display = "block";
-
-            } else {
-                event.preventDefault()
-                x.style.display = "none";
-                shipping_option.push(ship)
-
-                var data = new FormData();
-                // var brand = document.getElementById("brand").value
-                data.append("brand", document.getElementById("brand").value);
-                data.append("url", document.getElementById("url").value);
-                data.append("shipping", document.getElementById("shipping").value);
-                data.append("qty", document.getElementById("qty").value);
-                data.append("size", document.getElementById("size").value);
-                data.append("color", document.getElementById("color").value);
-                data.append("price", document.getElementById("price").value);
-                data.append("request", document.getElementById("request").value);
-
-                // var x = document.getElementById("alert");
-                // if (x.style.display === "block") {
-                //     x.style.display = "none";
-                // }
-                // var x = document.getElementById("shippingorbrandalert");
-                // if (x.style.display === "block") {
-                //     x.style.display = "none";
-                // }
-                var xhr = new XMLHttpRequest();
-
-                xhr.open("POST", "phpscripts/form_check.php");
-
-                xhr.onload = function() {
-
-                    // var formdata = JSON.parse(this.response);
-                    var resp = this.responseText;
-                    // console.log(resp);
-                    var x = document.getElementById("urlalert");
-                    if (resp == "incorrect URL") {
+                    var data = new FormData();
+                    // var brand = document.getElementById("brand").value
+                    data.append("brand", document.getElementById("brand").value);
+                    data.append("url", document.getElementById("url").value);
+                    data.append("shipping", document.getElementById("shipping").value);
+                    data.append("qty", document.getElementById("qty").value);
+                    data.append("size", document.getElementById("size").value);
+                    data.append("color", document.getElementById("color").value);
+                    data.append("price", document.getElementById("price").value);
+                    data.append("request", document.getElementById("request").value);
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "phpscripts/form_check.php");
+                    xhr.onload = function() {
+                        // var formdata = JSON.parse(this.response);
+                        var resp = this.responseText;
+                        // console.log(resp);
                         var x = document.getElementById("urlalert");
-                        x.style.display = "block";
-                    } else {
-                        x.style.display = "none";
+                        if (resp == "incorrect URL") {
+                            var x = document.getElementById("urlalert");
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
                     }
-                }
-            };
+                };
 
-            xhr.send(data);
-            showtable();
-            // (C) PREVENT HTML FORM SUBMIT
-            // return false;
+                xhr.send(data);
+                showtable();
+                // (C) PREVENT HTML FORM SUBMIT
+                // return false;
+            } else {
+                var shipno = document.getElementById("shipping").value
+                var x = document.getElementById("shippingorbrandalert");
+                var ship = $(`#shipping option[value=` + shipno + `]`).text();
+                var x = document.getElementById("shippingorbrandalert");
+                if (document.getElementById("brand").value == '15' || document.getElementById("shipping").value == '16') {
+                    event.preventDefault();
+                    // console.log("Error")
+                    x.style.display = "block";
+                } else {
+                    event.preventDefault()
+                    x.style.display = "none";
+                    shipping_option.push(ship)
+                    var data = new FormData();
+                    // var brand = document.getElementById("brand").value
+                    data.append("cartID", tempcartID);
+                    data.append("brand", document.getElementById("brand").value);
+                    data.append("url", document.getElementById("url").value);
+                    data.append("shipping", document.getElementById("shipping").value);
+                    data.append("qty", document.getElementById("qty").value);
+                    data.append("size", document.getElementById("size").value);
+                    data.append("color", document.getElementById("color").value);
+                    data.append("price", document.getElementById("price").value);
+                    data.append("request", document.getElementById("request").value);
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "phpscripts/updateitem.php");
+                    xhr.onload = function() {
+                        // var formdata = JSON.parse(this.response);
+                        var resp = this.responseText;
+                        // console.log(resp);
+                        var x = document.getElementById("urlalert");
+                        if (resp == "incorrect URL") {
+                            var x = document.getElementById("urlalert");
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
+                    }
+                };
+                xhr.send(data);
+                document.getElementById("update-item").innerHTML = "Generate Invoice";
+                document.getElementById("update-item").id = "submit-form";
+                showtable();
+            }
         }
 
         function showtable() {
@@ -1545,6 +1571,34 @@ End Facebook Pixel Code -->
                 //console.log(resp)
                 showtable()
 
+            }
+            xhr.send(data);
+        }
+        var tempcartID = 0;
+        function productedit(ctl) {
+            tempcartID = ctl;
+            console.log(ctl)
+            var data = new FormData();
+            data.append("edit", ctl)
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "phpscripts/edititem.php");
+            xhr.onload = function() {
+                var myObj = JSON.parse(this.response);
+                // console.log(myObj.brandID)
+                $('#url').val(myObj.url);
+                $('#size').val(myObj.size);
+                $('#color').val(myObj.color);
+                $('#price').val(myObj.price);
+                $('#request').val(myObj.requests);
+                $('#qty').val(myObj.qty);
+                $('#brand').val(myObj.brandID);
+                $('#shipping').val(myObj.shippingID);
+                document.getElementById("submit-form").innerHTML = "Update Invoice";
+                document.getElementById("submit-form").id = "update-item";
+                
+
+                // $('#submit-form').id = "update-item";
+                // $('#update-item').innerText = "Update Invoice";
             }
             xhr.send(data);
         }
@@ -1686,7 +1740,7 @@ End Facebook Pixel Code -->
                 data1.append("quantity", JSON.stringify(item_qty))
                 data1.append("request", JSON.stringify(item_request))
                 data1.append("shipping", JSON.stringify(shipping_option))
-                data1.append("local", JSON.stringify(local_delivery))   
+                data1.append("local", JSON.stringify(local_delivery))
                 data1.append("brandshipping", JSON.stringify(brand_delivery))
                 data1.append("itemshipping", JSON.stringify(item_shipping))
 
