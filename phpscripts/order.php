@@ -2,6 +2,7 @@
 
 session_start();
 include 'db_connection.php';
+include 'sendmail.php';
 $sessionID = $_SESSION['sessionID'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $conn = OpenCon();
@@ -18,21 +19,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $city = $_POST["city"];
     $address1 = $_POST["address1"];
     $address2 = $_POST["address2"];
-    $sql = "SELECT * FROM `user` WHERE `userID` = '" . $sessionID . "'";
-    $result = $conn->query($sql);
-
-    $row_cnt = mysqli_num_rows($result);
-    if ($row_cnt <= 0) {
-      $sql = "INSERT INTO `user` (`userID`,`name`, `email`, `address1`, `address2`, `phoneno`, `city`, `country`,   `rolesID`) VALUES ('" . $sessionID . "','" . $name . "', '" . $toemail . "', '" . $address1 . "', '" . $address2 . "','" . $phoneno . "','" . $city . "', ' Pakistan ', 1)";
+    // $sql = "SELECT * FROM `user` WHERE `sessionID` = '$sessionID' ";
+    // $result = $conn->query($sql);
+    // $userID ="" ;
+    // $row_cnt = mysqli_num_rows($result);
+    // if ($row_cnt <= 0) {
+      $sql = "INSERT INTO `user` (`sessionID`,`name`, `email`, `address1`, `address2`, `phoneno`, `city`, `country`,   `rolesID`) VALUES ('" . $sessionID . "','" . $name . "', '" . $toemail . "', '" . $address1 . "', '" . $address2 . "','" . $phoneno . "','" . $city . "', ' Pakistan ', 1)";
+      
       if (mysqli_query($conn, $sql)) {
+        $userID = $conn->insert_id;
         echo "Records inserted successfully.";
       } else {
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
       }
-    } else {
-      echo "Duplicate";
-    }
-    $shipping = $qty = $size = $color = $price = $request =  $url = "";
+    // } else {
+    //   echo "Duplicate";
+    // }
+    $shipping = $qty = $size = $color = $price = $request =  $url= "";
     $sql = "SELECT * FROM cart WHERE sessionID = '" . $sessionID . "' and status = '1'";
     $result = $conn->query($sql);
     $total = $prod_total = $shipping = $service = 0;
@@ -65,8 +68,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
     }
     echo $convrate;
+    $orderID =0;
     $a = date("Y-m-d H:i:s");
-    $sql = "INSERT INTO `order` (`date`, `totalamountRS`, `totalservice`, `status`, `userID`, `paymentmethodID`, `conversionrateID`) VALUES ('" . $a . "',$total , $service_charge,'Out for Delivery','" . $sessionID . "','" . $service . "',$convrate)";
+    $sql = "INSERT INTO `order` (`date`, `totalamountRS`, `totalservice`, `status`, `userID`, `paymentmethodID`, `conversionrateID`) VALUES ('" . $a . "',$total , $service_charge,'Out for Delivery', $userID ,'" . $service . "',$convrate)";
     if (mysqli_query($conn, $sql)) {
       $orderID = $conn->insert_id;
       // echo "New record created successfully. Last inserted ID is: " . $last_id;
@@ -74,37 +78,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
       echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
     }
-    $sql = "INSERT INTO `orderitem` ( `size`, `color`, `quantity`,`priceinpound`,`producttotal`,`brandID`,`shippingID`,`url`,`brandshipping`,`airshipping`,`requests`,`sessionID`)
-    SELECT  `size`, `color`, `quantity`,`priceinpound`,`producttotal`,`brandID`,`shippingID`,`url`,`brandshipping`,`airshipping`,`requests`,`sessionID`
-    FROM   `cart`
+    // $sql = "INSERT INTO `orderitem` ( `size`, `color`, `quantity`,`priceinpound`,`producttotal`,`brandID`,`shippingID`,`url`,`brandshipping`,`airshipping`,`requests`,`sessionID`)
+    $sql =  "SELECT  * FROM `cart`
     WHERE sessionID = '" . $sessionID . "' and status = '1'";
-    if (mysqli_query($conn, $sql)) {
-      // $orderID = $conn->insert_id;
-      // echo "New record created successfully. Last inserted ID is: " . $last_id;
-      echo "Records inserted successfully.3";
-    } else {
-      echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+    $result = $conn->query($sql);
+
+    while ($row = mysqli_fetch_array($result)) {
+      // echo "Id: " . $row["conversionrateID"] . " - rate: " . $row["conversionrate"] .  "<br>";
+      $sql = "INSERT INTO `orderitem` (`size`, `color`, `quantity`, `priceinpound`, `producttotal`, `brandID`, `shippingID`, `requests`, `url` , `brandshipping`, `airshipping`, `orderID`) VALUES 
+      ('".$row['size']."','".$row['color']."' , $row[quantity], $row[priceinpound], $row[producttotal], $row[brandID], $row[shippingID],  '".$row['requests']."' ,  '".$row['url']."', $row[brandshipping] , $row[airshipping], $orderID)";
+      //  echo "<br>, $sql";
+       if (mysqli_query($conn, $sql)) {
+        //   $orderID = $conn->insert_id;
+        // mysqli_error($conn);
+          echo "New record created successfully6";
+          // echo "Records inserted successfully.4";
+        } else {
+          // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+        }
     }
-    $sql = "UPDATE `orderitem`
-        SET `orderID` = $orderID
-        WHERE `sessionID` = '" . $sessionID . "'";
-    if (mysqli_query($conn, $sql)) {
-      $orderID = $conn->insert_id;
-      // echo "New record created successfully. Last inserted ID is: " . $last_id;
-      echo "Records inserted successfully.4";
-    } else {
-      echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-    }
+
+    // $sql = "UPDATE `orderitem`
+    //     SET `orderID` = $orderID
+    //     WHERE `sessionID` = '" . $sessionID . "'";
+    // if (mysqli_query($conn, $sql)) {
+    //   $orderID = $conn->insert_id;
+    //   // echo "New record created successfully. Last inserted ID is: " . $last_id;
+    //   echo "Records inserted successfully.4";
+    // } else {
+    //   echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+    // }
 
     $sql = "UPDATE cart
         SET status = 0
         WHERE sessionID = '" . $sessionID . "' and status = 1";
     if (mysqli_query($conn, $sql)) {
-      $orderID = $conn->insert_id;
+      // $orderID = $conn->insert_id;
       // echo "New record created successfully. Last inserted ID is: " . $last_id;
       echo "Records inserted successfully.5";
+
     } else {
       echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
     }
+    sendmail2($conn,$userID,$orderID);
   }
 }
