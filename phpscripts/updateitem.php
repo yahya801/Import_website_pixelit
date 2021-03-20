@@ -169,100 +169,94 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $host = str_ireplace($subdomain, '', $parse_final2);
             $tld2 = strstr($host, '.');
 
-            if ($tld1 != $tld2) {
-                $url_check = "incorrect URL";
-                echo $url_check;
-                exit();
-                echo 1;
-            } else {
-                // echo "correct url";
-                $sql = "SELECT * FROM conversionrate WHERE conversionrateID = (SELECT max(conversionrateID) from conversionrate)";
-                $result = $conn->query($sql);
-                $convrate = 0;
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while ($row = $result->fetch_assoc()) {
-                        // echo "Id: " . $row["conversionrateID"] . " - rate: " . $row["conversionrate"] .  "<br>";
-                        $convrate = $row["conversionrate"];
-                    }
-                }
-                $brandshippingconv = $brandshipping * $convrate;
-                $convertedfinal = $qty * $convrate * $price;
-                // echo $convertedfinal;
-                $sql = "SELECT * FROM shipping WHERE shippingID = $shipping";
-                $result = $conn->query($sql);
-                $shipping_norm = 0;
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while ($row = $result->fetch_assoc()) {
-                        // echo "Id: " . $row["shippingID"] . " - desc: " . $row["description"] .  "<br>";
-                        $shipping_norm = $row["amount"] * $qty;
-                    }
-                }
-                // echo $shipping_norm;
-                $safe_url = mysqli_real_escape_string($conn, $url);
-                $pricetotal = 0;
-                $pricetotal = $convertedfinal + $brandshippingconv + $shipping_norm;
 
-                $sql = "SELECT * FROM cart WHERE brandID = $brand and sessionID = '" . $sessionID . "' and status = 1 and cartID != $cartid";
-                $result = $conn->query($sql);
-                $tprice = 0;
-                $count = 0;
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while ($row = $result->fetch_assoc()) {
-                        // echo "Id: " . $row["shippingID"] . " - desc: " . $row["description"] .  "<br>";
-                        $tprice = $tprice + ($row["priceinpound"] * $row["quantity"]);
-                        $count = $count + 1;
-                    }
+            // echo "correct url";
+            $sql = "SELECT * FROM conversionrate WHERE conversionrateID = (SELECT max(conversionrateID) from conversionrate)";
+            $result = $conn->query($sql);
+            $convrate = 0;
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    // echo "Id: " . $row["conversionrateID"] . " - rate: " . $row["conversionrate"] .  "<br>";
+                    $convrate = $row["conversionrate"];
+                }
+            }
+            $brandshippingconv = $brandshipping * $convrate;
+            $convertedfinal = $qty * $convrate * $price;
+            // echo $convertedfinal;
+            $sql = "SELECT * FROM shipping WHERE shippingID = $shipping";
+            $result = $conn->query($sql);
+            $shipping_norm = 0;
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    // echo "Id: " . $row["shippingID"] . " - desc: " . $row["description"] .  "<br>";
+                    $shipping_norm = $row["amount"] * $qty;
+                }
+            }
+            // echo $shipping_norm;
+            $safe_url = mysqli_real_escape_string($conn, $url);
+            $pricetotal = 0;
+            $pricetotal = $convertedfinal + $brandshippingconv + $shipping_norm;
 
-                    $tprice = $tprice + ($price * $qty);
-                    $adjustedbrandshipping = 0;
-                    if ($brandfree == NULL) {
-                        if ($brandcharge == NULL) {
+            $sql = "SELECT * FROM cart WHERE brandID = $brand and sessionID = '" . $sessionID . "' and status = 1 and cartID != $cartid";
+            $result = $conn->query($sql);
+            $tprice = 0;
+            $count = 0;
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    // echo "Id: " . $row["shippingID"] . " - desc: " . $row["description"] .  "<br>";
+                    $tprice = $tprice + ($row["priceinpound"] * $row["quantity"]);
+                    $count = $count + 1;
+                }
+
+                $tprice = $tprice + ($price * $qty);
+                $adjustedbrandshipping = 0;
+                if ($brandfree == NULL) {
+                    if ($brandcharge == NULL) {
+                        $adjustedbrandshipping = 0;
+                    } else {
+                        $adjustedbrandshipping = $brandcharge;
+                    }
+                } else {
+                    if ($brandcharge == NULL) {
+                        $adjustedbrandshipping = 0;
+                    } else {
+                        if ($tprice >= $brandfree) {
                             $adjustedbrandshipping = 0;
                         } else {
                             $adjustedbrandshipping = $brandcharge;
                         }
-                    } else {
-                        if ($brandcharge == NULL) {
-                            $adjustedbrandshipping = 0;
-                        } else {
-                            if ($tprice >= $brandfree) {
-                                $adjustedbrandshipping = 0;
-                            } else {
-                                $adjustedbrandshipping = $brandcharge;
-                            }
-                        }
                     }
-                    $adjustedbrandshipping = $adjustedbrandshipping * $convrate;
-                    $sql = "UPDATE cart
+                }
+                $adjustedbrandshipping = $adjustedbrandshipping * $convrate;
+                $sql = "UPDATE cart
           SET brandshipping = $adjustedbrandshipping
           WHERE cartID = (
               SELECT cartID FROM cart WHERE brandID = $brand and sessionID = '" . $sessionID . "' and status = 1 and cartID != $cartid
           LIMIT 1
               )
           ";
-                    if (mysqli_query($conn, $sql)) {
-                        echo "Records update successfully.";
-                    } else {
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-                    }
-                    $sql = "UPDATE `cart` SET `size`='" . $size . "',`color`='" . $color . "',`quantity`=$qty,`priceinpound`=$price,`producttotal`=$convertedfinal,`brandID`=$brand,`shippingID`=$shipping,`requests`='" . $request . "',`url`='" . $url . "',`brandshipping`=0,`airshipping`=$shipping_norm,`sessionID`='" . $sessionID . "',`status`='1' WHERE cartID = $cartid";
-                    if (mysqli_query($conn, $sql)) {
-                        echo "Records updated successfully.";
-                    } else {
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-                    }
+                if (mysqli_query($conn, $sql)) {
+                    echo "Records update successfully.";
                 } else {
-                    $sql = "UPDATE `cart` SET `size`='" . $size . "',`color`='" . $color . "',`quantity`=$qty,`priceinpound`=$price,`producttotal`=$convertedfinal,`brandID`=$brand,`shippingID`=$shipping,`requests`='" . $request . "',`url`='" . $url . "',`brandshipping`=$brandshippingconv,`airshipping`=$shipping_norm,`sessionID`='" . $sessionID . "',`status`='1' WHERE cartID = $cartid";
-                    // $result = $conn->query($sql);
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                }
+                $sql = "UPDATE `cart` SET `size`='" . $size . "',`color`='" . $color . "',`quantity`=$qty,`priceinpound`=$price,`producttotal`=$convertedfinal,`brandID`=$brand,`shippingID`=$shipping,`requests`='" . $request . "',`url`='" . $url . "',`brandshipping`=0,`airshipping`=$shipping_norm,`sessionID`='" . $sessionID . "',`status`='1' WHERE cartID = $cartid";
+                if (mysqli_query($conn, $sql)) {
+                    echo "Records updated successfully.";
+                } else {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                }
+            } else {
+                $sql = "UPDATE `cart` SET `size`='" . $size . "',`color`='" . $color . "',`quantity`=$qty,`priceinpound`=$price,`producttotal`=$convertedfinal,`brandID`=$brand,`shippingID`=$shipping,`requests`='" . $request . "',`url`='" . $url . "',`brandshipping`=$brandshippingconv,`airshipping`=$shipping_norm,`sessionID`='" . $sessionID . "',`status`='1' WHERE cartID = $cartid";
+                // $result = $conn->query($sql);
 
-                    if (mysqli_query($conn, $sql)) {
-                        echo "Records updated successfully.";
-                    } else {
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-                    }
+                if (mysqli_query($conn, $sql)) {
+                    echo "Records updated successfully.";
+                } else {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
                 }
             }
         }

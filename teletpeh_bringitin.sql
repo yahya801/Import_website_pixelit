@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2021 at 06:51 AM
+-- Generation Time: Mar 20, 2021 at 11:29 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -79,7 +79,8 @@ INSERT INTO `brand` (`brandID`, `brandname`, `url`, `url2`, `urlmobile`, `origin
 (56, 'Victoria\'s Street', 'https://www.victoriassecret.com/gb/', NULL, NULL, 'UK', NULL, NULL),
 (57, 'Weekday', 'https://www.weekday.com/en_gbp/index.html/', NULL, NULL, 'UK', NULL, NULL),
 (58, 'ZARA', 'https://www.zara.com/uk/', NULL, 'https://m.zara.com/uk/', 'UK', NULL, NULL),
-(59, 'Huda Beauty', 'https://hudabeauty.com/en_GB/home/', NULL, NULL, 'UK', NULL, NULL);
+(59, 'Huda Beauty', 'https://hudabeauty.com/en_GB/home/', NULL, NULL, 'UK', NULL, NULL),
+(69, 'Any Other Brand', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -117,14 +118,6 @@ CREATE TABLE `conversionrate` (
   `conversionrate` float DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `conversionrate`
---
-
-INSERT INTO `conversionrate` (`conversionrateID`, `conversionrate`, `updatedAt`) VALUES
-(1, 230, '2021-03-04 13:03:55'),
-(2, 240, '2021-03-04 13:15:08');
 
 -- --------------------------------------------------------
 

@@ -156,6 +156,7 @@ function smtpmailer($to, $from, $from_name, $subject, $body)   {
      echo json_encode([
             "error" => $error
         ]);
+        
     }
     
 ?>

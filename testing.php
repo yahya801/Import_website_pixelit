@@ -7,7 +7,7 @@ session_start();
 if (isset($_SESSION["sessionID"]) == "") {
     $_SESSION["sessionID"] = uniqid($more_entropy = true);
 }
-echo $_SESSION['sessionID'];
+// echo $_SESSION['sessionID'];
 
 ?>
 
@@ -1115,7 +1115,7 @@ End Facebook Pixel Code -->
                                             detials.</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <a href="index.php" class="btn btn-success btn-block" style="color:white;background-color: #EF305E;padding-top: 6%;" data-dismiss="modal">OK</a>
+                                        <a href="testing.php" class="btn btn-success btn-block" style="color:white;background-color: #EF305E;padding-top: 6%;" data-dismiss="modal">OK</a>
                                     </div>
                                 </div>
                             </div>
@@ -1754,20 +1754,18 @@ End Facebook Pixel Code -->
 
                 xhd.send(data1);
                 xhd.onload = function() {
-                    var formdata = (this.response)
-                    // console.log(formdata)
+                    var formdata = JSON.parse(this.response);
+                    console.log(formdata)
 
-                    if (formdata.error == false) {
+                    if (formdata.error == true) {
                         var x = document.getElementById("emailerror");
                         if (x.style.display === "none") {
                             x.style.display = "block";
-                        } else {
-                            x.style.display = "none";
                         }
                         nextPrev(2)
 
                     } else {
-                        error = true
+                        // error = false
                         nextPrev(1)
                     }
 

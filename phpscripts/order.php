@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   } else {
-    echo "Connection established";
+    // echo "Connection established";
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
     $name = $fname . " " . $lname;
@@ -28,9 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
       if (mysqli_query($conn, $sql)) {
         $userID = $conn->insert_id;
-        echo "Records inserted successfully.";
+        // echo "Records inserted successfully.";
       } else {
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+        // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
       }
     // } else {
     //   echo "Duplicate";
@@ -67,16 +67,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $convrate = $row["conversionrateID"];
       }
     }
-    echo $convrate;
+    // echo $convrate;
     $orderID =0;
     $a = date("Y-m-d H:i:s");
     $sql = "INSERT INTO `order` (`date`, `totalamountRS`, `totalservice`, `status`, `userID`, `paymentmethodID`, `conversionrateID`) VALUES ('" . $a . "',$total , $service_charge,'Out for Delivery', $userID ,'" . $service . "',$convrate)";
     if (mysqli_query($conn, $sql)) {
       $orderID = $conn->insert_id;
-      // echo "New record created successfully. Last inserted ID is: " . $last_id;
-      echo "Records inserted successfully.2";
+    
     } else {
-      echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+      // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
     }
     // $sql = "INSERT INTO `orderitem` ( `size`, `color`, `quantity`,`priceinpound`,`producttotal`,`brandID`,`shippingID`,`url`,`brandshipping`,`airshipping`,`requests`,`sessionID`)
     $sql =  "SELECT  * FROM `cart`
@@ -91,35 +90,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        if (mysqli_query($conn, $sql)) {
         //   $orderID = $conn->insert_id;
         // mysqli_error($conn);
-          echo "New record created successfully6";
+          // echo "New record created successfully6";
           // echo "Records inserted successfully.4";
         } else {
           // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
     }
 
-    // $sql = "UPDATE `orderitem`
-    //     SET `orderID` = $orderID
-    //     WHERE `sessionID` = '" . $sessionID . "'";
-    // if (mysqli_query($conn, $sql)) {
-    //   $orderID = $conn->insert_id;
-    //   // echo "New record created successfully. Last inserted ID is: " . $last_id;
-    //   echo "Records inserted successfully.4";
-    // } else {
-    //   echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-    // }
-
     $sql = "UPDATE cart
         SET status = 0
         WHERE sessionID = '" . $sessionID . "' and status = 1";
     if (mysqli_query($conn, $sql)) {
-      // $orderID = $conn->insert_id;
-      // echo "New record created successfully. Last inserted ID is: " . $last_id;
-      echo "Records inserted successfully.5";
+  
 
     } else {
-      echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+     
     }
-    sendmail2($conn,$userID,$orderID);
-  }
+   
+
+  
 }
+$result2 = sendmail2($conn,$userID,$orderID);
+// echo $result2;
+
+}
+
+?>
