@@ -1493,12 +1493,13 @@ End Facebook Pixel Code -->
                             x.style.display = "block";
                         } else {
                             x.style.display = "none";
+                            showtable();
                         }
                     }
                 };
 
                 xhr.send(data);
-                showtable();
+                
                 // (C) PREVENT HTML FORM SUBMIT
                 // return false;
             } else {
@@ -1671,7 +1672,7 @@ End Facebook Pixel Code -->
                 document.getElementById("nextBtn").disabled = false;
                 // console.log("not")
             } else {
-                document.getElementById("nextBtn").disabled = true;
+                // document.getElementById("nextBtn").disabled = true;
             }
             x[n].style.display = "block";
             //... and fix the Previous/Next buttons:
@@ -1757,7 +1758,7 @@ End Facebook Pixel Code -->
                     var formdata = JSON.parse(this.response);
                     console.log(formdata)
 
-                    if (formdata.error == true) {
+                    if (formdata.error == false) {
                         var x = document.getElementById("emailerror");
                         if (x.style.display === "none") {
                             x.style.display = "block";

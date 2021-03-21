@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $adjustedbrandshipping = 0;
-    $sql = "SELECT * FROM Brand WHERE brandId = $brand";
+    $sql = "SELECT * FROM brand WHERE brandID = $brand";
     $result = $conn->query($sql);
     $brandfree = 0;
     $brandcharge = 0;

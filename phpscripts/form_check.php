@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
       }
     } else {
-      $sql = "SELECT * FROM Brand WHERE brandId = $brand";
+      $sql = "SELECT * FROM brand WHERE brandID = $brand";
       $result = $conn->query($sql);
       $parse = "";
       $parse_path =  "";
@@ -82,19 +82,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if ($result->num_rows > 0) {
         // output data of each row
         while ($row = mysqli_fetch_array($result)) {
-          // echo "BrandId: " . $row["brandID"] . " - URL: " . $row["url"] .  "<br>";
+        //   echo "BrandId: " . $row["brandID"] . " - URL: " . $row["url"] .  "<br>";
           $brandID = $row["brandID"];
           $brandfree = $row["free"];
           $brandcharge = $row["charge"];
-          echo $brandcharge. " " . $brandfree;
+        //   echo $brandcharge. " " . $brandfree;
           if ($brandfree == NULL) {
             if ($brandcharge == NULL) {
               $brandshipping = 0;
-              echo $brandshipping."1";
+            //   echo $brandshipping."1";
             } else {
               $brandshipping = $brandcharge;
               
-              echo $brandshipping."2";
+            //   echo $brandshipping."2";
             }
           } else {
             if ($brandcharge == NULL) {
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               }
             }
           }
-          echo $brandshipping;
+        //   echo $brandshipping;
 
           $parse = parse_url($url, PHP_URL_HOST);
           $parse_path =  parse_url($url, PHP_URL_PATH);
@@ -128,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $parse_final = $parseU2;
               } else {
                 // echo "not right";
-                $url_check = "incorrect URL1";
+                $url_check = "incorrect URL";
                 // $jsonreturn = json_encode([
                 //   "urlcheck" => $url_check
                 // ]);
@@ -147,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $parse_final = $parseU1;
               } else {
                 // echo "not right";
-                $url_check = "incorrect URL2";
+                $url_check = "incorrect URL";
                 // $jsonreturn = json_encode([
                 //   "urlcheck" => $url_check
                 // ]);
@@ -162,7 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               $parse_final = $parseU1;
             } else {
               // echo "not right";
-              $url_check = "incorrect URL3";
+              $url_check = "incorrect URL";
               // $jsonreturn = json_encode([
               //   "urlcheck" => $url_check
               // ]);

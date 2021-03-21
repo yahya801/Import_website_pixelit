@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
             }
         } else {
-            $sql = "SELECT * FROM Brand WHERE brandId = $brand";
+            $sql = "SELECT * FROM brand WHERE brandID = $brand";
             $result = $conn->query($sql);
             $parse = "";
             $parse_path =  "";

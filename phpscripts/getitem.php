@@ -46,7 +46,7 @@ echo '<td style="vertical-align: middle">'.$row['quantity'].'</td>';
 echo '<td style="vertical-align: middle">'.$row['airshipping'].'</td>';
 echo '<td style="vertical-align: middle">'.$row['brandshipping'].'</td>'; // we are looping all data to be printed till last row in the table
 echo '<td style="vertical-align: middle">'.$total.'</td>';
-echo "<td class='product-remove'> <i onclick='productdelete(".$row['cartID'].")' class='fa fa-close' style='font-size:24px'></i></br><i onclick='productedit(".$row['cartID'].")' class='fa fa-pencil-alt' style='font-size:18px'></i></td>";
+echo "<td class='product-remove'> <i onclick='productdelete(".$row['cartID'].")' class='fa fa-close' style='font-size:24px; cursor: pointer'></i></br><i onclick='productedit(".$row['cartID'].")' class='fa fa-pencil-alt' style='font-size:18px; cursor: pointer'></i></td>";
 echo'</tr>'; // closing table row
 }
 }
