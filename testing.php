@@ -1646,6 +1646,7 @@ End Facebook Pixel Code -->
             total = product + custom + brand + service
             var obj2 = document.getElementById("total-charges");
             obj2.remove();
+            document.getElementById("brand_ruppee").innerHTML =""
             $("#charges").append(
                 "<div id='total-charges' style='display:inline'>" +
                 "<h5  style='color: black;display:inline'>Total Bill</h5>" +

@@ -28,7 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $sql = "SELECT * FROM cart WHERE sessionID = '" . $sessionID . "' and status = '1'";
     $result = $conn->query($sql);
-
+    $sql2 = "SELECT `brand`.`brandname`, SUM(`cart`.`brandshipping`) AS shipping FROM `brand`JOIN `cart` ON `cart`.`brandID` = `brand`.`brandID` WHERE `cart`.`sessionID` = '" . $sessionID . "' and status = '1'
+    GROUP BY `brand`.`brandID`";
+    $result2 =  $conn->query($sql2);
     $row_cnt = mysqli_num_rows($result);
     if ($row_cnt > 0) {
         $prod_total = $shipping = $service = 0;
@@ -47,8 +49,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<td style='color: black;'>+ UK to PK (Air Shipping Fee/Custom Duties/Local Delivery in Pakistan)</td>";
         echo "<td id='custom_ruppee' style='color: black;'>Rs: " . $shipping . "</td></tr>";
         echo "<tr id='brand-charges'>";
+        echo "<tr id='brand-charges'>";
         echo "<td style='color: black;'>+ Brand Delivery Charges</td>";
-        echo "<td id='brand_ruppee' style='color: black;'>Rs: " . $brand_delivery . "</td></tr>";
+        echo "<td id='brand_ruppee' style='color: black;'>Rs: ".$brand_delivery."</td></tr>";
+        while ($row2 =  mysqli_fetch_array($result2)){
+            echo "<tr id='brand-charg'>";
+            echo "<td style='color: black;'>+ ". $row2['brandname'] ."</td>";
+            echo "<td id='brand' style='color: black;'>Rs: " . $row2['shipping'] ."</td></tr>";
+
+        }
+      
         echo "<tr id='service-charges'>";
         echo "<td style='color: black;'>+ Service Charges (" . ($service_perc * 100) . "%)</td>";
         echo "<td id='service_ruppee' style='color: black;'>Rs: " . $service . "</td></tr>";
