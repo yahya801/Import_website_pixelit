@@ -12,12 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         SET paymentmethodID = '0'
         WHERE sessionID = '" . $sessionID . "' and status = '1'        ";
         $result = $conn->query($sql);
-        
-    }
-     else {
+    } else if ($service_value == 120) {
         $service_perc = 0.05;
         $sql = "UPDATE cart
         SET paymentmethodID = '1'
+        WHERE sessionID = '" . $sessionID . "' and status = '1'        ";
+        $result = $conn->query($sql);
+    } else {
+        $service_perc = 0.10;
+        $sql = "UPDATE cart
+        SET paymentmethodID = '2'
         WHERE sessionID = '" . $sessionID . "' and status = '1'        ";
         $result = $conn->query($sql);
     }
@@ -42,41 +46,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $total = $prod_total + $shipping + $brand_delivery;
         $service = $total * $service_perc;
+        $subTotal = $prod_total + $shipping + $service;
         echo "<tr id='product-charges'>";
         echo "<td style='color: black' width='75%'>Product Prices</td>";
         echo "<td id='product_ruppee' style='color: black;'>Rs: " . $prod_total . "</td></tr>";
         echo "<tr id='custom-charges'>";
         echo "<td style='color: black;'>+ UK to PK (Air Shipping Fee/Custom Duties/Local Delivery in Pakistan)</td>";
         echo "<td id='custom_ruppee' style='color: black;'>Rs: " . $shipping . "</td></tr>";
-        echo "<tr id='brand-charges'>";
-        echo "<tr id='brand-charges'>";
-        echo "<td style='color: black;'>+ Brand Delivery Charges</td>";
-        echo "<td id='brand_ruppee' style='color: black;'>Rs: ".$brand_delivery."</td></tr>";
-        while ($row2 =  mysqli_fetch_array($result2)){
-            echo "<tr id='brand-charg'>";
-            echo "<td style='color: black;'>+ ". $row2['brandname'] ."</td>";
-            echo "<td id='brand' style='color: black;'>Rs: " . $row2['shipping'] ."</td></tr>";
-
-        }
-      
         echo "<tr id='service-charges'>";
-        echo "<td style='color: black;'>+ Service Charges (" . ($service_perc * 100) . "%)</td>";
+        echo "<td style='color: black;'>+ Service Fees (" . ($service_perc * 100) . "%)</td>";
         echo "<td id='service_ruppee' style='color: black;'>Rs: " . $service . "</td></tr>";
+        echo "<tr id='subtotal-charges'>";
+        echo "<td style='color: black;'>+<b> SubTotal</b></td>";
+        echo "<td id='service_ruppee' style='color: black;'><b>Rs: " . $subTotal . "</b></td></tr>";
+        echo "<tr id='brand-charges'>";
+        echo "<td style='color: black;'>+ Brand Delivery Fees</td>";
+        echo "<td id='brand_ruppee' style='color: black;'>Rs: " . $brand_delivery . "</td></tr>";
+        while ($row2 =  mysqli_fetch_array($result2)) {
+            echo "<tr id='brand-charg'>";
+            echo "<td style='color: black;'>+ " . $row2['brandname'] . "</td>";
+            echo "<td id='brand' style='color: black;'>Rs: " . $row2['shipping'] . "</td></tr>";
+        }
     } else {
         echo "<tr id='product-charges'>";
         echo "<td style='color: black' width='75%'>Product Prices</td>";
         echo "<td id='product_ruppee' style='color: black;'>Rs: 0</td></tr>";
         echo "<tr id='custom-charges'>";
-        echo "<td style='color: black;'>+ UK to PK (Air Shipping Fee/Custom Duties/Local Delivery in Pakistan)</td>";
+        echo "<td style='color: black;'>+ UK to PK (Air Shipping Fees/Custom Duties/Local Delivery in Pakistan)</td>";
         echo "<td id='custom_ruppee' style='color: black;'>Rs: 0</td></tr>";
-        echo "<tr id='brand-charges'>";
-        echo "<td style='color: black;'>+ Brand Delivery Charges</td>";
-        echo "<td id='brand_ruppee' style='color: black;'>Rs: 0</td></tr>";
         echo "<tr id='service-charges'>";
-        echo "<td style='color: black;'>+ Service Charges</td>";
+        echo "<td style='color: black;'>+ Service Fees</td>";
         echo "<td id='service_ruppee' id='serviceprice' style='color: black;'>Rs: 0</td></tr>";
+        echo "<tr id='brand-charges'>";
+        echo "<td style='color: black;'>+ Brand Delivery Fees</td>";
+        echo "<td id='brand_ruppee' style='color: black;'>Rs: 0</td></tr>";
     }
 
     CloseCon($conn);
 }
-

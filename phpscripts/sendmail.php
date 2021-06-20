@@ -5,14 +5,15 @@ require "PHPMailer/PHPMailerAutoload.php";
 // $sessionID = $_SESSION['sessionID'];
 
 function smtpmailer($data)
-{   
-    $error ="";
-    $name = $toemail = $phoneno = $address1 = $address2 = $city = "";
+{
+    $error = "";
+    $name = $toemail = $phoneno = $address1 = $address2 = $city = $paymentmethod = "";
     $subj = 'Order From Bringitin.pk';
     $from = 'sales@bringitin.pk';
     $txt = "";
     $txt2 = "";
     $txt3 = "";
+
     $totalcharges = $servicecharges = $branddelivery = $shipping = 0;
     while ($row = mysqli_fetch_array($data)) {
         $name = $row['name'];
@@ -23,6 +24,7 @@ function smtpmailer($data)
         $totalcharges = $row['totalamountRS'];
         $servicecharges = $row['totalservice'];
         $branddelivery  += $row['brandshipping'];
+        $paymentmethod = $row['paymentdescription'];
         $city = $row['city'];
         $txt2 .=  "Brand Name: ";
         $txt2 .=  $row['brandname'];
@@ -51,6 +53,7 @@ function smtpmailer($data)
         $txt2 .=  "Brand Shipping Charges: Rs ";
         $txt2 .= $row['brandshipping'];
         $txt2 .= "<br>";
+        $txt2 .= "<br>";
     }
     // $txt = " <img src='assets/images/logo/new-icon.png' alt=''>";
     $txt .= "Thank you from Ordering From Bringitin.pk";
@@ -75,20 +78,23 @@ function smtpmailer($data)
     $txt .= "<br>";
 
     $txt3 .= "<br>";
-    $txt3 .= "Total Service Charges: Rs ";
+    $txt3 .= "Total Service Fees: Rs ";
     $txt3 .= $servicecharges;
     $txt3 .= "<br>";
-    $txt3 .= "Total Brand Delivery Charges: Rs ";
+    $txt3 .= "Total Brand Delivery Fees: Rs ";
     $txt3 .= $branddelivery;
     $txt3 .= "<br>";
     $txt3 .=  "Total Price: Rs ";
     $txt3 .= $totalcharges;
     $txt3 .= "<br>";
+    $txt3 .=  "Payment Method: ";
+    $txt3 .= $paymentmethod;
+    $txt3 .= "<br>";
 
 
     // echo $txt2;
     $txt4 = $txt . $txt2 .  $txt3;
-    
+
     $mail = new PHPMailer();
     $mail->IsSMTP();
     $mail->SMTPAuth = true;
@@ -116,12 +122,12 @@ function smtpmailer($data)
     // if($mail->Send())
     // {
     //     $error = false;
-        
+
     // }
     // else 
     // {
     //     $error = true;  
-      
+
     // }
     return $error;
 }
@@ -129,9 +135,9 @@ function smtpmailer($data)
 function sendmail2($conn, $userID, $orderID)
 {
 
-    $sql = "SELECT * FROM `orderitem` JOIN `order` ON `orderitem`.`orderID` =  `order`.`orderID`
+    $sql = "SELECT `orderitem`.*,`order`.* ,`shipping`.*,`brand`.`brandname`,`user`.*,`paymentmethod`.`description` AS paymentdescription FROM `orderitem` JOIN `order` ON `orderitem`.`orderID` =  `order`.`orderID`
     JOIN `user` ON `user`.`userID` = `order`.`userID` JOIN `shipping` ON `orderitem`.`shippingID` = `shipping`.`shippingID`
-    JOIN `brand` ON `brand`.`brandID` = `orderitem`.`brandID` WHERE `user`.`userID` = $userID ";
+    JOIN `brand` ON `brand`.`brandID` = `orderitem`.`brandID` JOIN `paymentmethod` ON `order`.`paymentmethodID` = `paymentmethod`.`paymentmethodID` WHERE `user`.`userID` = $userID ";
     $result = $conn->query($sql);
     // while ($row = mysqli_fetch_array($result)) {
     //     echo "<br>",$row['orderitemID'];
@@ -142,5 +148,5 @@ function sendmail2($conn, $userID, $orderID)
     // echo $mailsend,"<br>";
     echo json_encode([
         "error" => $mailsend
-      ]);
+    ]);
 }

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
 <?php
@@ -55,23 +54,33 @@ if (isset($_SESSION["sessionID"]) == "") {
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <meta name="google-site-verification" content="DB4TkXMGG-vSkdWtyHOp-1h7Qu-RVj17HaHOpquKCAc" />
-    <!-- Facebook Pixel Code -->
-    <!-- <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2739777829608144');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2739777829608144&ev=PageView&noscript=1"
-/></noscript>
-End Facebook Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '434552054537600');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=434552054537600&ev=PageView
+&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
 </head>
 
 <body>
@@ -447,7 +456,7 @@ End Facebook Pixel Code -->
                                 <div class="col-lg-5 ml-auto" style="margin-top: auto;margin-bottom: auto;">
 
                                     <div class="video-interview section-space--mt_40 video-popup">
-                                        <a href="https://youtu.be/BM7WI6o6ZYI" height="500" width="300" class="video-link mt-30">
+                                        <a href="https://youtu.be/GqHPig0jqrI" height="500" width="300" class="video-link mt-30">
                                             <div class="single-popup-wrap">
                                                 <img class="img-fluid border-radus-5" src="assets/images/bg/videothumbnail1.png" alt="">
                                                 <div class="ht-popup-video video-button">
@@ -556,11 +565,13 @@ End Facebook Pixel Code -->
                                                                 Shirt/Top/Undergarment/Jewellery/Accessory</option>
                                                             <option value="52"> Rs 1000 each Trouser/Jeans/Sweater/Jumper
                                                             </option>
-                                                            <option value="53"> Rs 1800 each Jacket/Blazer/Hoodie - Light
+                                                            <option value="65">Rs 1500 each Jumpsuits/Tracksuits(Both Top and Bottom)</option>
+                                                            <option value="53"> Rs 1800 each Suit Jacket/Blazer/Hoodie (Light Weight)
                                                                 weight</option>
-                                                            <option value="54"> Rs 2500 each Long Coat/Jacket</option>
-                                                            <option value="55"> Rs 500 each Footwear(Kids) /
-                                                                Slippers(Adults)</option>
+                                                            <option value="54"> Rs 2500 each Long Coat/Jacket (Light Weight)</option>
+                                                            <option value="63"> Rs 4000 each Long Coat/Jacket (Heavy Weight)</option>
+                                                            <option value="55"> Rs 800 each Footwear(Kids)</option>
+                                                            <option value="64"> Rs 1000 each Slippers(Adults)</option>
                                                             <option value="56"> Rs 1500 each
                                                                 Footwear(Adults)/Handbag/Purse</option>
                                                             <option value="57"> Rs 500 each Small Book -
@@ -571,8 +582,7 @@ End Facebook Pixel Code -->
                                                             <option value="60"> Rs 1000 each Medicine/Small Cosmetics
                                                             </option>
                                                             <option value="61"> Rs 1200 each Watch/Sunglasses</option>
-                                                            <option value="62">
-                                                            </option>
+                                                            <option value="62">Miscellaneous (Will be discussed on call)</option>
                                                             <!-- <option value="63"> Rs 5700 each Miscellaneous - Medium
                                                             </option>
                                                             <option value="64"> Rs 8850 each Miscellaneous - Large
@@ -668,8 +678,9 @@ End Facebook Pixel Code -->
                                     <div class="price">
                                         <div class="selectdelivery" style="padding-top:10px">
                                             <select id="delivery" class="shipping_select" onchange="changeshipping()" ;>
-                                                <option value="110">15% Service Charges on Cash on Delivery</option>
-                                                <option value="100">5% Service Charges on Bank Transfer</option>
+                                                <option value="110">15% Service Fees on Cash on Delivery</option>
+                                                <option value="130">10% Service Fees on Partial Bank Transfer</option>
+                                                <option value="120">5% Service Fees on Bank Transfer</option>
                                             </select>
                                         </div>
                                         <table id="checkout" class="table2">
@@ -681,6 +692,14 @@ End Facebook Pixel Code -->
                                                 <td style='color: black;'>+ UK to PK (Air Shipping Fee/Custom Duties/Local Delivery in Pakistan)</td>
                                                 <td style='color: black;'> Rs: 0</td>
                                             </tr>
+                                            <tr id="service-charges">
+                                                <td style='color: black;'>+ Service Fees</td>
+                                                <td style='color: black;'> Rs: 0</td>
+                                            </tr>
+                                            <tr id="subtotal-charges">
+                                                <td style='color: black;'>+ SubTotal</td>
+                                                <td style='color: black;'> Rs: 0</td>
+                                            </tr>
                                             <!-- <tr id="customduty-charges">
                                                 <td style='color: black;'> + Custom Duties in Pakistan<br> (20% of the Products Prices)</td>
                                                 <td style='color: black;'> Rs: 0</td>
@@ -690,13 +709,10 @@ End Facebook Pixel Code -->
                                                 <td style='color: black;'> Rs: 0</td>
                                             </tr> -->
                                             <tr id="brand-charges">
-                                                <td style='color: black;'>+ Brand Delivery Charges</td>
+                                                <td style='color: black;'>+ Brand Delivery Fees</td>
                                                 <td style='color: black;'> Rs: 0</td>
                                             </tr>
-                                            <tr id="service-charges">
-                                                <td style='color: black;'>+ Service Charges</td>
-                                                <td style='color: black;'> Rs: 0</td>
-                                            </tr>
+
                                             <!-- <tr id="total-charges">
                                                 <td style='color: black;'> Total Charges</td>
                                                 <td style='color: black;'>Rs: 0</td>
@@ -1112,7 +1128,7 @@ End Facebook Pixel Code -->
                                     </div>
                                     <div class="modal-body">
                                         <p class="text-center">Your booking has been confirmed. Check your email for
-                                            detials.</p>
+                                            details.</p>
                                     </div>
                                     <div class="modal-footer">
                                         <a href="testing.php" class="btn btn-success btn-block" style="color:white;background-color: #EF305E;padding-top: 6%;" data-dismiss="modal">OK</a>
@@ -1499,7 +1515,7 @@ End Facebook Pixel Code -->
                 };
 
                 xhr.send(data);
-                
+
                 // (C) PREVENT HTML FORM SUBMIT
                 // return false;
             } else {
@@ -1551,13 +1567,17 @@ End Facebook Pixel Code -->
         function showtable() {
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "phpscripts/getitem.php");
+            var resp = "";
             xhr.onload = function() {
                 var resp = this.responseText;
                 // console.log(resp)
                 document.getElementById("producttable").innerHTML = resp;
+                if (document.getElementById("emptycart")) {} else {
+                    var elem = document.getElementById("invoicebox");
+                    elem.scrollIntoView();
+                }
             }
-            var elem = document.getElementById("invoicebox");
-            elem.scrollIntoView();
+
             xhr.send();
             document.getElementById("myform").reset();
             calculateprice()
@@ -1646,7 +1666,7 @@ End Facebook Pixel Code -->
             total = product + custom + brand + service
             var obj2 = document.getElementById("total-charges");
             obj2.remove();
-            document.getElementById("brand_ruppee").innerHTML =""
+            document.getElementById("brand_ruppee").innerHTML = ""
             $("#charges").append(
                 "<div id='total-charges' style='display:inline'>" +
                 "<h5  style='color: black;display:inline'>Total Bill</h5>" +
@@ -1787,6 +1807,21 @@ End Facebook Pixel Code -->
                 }
                 return false
             }
+
+        }
+
+        function purchase() {
+
+
+            fbq('track', 'Sales', {
+                currency: "PKR",
+                value: total
+            });
+            fbq('track', 'Purchases', {
+                currency: "PKR",
+                value: total
+            });
+
 
         }
 
