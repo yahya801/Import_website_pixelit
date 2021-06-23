@@ -1,15 +1,20 @@
 <?php
 // session_start();
 require "PHPMailer/PHPMailerAutoload.php";
+require 'vendor/autoload.php';
 // include 'db_connection.php';
 // $sessionID = $_SESSION['sessionID'];
+$dotenv = Dotenv\Dotenv::createMutable(__DIR__);
+$dotenv->load();
 
-function smtpmailer($data)
+// $email_ID = $_ENV['email_ID'];
+
+function smtpmailer($data, $email_ID)
 {
     $error = "";
     $name = $toemail = $phoneno = $address1 = $address2 = $city = $paymentmethod = "";
     $subj = 'Order From Bringitin.pk';
-    $from = 'sales@bringitin.pk';
+    $from = $email_ID;
     $txt = "";
     $txt2 = "";
     $txt3 = "";
@@ -40,6 +45,9 @@ function smtpmailer($data)
         $txt2 .= "<br>";
         $txt2 .=  "Color: ";
         $txt2 .=  $row['color'];
+        $txt2 .= "<br>";
+        $txt2 .=  "Special Requests: ";
+        $txt2 .=  $row['requests'];
         $txt2 .= "<br>";
         $txt2 .=  "Price in Pound : £ ";
         $txt2 .= $row['priceinpound'];
@@ -102,7 +110,7 @@ function smtpmailer($data)
     $mail->SMTPSecure = 'ssl';
     $mail->Host = 'bringitin.pk';
     $mail->Port = 465;
-    $mail->Username = 'sales@bringitin.pk';
+    $mail->Username = $email_ID;
     $mail->Password = '8xX^Y6V[_){E';
 
     //   $path = 'reseller.pdf';
@@ -116,7 +124,7 @@ function smtpmailer($data)
     $mail->Subject = $subj;
     $mail->Body = $txt4;
     $mail->AddAddress($toemail);
-    $mail->Addcc("sales@bringitin.pk");
+    $mail->Addcc($email_ID);
     // echo $toemail;
     $error = $mail->Send();
     // if($mail->Send())
@@ -144,7 +152,8 @@ function sendmail2($conn, $userID, $orderID)
     //     echo "<br>",$row['email'];
     // }
     // $row =mysqli_fetch_array($result);
-    $mailsend = smtpmailer($result);
+    $email_ID = $_ENV['email_ID'];
+    $mailsend = smtpmailer($result, $email_ID);
     // echo $mailsend,"<br>";
     echo json_encode([
         "error" => $mailsend

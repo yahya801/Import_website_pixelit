@@ -227,7 +227,7 @@ if (isset($_SESSION["sessionID"]) == "") {
                                         <img class="img-fluid" src="assets/images/hero/home-infotechno-main-slider-slide-01-image-01.png" alt="">
                                     </div>
                                     <div class="infotechno-inner-two  wow move-up">
-                                        <img class="img-fluid" src="assets/images/hero/home-infotechno-main-slider-slide-01-image-02.png" alt="">
+                                        <img class="img-fluid" src="assets/images/hero/banner.png" alt="">
                                     </div>
                                 </div>
                             </div>
